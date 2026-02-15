@@ -5,7 +5,7 @@ public class CameraController : MonoBehaviour
     public Camera mainCamera;
     public SpriteRenderer targetSprite;
 
-    void LateUpdate()
+    void Update()
     {
         Bounds spriteBounds = targetSprite.bounds;
 

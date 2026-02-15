@@ -1,0 +1,19 @@
+.button {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    -unity-text-align: middle-center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    background-image: url("project://database/Assets/buttons_PNG84-849734871.png?fileID=-5330285814592813906&guid=d931de366f37dd94096de9599960f693&type=3#buttons_PNG84-849734871_0");
+    font-size: 100px;
+    -unity-font-style: italic;
+    color: rgb(0, 0, 0);
+}
+
+.header {
+    -unity-text-align: upper-center;
+    align-items: auto;
+}

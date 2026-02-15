@@ -1,0 +1,46 @@
+.Panel {
+}
+
+.buildbuttons {
+    width: 128px;
+    min-height: 180px;
+    background-color: rgba(0, 0, 0, 0);
+    min-width: 121px;
+    max-height: 809px;
+    max-width: 228px;
+    position: absolute;
+    bottom: auto;
+}
+
+.button {
+    flex-grow: 2;
+    flex-direction: row;
+    flex-shrink: 1;
+    height: 128px;
+    border-top-left-radius: 128px;
+    border-top-right-radius: 128px;
+    border-bottom-right-radius: 128px;
+    border-bottom-left-radius: 128px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+}
+
+.button:hover {
+    -unity-slice-scale: 1px;
+    flex-grow: 1.2;
+    background-color: rgba(55, 55, 55, 0.64);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.63);
+}
+
+.date {
+    flex-direction: row;
+}
+
+.datevalues {
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-scale: 1px;
+}
