@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4be15550a30754f4c9947efad0aa5d5a
+guid: d931de366f37dd94096de9599960f693
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2793320762935802855
-    second: High-Resolution-World-Map_0
+      213: -5330285814592813906
+    second: buttons_PNG84-849734871_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: High-Resolution-World-Map_0
+      name: buttons_PNG84-849734871_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 4000
-        height: 2000
+        y: 128
+        width: 960
+        height: 226
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 2749, y: 0, z: 0, w: 0}
+      pivot: {x: 0.48691657, y: 0.5471243}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9140d75d0912c39d0800000000000000
-      internalID: -2793320762935802855
+      spriteID: ea444edea450706b0800000000000000
+      internalID: -5330285814592813906
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8832e8bd81bc02e45a17263e32b163fa
+    spriteID: 84fd0fc8fff7f174689f44f9b40d005c
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      High-Resolution-World-Map_0: -2793320762935802855
+      buttons_PNG84-849734871_0: -5330285814592813906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

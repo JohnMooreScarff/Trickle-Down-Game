@@ -1,0 +1,16 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/UI.uss?fileID=7433441132597879392&amp;guid=dd8dcffc9894b8447a2eb1d10f2f57ad&amp;type=3#UI" />
+    <ui:VisualElement name="panel" class="panel" style="flex-grow: 1; transform-origin: center;">
+        <ui:VisualElement name="buildbuttons" class="buildbuttons" style="flex-grow: 1; width: 1397px; min-height: auto; height: 128px; max-height: none; max-width: none; min-width: auto; align-self: center; justify-content: flex-start; align-items: center; top: 944px; left: 303px; right: 221px; bottom: 9px; flex-direction: row;">
+            <ui:Button text="Button" class="button" style="background-image: url(&quot;project://database/Assets/button-placeholder.png?fileID=-6007857137893288414&amp;guid=12552946354851a45b47d3d7945ea822&amp;type=3#Sprite-0001_0&quot;); width: auto; max-width: 128px;" />
+            <ui:Button text="Button" class="button" style="background-image: url(&quot;project://database/Assets/button-placeholder.png?fileID=-6007857137893288414&amp;guid=12552946354851a45b47d3d7945ea822&amp;type=3#Sprite-0001_0&quot;); width: auto; max-width: 128px;" />
+            <ui:Button text="Button" class="button" style="background-image: url(&quot;project://database/Assets/button-placeholder.png?fileID=-6007857137893288414&amp;guid=12552946354851a45b47d3d7945ea822&amp;type=3#Sprite-0001_0&quot;); width: auto; max-width: 128px;" />
+            <ui:Button text="Button" class="button" style="background-image: url(&quot;project://database/Assets/button-placeholder.png?fileID=-6007857137893288414&amp;guid=12552946354851a45b47d3d7945ea822&amp;type=3#Sprite-0001_0&quot;); width: auto; max-width: 128px;" />
+            <ui:Button text="Button" class="button" style="background-image: url(&quot;project://database/Assets/button-placeholder.png?fileID=-6007857137893288414&amp;guid=12552946354851a45b47d3d7945ea822&amp;type=3#Sprite-0001_0&quot;); width: auto; max-width: 128px;" />
+            <ui:Button text="Button" class="button" style="background-image: url(&quot;project://database/Assets/button-placeholder.png?fileID=-6007857137893288414&amp;guid=12552946354851a45b47d3d7945ea822&amp;type=3#Sprite-0001_0&quot;); width: auto; max-width: 128px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="date" style="flex-grow: 1; width: 403px; max-width: 687px; max-height: 46px; align-self: flex-end; height: -698px; min-height: -2076px; min-width: 152px; align-items: center; background-color: rgb(253, 219, 201); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-left-color: rgb(219, 86, 86); border-right-color: rgb(219, 86, 86); border-top-color: rgb(219, 86, 86); border-bottom-color: rgb(219, 86, 86); flex-direction: row;">
+            <ui:Label text="Label" class="datevalues" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
