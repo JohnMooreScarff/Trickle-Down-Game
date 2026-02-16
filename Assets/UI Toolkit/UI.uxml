@@ -10,7 +10,7 @@
             <ui:Button text="Button" class="button" style="background-image: url(&quot;project://database/Assets/button-placeholder.png?fileID=-6007857137893288414&amp;guid=12552946354851a45b47d3d7945ea822&amp;type=3#Sprite-0001_0&quot;); width: auto; max-width: 128px;" />
         </ui:VisualElement>
         <ui:VisualElement name="date" style="flex-grow: 1; width: 403px; max-width: 687px; max-height: 46px; align-self: flex-end; height: -698px; min-height: -2076px; min-width: 152px; align-items: center; background-color: rgb(253, 219, 201); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-left-color: rgb(219, 86, 86); border-right-color: rgb(219, 86, 86); border-top-color: rgb(219, 86, 86); border-bottom-color: rgb(219, 86, 86); flex-direction: row;">
-            <ui:Label text="Label" class="datevalues" />
+            <ui:Label name="timedate" data-source-type="System.Data.DataSetDateTime, System.Data" class="datevalues" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

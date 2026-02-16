@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using System.Collections;
 
 public class DateTime : MonoBehaviour
@@ -10,6 +11,8 @@ public class DateTime : MonoBehaviour
     public int Year;
     private int MonthDayAmmont;
     private float timer = 0f;
+    private UIDocument _document;
+    private TextField _lable;
 
     void Start()
     {
@@ -59,5 +62,9 @@ public class DateTime : MonoBehaviour
     public string GetDateString()
     {
         return $"Year {Year}, Month {Month}, Day {Day}";
+        _document = GetComponent<UIDocument>();
+        _lable = _document.rootVisualElement.Q<TextField>("timedate");
+        _label.text = ($"Year {Year}, Month {Month}, Day {Day}").ToString();
+        //https://www.youtube.com/watch?v=_FlgT0bB_pY
     }
 }
