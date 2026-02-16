@@ -11,8 +11,6 @@ public class DateTime : MonoBehaviour
     public int Year;
     private int MonthDayAmmont;
     private float timer = 0f;
-    private UIDocument _document;
-    private TextField _lable;
 
     void Start()
     {
@@ -49,7 +47,6 @@ public class DateTime : MonoBehaviour
             }
         }
        
-
     }
     void Dayloop()
     { 
@@ -57,14 +54,9 @@ public class DateTime : MonoBehaviour
         DateCount();
     }
 
-
-
     public string GetDateString()
     {
         return $"Year {Year}, Month {Month}, Day {Day}";
-        _document = GetComponent<UIDocument>();
-        _lable = _document.rootVisualElement.Q<TextField>("timedate");
-        _label.text = ($"Year {Year}, Month {Month}, Day {Day}").ToString();
         //https://www.youtube.com/watch?v=_FlgT0bB_pY
     }
 }

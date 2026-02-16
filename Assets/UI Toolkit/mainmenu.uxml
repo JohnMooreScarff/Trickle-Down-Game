@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI%20Toolkit/mainmenu.uss?fileID=7433441132597879392&amp;guid=92945a24e9b34e54c9c61657a6987c6c&amp;type=3#mainmenu" />
     <ui:VisualElement name="container" style="flex-grow: 1;">
         <ui:Label text="Trickle Down" name="Title" class="header" style="-unity-text-align: upper-center; justify-content: flex-start; align-self: center; align-content: center; align-items: center; font-size: 200px; -unity-font-style: bold; color: rgb(0, 207, 146); height: 414px; width: 1228px; -unity-font-definition: resource(&apos;FlatSkin/Font/Roboto-Italic&apos;);" />
-        <ui:Button text="Button" name="Start" double-click-selects-word="true" class="button" style="width: 893px; height: 164px; justify-content: center; align-self: center; align-items: center; -unity-text-align: middle-center; background-color: rgba(55, 55, 55, 0);" />
-        <ui:Button text="Button" name="Exit" double-click-selects-word="true" class="button" style="width: 893px; height: 164px; justify-content: center; align-self: center; align-items: center; -unity-text-align: middle-center; background-color: rgba(188, 188, 188, 0);" />
+        <ui:Button text="Button" name="Start" double-click-selects-word="true" class="button" style="width: 893px; height: 164px; justify-content: center; align-self: center; align-items: center; -unity-text-align: middle-center; background-color: rgba(55, 55, 55, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+        <ui:Button text="Button" name="Exit" double-click-selects-word="true" class="button" style="width: 893px; height: 164px; justify-content: center; align-self: center; align-items: center; -unity-text-align: middle-center; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
     </ui:VisualElement>
 </ui:UXML>
