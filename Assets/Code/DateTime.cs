@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using System.Collections;
+using TMPro;
 
 public class DateTime : MonoBehaviour
 {
@@ -11,7 +12,11 @@ public class DateTime : MonoBehaviour
     public int Year;
     private int MonthDayAmmont;
     private float timer = 0f;
+    public TMP_Text day;
+    public TMP_Text month;
+    public TMP_Text year;
 
+    
     void Start()
     {
         Day = 1;
@@ -31,6 +36,10 @@ public class DateTime : MonoBehaviour
             Dayloop();
             Debug.Log(GetDateString());
         }
+         day.text = $"Day {Day}".ToString();
+         month.text = $"Month {Month}".ToString();
+         year.text = $"Year {Year}".ToString();
+
     }
 
     void DateCount()
@@ -57,6 +66,6 @@ public class DateTime : MonoBehaviour
     public string GetDateString()
     {
         return $"Year {Year}, Month {Month}, Day {Day}";
-        //https://www.youtube.com/watch?v=_FlgT0bB_pY
+       
     }
 }
