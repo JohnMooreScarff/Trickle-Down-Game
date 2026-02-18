@@ -21,11 +21,11 @@ public class SceneLoader : MonoBehaviour
     }
 
     // ---------- SCENE LOADING ----------
-    public void LoadScene(string MainMenu)
+    public void LoadScene(string sceneName )
     {
         Time.timeScale = 1f;   // ensure unpaused when changing scenes
         isPaused = false;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void ReloadScene()
