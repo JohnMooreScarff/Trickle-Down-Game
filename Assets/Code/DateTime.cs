@@ -34,7 +34,7 @@ public class DateTime : MonoBehaviour
         {
             timer = 0f;
             Dayloop();
-            Debug.Log(GetDateString());
+            //Debug.Log(GetDateString());
         }
          day.text = $"Day {Day}".ToString();
          month.text = $"Month {Month}".ToString();

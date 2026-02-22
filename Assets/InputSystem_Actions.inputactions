@@ -1082,7 +1082,7 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "slot2",
@@ -1091,7 +1091,7 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1099,7 +1099,7 @@
                     "name": "",
                     "id": "94be7c40-fee0-4835-ad5b-db2a7e2caf8e",
                     "path": "<Keyboard>/1",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "slot1",
@@ -1110,7 +1110,7 @@
                     "name": "",
                     "id": "13e01bca-bc8f-4413-80f3-7eeab05484cb",
                     "path": "<Keyboard>/2",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "slot2",

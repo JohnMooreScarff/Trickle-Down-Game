@@ -8,10 +8,6 @@ public class Follow_place_buildings : MonoBehaviour
     private GameObject currentObject;
     private bool isPlacing = false;
 
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -26,7 +22,7 @@ public class Follow_place_buildings : MonoBehaviour
     }
     public void StartPlacing()
     {
-        
+        Debug.Log("StartPlacing");
         currentObject = Instantiate(objectPrefab);
         isPlacing = true;
         button.interactable = false;
@@ -34,7 +30,7 @@ public class Follow_place_buildings : MonoBehaviour
 
     public void PlaceObject()
     {
-        
+        Debug.Log("PlaceObject");
         isPlacing = false;
         currentObject = null;
         button.interactable = true;
