@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using System.Collections;
 
 public class MenuController : MonoBehaviour
@@ -17,12 +17,21 @@ public class MenuController : MonoBehaviour
 
     public void OpenOptionsMenu()
     {
-        StartCoroutine(TransitionMenus(mainMenu, optionsMenu));
+        if (optionsMenu.alpha == 0)
+        {
+            StartCoroutine(TransitionMenus(mainMenu, optionsMenu));
+        }
+       
+
     }
+  
 
     public void BackToMainMenu()
     {
-        StartCoroutine(TransitionMenus(optionsMenu, mainMenu));
+        if (mainMenu.alpha == 0)
+        {
+            StartCoroutine(TransitionMenus(optionsMenu, mainMenu));
+        }
     }
 
     // ---------- INITIAL STATE ----------
@@ -59,16 +68,20 @@ public class MenuController : MonoBehaviour
             // fade in next
             nextMenu.alpha = progress;
 
+            // enable the new menu
+            nextMenu.interactable = true;
+            nextMenu.blocksRaycasts = true;
+
+
+            // disable the old menu
+            currentMenu.interactable = false;
+            currentMenu.blocksRaycasts = false;
+            currentMenu.gameObject.SetActive(false);
+
             yield return null;
         }
 
-        // disable the old menu
-        currentMenu.interactable = false;
-        currentMenu.blocksRaycasts = false;
-        currentMenu.gameObject.SetActive(false);
 
-        // enable the new menu
-        nextMenu.interactable = true;
-        nextMenu.blocksRaycasts = true;
+        
     }
 }

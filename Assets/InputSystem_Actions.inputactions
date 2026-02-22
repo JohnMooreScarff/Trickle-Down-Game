@@ -63,7 +63,7 @@
                     "name": "Previous",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -90,6 +90,15 @@
                     "name": "Drag",
                     "type": "Button",
                     "id": "36a01d9f-5cb2-42d3-8cc1-fcb7ad930738",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Menu/Esc",
+                    "type": "Button",
+                    "id": "0b22c51e-60c7-494f-8a58-aa0cf2475c38",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -492,6 +501,17 @@
                     "action": "Drag",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d5fcd26-b64f-4b4f-a4f6-d1fabc7d6074",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu/Esc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -585,6 +605,15 @@
                     "type": "PassThrough",
                     "id": "9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "menu",
+                    "type": "Button",
+                    "id": "815f6e7d-5c0a-4904-b57f-e2181e044d57",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -1008,17 +1037,37 @@
                     "action": "TrackedDeviceOrientation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "920bf383-da2f-4b11-867a-0e40d0d0c0e6",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "Drag",
-            "id": "7584d4e3-0760-4b06-97c0-da91b69fe1c5",
+            "name": "hot bar",
+            "id": "b8a29d87-3e7a-4d54-8693-0be2d0db4ade",
             "actions": [
                 {
-                    "name": "Drag",
+                    "name": "slot1",
                     "type": "Button",
-                    "id": "25e8b67d-4dda-4b2c-beee-b9c751c681fe",
+                    "id": "84669430-37f7-43f4-80d9-25d172b8b17c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "slot2",
+                    "type": "Button",
+                    "id": "9ccada23-d13a-4d3d-a121-52b7289ce999",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1028,12 +1077,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "4834ee22-185f-4cac-afb6-9b52ddaf110b",
-                    "path": "<Mouse>/middleButton",
+                    "id": "94be7c40-fee0-4835-ad5b-db2a7e2caf8e",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Drag",
+                    "action": "slot1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "13e01bca-bc8f-4413-80f3-7eeab05484cb",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "slot2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
