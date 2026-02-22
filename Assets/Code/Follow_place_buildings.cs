@@ -1,31 +1,43 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Follow_place_buildings : MonoBehaviour
 {
-    bool BuildingSelected;
+    public Button button;
+    public GameObject objectPrefab;
+    private GameObject currentObject;
+    private bool isPlacing = false;
 
     void Start()
     {
-        BuildingSelected = true;
 
     }
 
     void Update()
     {
-        if (BuildingSelected == true)
+        if (isPlacing == true)
         {
             Vector3 mousePos = Input.mousePosition;
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             worldPos.z = 0;
-            transform.position = worldPos;
+            currentObject.transform.position = worldPos;
+
         }
     }
-    public void Placed()
+    public void StartPlacing()
     {
-        if (BuildingSelected == true)
-        {
-            BuildingSelected = false;
-            Debug.Log("Clicked");
-        }
+        
+        currentObject = Instantiate(objectPrefab);
+        isPlacing = true;
+        button.interactable = false;
     }
+
+    public void PlaceObject()
+    {
+        
+        isPlacing = false;
+        currentObject = null;
+        button.interactable = true;
+    }
+
 }

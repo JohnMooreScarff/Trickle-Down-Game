@@ -644,9 +644,25 @@ MonoBehaviour:
     m_ActionId: 84669430-37f7-43f4-80d9-25d172b8b17c
     m_ActionName: 'hot bar/slot1[/Keyboard/1]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1369436048}
+        m_TargetAssemblyTypeName: Follow_place_buildings, Assembly-CSharp
+        m_MethodName: StartPlacing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9ccada23-d13a-4d3d-a121-52b7289ce999
     m_ActionName: 'hot bar/slot2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4d0708ac-ce9e-4437-ab41-db8206484115
+    m_ActionName: 'Player/PlaceBuildings[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: hot bar
@@ -735,9 +751,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1369436046}
-        m_TargetAssemblyTypeName: SpawnOnClick, Assembly-CSharp
-        m_MethodName: SpawnObject
+      - m_Target: {fileID: 1369436048}
+        m_TargetAssemblyTypeName: Follow_place_buildings, Assembly-CSharp
+        m_MethodName: StartPlacing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1693,7 +1709,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1369436048}
         m_TargetAssemblyTypeName: Follow_place_buildings, Assembly-CSharp
-        m_MethodName: Placed
+        m_MethodName: PlaceObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2136,6 +2152,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9ccada23-d13a-4d3d-a121-52b7289ce999
     m_ActionName: 'hot bar/slot2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4d0708ac-ce9e-4437-ab41-db8206484115
+    m_ActionName: 'Player/PlaceBuildings[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: hot bar
@@ -2965,6 +2985,7 @@ GameObject:
   - component: {fileID: 1032861670}
   - component: {fileID: 1032861669}
   - component: {fileID: 1032861673}
+  - component: {fileID: 1032861674}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -3073,6 +3094,20 @@ MonoBehaviour:
   mainMenu: {fileID: 44798662}
   optionsMenu: {fileID: 581502912}
   transitionDuration: 0.25
+--- !u!114 &1032861674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032861668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6a136904fde0d4a8d3632008894f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  objectPrefab: {fileID: 0}
 --- !u!1 &1039240632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,9 +3632,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1369436045}
-  - component: {fileID: 1369436046}
-  - component: {fileID: 1369436047}
   - component: {fileID: 1369436048}
+  - component: {fileID: 1369436049}
   m_Layer: 0
   m_Name: BuildingCreator
   m_TagString: Untagged
@@ -3622,32 +3656,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1369436046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369436044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e1f3dfba75d7554e8a7f86f57dad02b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObject: {fileID: 5594748921629491420, guid: 0273b7470e45e404988b6d9b6aeca4a0, type: 3}
---- !u!114 &1369436047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369436044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e1f3dfba75d7554e8a7f86f57dad02b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObject: {fileID: 3044832097827667017, guid: 4ad4bcf51cbcc3546ae2963009935cd3, type: 3}
 --- !u!114 &1369436048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3660,6 +3668,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6a136904fde0d4a8d3632008894f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 76130205}
+  objectPrefab: {fileID: 5594748921629491420, guid: 0273b7470e45e404988b6d9b6aeca4a0, type: 3}
+--- !u!114 &1369436049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369436044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6a136904fde0d4a8d3632008894f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1906870298}
+  objectPrefab: {fileID: 3044832097827667017, guid: 4ad4bcf51cbcc3546ae2963009935cd3, type: 3}
 --- !u!1 &1447306980
 GameObject:
   m_ObjectHideFlags: 0
@@ -4432,9 +4456,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1369436047}
-        m_TargetAssemblyTypeName: SpawnOnClick, Assembly-CSharp
-        m_MethodName: SpawnObject
+      - m_Target: {fileID: 1369436049}
+        m_TargetAssemblyTypeName: Follow_place_buildings, Assembly-CSharp
+        m_MethodName: StartPlacing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
