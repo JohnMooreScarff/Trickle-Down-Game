@@ -2161,7 +2161,19 @@ MonoBehaviour:
     m_ActionId: 84669430-37f7-43f4-80d9-25d172b8b17c
     m_ActionName: 'hot bar/slot1[/Keyboard/1]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1369436049}
+        m_TargetAssemblyTypeName: Follow_place_buildings, Assembly-CSharp
+        m_MethodName: StartPlacing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9ccada23-d13a-4d3d-a121-52b7289ce999
     m_ActionName: 'hot bar/slot2[/Keyboard/2]'
   - m_PersistentCalls:
@@ -3180,6 +3192,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039240632}
   m_CullTransparentMesh: 1
+--- !u!1 &1206472596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1206472597}
+  m_Layer: 0
+  m_Name: ResouresContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1206472597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206472596}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.105389, y: 0.24821076, z: -0.77398443}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209782917
 GameObject:
   m_ObjectHideFlags: 0
@@ -4980,3 +5023,4 @@ SceneRoots:
   - {fileID: 1990532157}
   - {fileID: 742547340}
   - {fileID: 1369436045}
+  - {fileID: 1206472597}

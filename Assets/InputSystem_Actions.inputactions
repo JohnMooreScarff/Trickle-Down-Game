@@ -1101,7 +1101,7 @@
                     "path": "<Keyboard>/1",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "slot1",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1110,9 +1110,9 @@
                     "name": "",
                     "id": "13e01bca-bc8f-4413-80f3-7eeab05484cb",
                     "path": "<Keyboard>/2",
-                    "interactions": "Press",
+                    "interactions": "Press(behavior=1)",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "slot2",
                     "isComposite": false,
                     "isPartOfComposite": false

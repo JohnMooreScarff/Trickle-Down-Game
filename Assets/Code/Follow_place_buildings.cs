@@ -7,6 +7,10 @@ public class Follow_place_buildings : MonoBehaviour
     public GameObject objectPrefab;
     private GameObject currentObject;
     private bool isPlacing = false;
+    void Start()
+    {
+        isPlacing = false;
+    }
 
 
     void Update()
