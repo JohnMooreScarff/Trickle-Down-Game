@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 518365190828414606}
   - component: {fileID: 5557931524244962016}
-  - component: {fileID: -5657651941508614310}
+  - component: {fileID: 8146697506713461889}
   m_Layer: 0
   m_Name: wood_factory
   m_TagString: Untagged
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5657651941508614310
+--- !u!114 &8146697506713461889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,3 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e19b3af660c8c24bad9c4fd4f5301d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wood: 0
+  timer: 0
+  wood_amount: {fileID: 0}
