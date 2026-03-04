@@ -10,10 +10,11 @@ public class Debt : MonoBehaviour
         
     IEnumerator intrest()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(1);
         if (ResourceData.Money <= 0)
         {
-            ResourceData.Money * ResourceData.IntrestRate = ResourceData.Money;
+            ResourceData.Money *= ResourceData.IntrestRate;
+            Mathf.RoundToInt(ResourceData.Money);
         }
    
         StartCoroutine(intrest());

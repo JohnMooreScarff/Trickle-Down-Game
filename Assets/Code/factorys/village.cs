@@ -8,7 +8,7 @@ public class Village : MonoBehaviour
     private bool s_d = true;
     //cost
     public static int stone_cost = 4;
-    public static int money_cost = 50;
+    public static int money_cost = 0;
     // consume
     private int wood = 4;
     //produce
@@ -20,7 +20,8 @@ public class Village : MonoBehaviour
         if (s_d == true)
         {
             ResourceData.Wood_demand += wood;
-            ResourceData.Stone_amount -= stone_cost;
+            ResourceData.Stone_amount -= stone_cost ;
+            money_cost = ResourceData.Stone_value;
             ResourceData.Money -= money_cost;
             s_d = false;
         }
