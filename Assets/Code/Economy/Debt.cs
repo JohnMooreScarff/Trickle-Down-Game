@@ -10,7 +10,7 @@ public class Debt : MonoBehaviour
         
     IEnumerator intrest()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(30);
         if (ResourceData.Money <= 0)
         {
             ResourceData.Money *= ResourceData.IntrestRate;

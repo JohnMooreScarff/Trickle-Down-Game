@@ -8,26 +8,37 @@ public class Village : MonoBehaviour
     private bool s_d = true;
     //cost
     public static int stone_cost = 4;
-    public static float money_cost = 0;
+    public static float money_cost = 10000;
     // consume
     private int wood = 4;
     //produce
-    private int money = 10;
+    private int money = 100;
 
     void Start()
     {
         StartCoroutine(villageProduction());
-        if (s_d == true)
-        {
-            ResourceData.Wood_demand += wood;
-            ResourceData.Stone_amount -= stone_cost ;
-            money_cost = ResourceData.Stone_value;
-            ResourceData.Money -= money_cost;
-            s_d = false;
-        }
+        ResourceData.Wood_demand += wood;
+        ResourceData.Stone_amount -= stone_cost ;
+        ResourceData.Money -= money_cost;
+
 
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Building"))
+        {
+            Debug.Log("over village");
+            Follow_place_buildings.OverVillage = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Building"))
+        {
+            Debug.Log("not village");
+            Follow_place_buildings.OverVillage = false;
+        }
+    }
 
      IEnumerator villageProduction()
      {

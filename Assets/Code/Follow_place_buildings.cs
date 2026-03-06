@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Follow_place_buildings : MonoBehaviour
 {
@@ -11,46 +12,19 @@ public class Follow_place_buildings : MonoBehaviour
     private GameObject currentObject;
     
     private bool isPlacing = false;
-    private bool OverVillage = false;
-    void Start()
+    public static bool OverVillage = false;
+
+    void Update()
     {
-        OverVillage = false;
-        isPlacing = false;
-    }
-
-
-void Update()
-{
-    if (isPlacing && currentObject != null)
-    {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-        worldPos.z = 0f;
-        currentObject.transform.position = worldPos;
-
-        // Get all colliders overlapping the point
-        Collider2D[] hits = Physics2D.OverlapPointAll(worldPos);
-        foreach (Collider2D hit in hits)
+        if (isPlacing == true)
         {
-            // Ignore colliders on the current object
-            if (hit.gameObject == currentObject)
-                continue;
-
-            // Check for your target tag or other conditions
-            if (hit.CompareTag("Village"))
-            {
-                OverVillage = true;
-                Debug.Log("Over valid Village collider: " + hit.name);
-
-            }
-            else
-            {
-                OverVillage = false;
-  
-            }
+            Vector3 mousePos = Input.mousePosition;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+            worldPos.z = 0f;
+            currentObject.transform.position = worldPos;
         }
     }
-}
+
     public void StartPlacing()
     {
         if (isPlacing == false)
@@ -97,6 +71,7 @@ void Update()
         currentObject = null;
         isPlacing = false;
         button.interactable = true;
+        OverVillage = false;
         }
     }
 
