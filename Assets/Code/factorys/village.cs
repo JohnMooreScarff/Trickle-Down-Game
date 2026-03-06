@@ -8,7 +8,7 @@ public class Village : MonoBehaviour
     private bool s_d = true;
     //cost
     public static int stone_cost = 4;
-    public static int money_cost = 0;
+    public static float money_cost = 0;
     // consume
     private int wood = 4;
     //produce
