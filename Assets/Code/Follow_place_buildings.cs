@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 public class Follow_place_buildings : MonoBehaviour
 {
+    
 
     public Button button;
     public GameObject objectPrefab;
-    public string allowedTag = "Village";
     private GameObject currentObject;
-    
+
     private bool isPlacing = false;
     public static bool OverVillage = false;
 
@@ -39,8 +39,7 @@ public class Follow_place_buildings : MonoBehaviour
         }
         isPlacing = true;
         button.interactable = false;
-        }
-        
+        }   
     }
 
     public void PlaceObject()
@@ -59,6 +58,7 @@ public class Follow_place_buildings : MonoBehaviour
         button.interactable = true;
         OverVillage = false;
         
+        
         }
     }
 
@@ -74,5 +74,6 @@ public class Follow_place_buildings : MonoBehaviour
         OverVillage = false;
         }
     }
-
+    
 }
+

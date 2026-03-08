@@ -1,18 +1,23 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 
 public class Village : MonoBehaviour
 
 {
-    private bool s_d = true;
     //cost
+    
     public static int stone_cost = 4;
     public static float money_cost = 10000;
     // consume
     private int wood = 4;
     //produce
-    private int money = 100;
+    private int money = 100;  
+
+    //Leveling
+    private int Level = 1;
+    private int building_count = 0;
 
     void Start()
     {
@@ -23,36 +28,35 @@ public class Village : MonoBehaviour
 
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Building"))
-        {
-            Debug.Log("over village");
-            Follow_place_buildings.OverVillage = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Building"))
-        {
-            Debug.Log("not village");
-            Follow_place_buildings.OverVillage = false;
-        }
-    }
-
      IEnumerator villageProduction()
      {
         yield return new WaitForSeconds(3);
         if (ResourceData.Wood_amount >= wood)
         {
-            ResourceData.Money += money;
-            ResourceData.Wood_amount -= wood;
+            ResourceData.Money += money * Level;
+            ResourceData.Money -= wood * ResourceData.Wood_value;
+            ResourceData.Wood_amount -= wood * Level;
         }
-        
+                Debug.Log(Level);
+                Debug.Log(building_count);
+
+        //Level check 
+        // if (building_count >= 10 && building_count <= 20)
+        // {
+        //     Level = 2;
+        //     ResourceData.Wood_demand = wood wood * Level;
+        // }
         StartCoroutine(villageProduction());
-
      }
-
-
-    
+    //building ammount check
+    // void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     Debug.Log("+1");
+    //     building_count += 1;
+    // }
+    // private void OnTriggerExit2D(Collider2D collision)
+    // {
+    //     Debug.Log("-1");
+    //     building_count -= 1;    
+    // }
 }
