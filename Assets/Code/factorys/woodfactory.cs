@@ -5,8 +5,8 @@ using TMPro;
 public class woodfactory : MonoBehaviour
 {
     //cost
-    private int money_cost = 100;
-    private int wood = 10;
+    private int money_cost = 300;
+    private int wood = 8;
 
     void Start()
     {
@@ -27,11 +27,5 @@ public class woodfactory : MonoBehaviour
             Debug.Log("over village");
             Follow_place_buildings.OverVillage = true;
         }
-        else
-        {
-            Debug.Log("Not village");
-            Follow_place_buildings.OverVillage = true;
-        }
     }
-
 }

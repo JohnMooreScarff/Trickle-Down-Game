@@ -39,7 +39,8 @@ public class Follow_place_buildings : MonoBehaviour
         }
         isPlacing = true;
         button.interactable = false;
-        }   
+        OverVillage = false;
+        }
     }
 
     public void PlaceObject()

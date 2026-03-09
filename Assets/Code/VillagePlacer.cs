@@ -24,7 +24,7 @@ public class VillagePlacement : MonoBehaviour
 
     public void StartPlacingVillage()
     {
-        if (isPlacing == false)
+        if (isPlacing == false && ResourceData.Stone_amount >= Village.stone_cost && ResourceData.Wood_amount >= Village.Wood_cost)
         {
         villageToPlace = Instantiate(villagePrefab);
         isPlacing = true;

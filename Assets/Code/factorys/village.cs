@@ -8,12 +8,14 @@ public class Village : MonoBehaviour
 {
     //cost
     
-    public static int stone_cost = 4;
-    public static float money_cost = 10000;
+    public static int stone_cost = 20;
+    public static int Wood_cost = 35;
+    //public static float money_cost = 10000;
     // consume
     private int wood = 4;
+    private int stone = 2;
     //produce
-    private int money = 100;  
+    private int money = 10;  
 
     //Leveling
     private int Level = 1;
@@ -22,9 +24,14 @@ public class Village : MonoBehaviour
     void Start()
     {
         StartCoroutine(villageProduction());
+        if(ResourceData.Stone_amount >= stone_cost)
+        {
         ResourceData.Wood_demand += wood;
-        ResourceData.Stone_amount -= stone_cost ;
-        ResourceData.Money -= money_cost;
+        ResourceData.Stone_demand += stone;
+        ResourceData.Stone_amount -= stone_cost;
+        ResourceData.Wood_amount -= Wood_cost;
+        ResourceData.Money -= ResourceData.Stone_value * stone_cost;
+        }
 
 
     }
@@ -33,7 +40,7 @@ public class Village : MonoBehaviour
         yield return new WaitForSeconds(3);
         if (ResourceData.Wood_amount >= wood)
         {
-            ResourceData.Money += money * Level;
+            ResourceData.Money += money * Level * ResourceData.Wood_value;
             ResourceData.Money -= wood * ResourceData.Wood_value;
             ResourceData.Wood_amount -= wood * Level;
         }
