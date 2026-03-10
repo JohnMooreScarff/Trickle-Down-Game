@@ -4,7 +4,9 @@ using System.Collections;
 public class MenuController : MonoBehaviour
 {
     public CanvasGroup mainMenu;
-    public CanvasGroup optionsMenu;
+    public CanvasGroup ResourceMenu;
+    public CanvasGroup ManufacturingMenu;
+    public CanvasGroup EnergyMenu;
 
     public float transitionDuration = 0.25f;
 
@@ -15,15 +17,32 @@ public class MenuController : MonoBehaviour
 
     // ---------- BUTTON EVENTS ----------
 
-    public void OpenOptionsMenu()
+    public void OpenResourceMenu()
     {
-        StartCoroutine(TransitionMenus(mainMenu, optionsMenu));
+        StartCoroutine(TransitionMenus(mainMenu, ResourceMenu));
+    }
+        public void OpenManufacturingMenu()
+    {
+        StartCoroutine(TransitionMenus(mainMenu, ManufacturingMenu));
+    }
+        public void OpenEnergyMenu()
+    {
+        StartCoroutine(TransitionMenus(mainMenu, EnergyMenu));
     }
 
-    public void BackToMainMenu()
+    public void BackToMainMenuFromResourceMenu()
     {
-        StartCoroutine(TransitionMenus(optionsMenu, mainMenu));
+        StartCoroutine(TransitionMenus(ResourceMenu, mainMenu));
     }
+        public void BackToMainMenuManufacturingMenu()
+    {
+        StartCoroutine(TransitionMenus(ManufacturingMenu, mainMenu));
+    }
+        public void BackToMainMenuFromEnergyMenu()
+    {
+        StartCoroutine(TransitionMenus(EnergyMenu, mainMenu));
+    }
+
 
     // ---------- INITIAL STATE ----------
 
@@ -33,10 +52,20 @@ public class MenuController : MonoBehaviour
         mainMenu.interactable = true;
         mainMenu.blocksRaycasts = true;
 
-        optionsMenu.alpha = 0;
-        optionsMenu.interactable = false;
-        optionsMenu.blocksRaycasts = false;
-        optionsMenu.gameObject.SetActive(false);
+        ResourceMenu.alpha = 0;
+        ResourceMenu.interactable = false;
+        ResourceMenu.blocksRaycasts = false;
+        ResourceMenu.gameObject.SetActive(false);
+
+        ManufacturingMenu.alpha = 0;
+        ManufacturingMenu.interactable = false;
+        ManufacturingMenu.blocksRaycasts = false;
+        ManufacturingMenu.gameObject.SetActive(false);
+
+        EnergyMenu.alpha = 0;
+        EnergyMenu.interactable = false;
+        EnergyMenu.blocksRaycasts = false;
+        EnergyMenu.gameObject.SetActive(false);
     }
 
     // ---------- TRANSITION SYSTEM ----------

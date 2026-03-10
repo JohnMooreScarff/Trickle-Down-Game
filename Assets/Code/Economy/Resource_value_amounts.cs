@@ -6,13 +6,13 @@ public class ResourceData : MonoBehaviour
     // effects
     public static float IntrestRate = 1.05F;
     public static float QOL = 50;
-    public static int  Pollution = 0;
+    public static float Pollution = 0f;
 
     //power
     public static float Power_supply = 1f;
     public static float Power_demand = 1f;
     public static float Power_SD_Diff_ = 1f;
-    public static float Power_multiplier = 1f;
+    public static float Power_multiplier = 0.4f;
     public static float power_percentage_display = 40f;
 
     //money
@@ -63,6 +63,10 @@ public class ResourceData : MonoBehaviour
     public TMP_Text Money_text;
     //power
     public TMP_Text Power_Percentage_text;
+    //Pollution
+    public TMP_Text Pollution_Percentage_text;
+    //QOL
+    public TMP_Text QOL_Percentage_text;
     //wood
     public TMP_Text Wood_amount_text;
     public TMP_Text Wood_value_currant_text;
@@ -219,24 +223,24 @@ public class ResourceData : MonoBehaviour
         }   
         else 
         {
-        // Power_SD_Diff_ = (float)Power_demand / Power_supply;
-        
-        // if (Power_SD_Diff_ <= 40)
-        //     {
-        //         Power_SD_Diff_ = 40f;
+        power_percentage_display = 40f;
+        Power_SD_Diff_ = (float)Power_demand / Power_supply;
+        if (Power_SD_Diff_ <= 0.4)
+            {
+                power_percentage_display = 40f;
                 
-        //     }
-        //     else if (Power_SD_Diff_ >= 100)
-        //     {
-        //         Power_SD_Diff_ = 100f;
-        //     }
-        // }
-        // if (Power_SD_Diff_ >= power_percentage_display)
-        // {
-        // power_percentage_display += (float)(2 * Time.deltaTime);
-        // }
-        // else
-        // power_percentage_display -= (float)(2 * Time.deltaTime);
+            }
+            else if (Power_SD_Diff_ >= 1)
+            {
+                power_percentage_display = 100;
+            }
+        }
+        if (Power_SD_Diff_ >= power_percentage_display/100)
+        {
+            power_percentage_display += (float)(2 * Time.deltaTime);
+        }
+        else
+            power_percentage_display -= (float)(2 * Time.deltaTime);
         
     }
 
@@ -245,9 +249,13 @@ public class ResourceData : MonoBehaviour
         //money
         Money_text.text =Mathf.RoundToInt(Money).ToString();
         //power
-        if(Wood_value_currant >= 100)
+        if(Power_SD_Diff_ >= 100)
         {
         Power_Percentage_text.text = power_percentage_display.ToString("0");
+        }
+        else if( Power_SD_Diff_ <= 40)
+        {
+            Power_Percentage_text.text = power_percentage_display.ToString("0");
         }
         else
         {

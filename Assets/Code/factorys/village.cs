@@ -9,7 +9,7 @@ public class Village : MonoBehaviour
     //cost
     
     public static int stone_cost = 20;
-    public static int Wood_cost = 35;
+    public static int wood_cost = 35;
     //public static float money_cost = 10000;
     // consume
     private int wood = 4;
@@ -29,7 +29,7 @@ public class Village : MonoBehaviour
         ResourceData.Wood_demand += wood;
         ResourceData.Stone_demand += stone;
         ResourceData.Stone_amount -= stone_cost;
-        ResourceData.Wood_amount -= Wood_cost;
+        ResourceData.Wood_amount -= wood_cost;
         ResourceData.Money -= ResourceData.Stone_value * stone_cost;
         }
 
