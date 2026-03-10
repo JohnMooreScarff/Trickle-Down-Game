@@ -113,9 +113,13 @@ public class ResourceData : MonoBehaviour
         if (Wood_value >= Wood_value_currant)
         {
         Wood_value_currant += (float)(0.3 * Time.deltaTime);
+        TextMeshProUGUI text = Wood_value_currant_text.GetComponent<TextMeshProUGUI>();  
+        text.color = Color.red;
         }
         else
         Wood_value_currant -= (float)(0.3 * Time.deltaTime);
+        TextMeshProUGUI TMP1 = Wood_value_currant_text.GetComponent<TextMeshProUGUI>();  
+        TMP1.color = Color.green;
 
     }
         void SupplyDemandStone()

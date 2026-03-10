@@ -15,7 +15,7 @@ public class Village : MonoBehaviour
     private int wood = 4;
     private int stone = 2;
     //produce
-    private int money = 10;  
+    private int money = 30;  
 
     //Leveling
     private int Level = 1;
@@ -31,6 +31,7 @@ public class Village : MonoBehaviour
         ResourceData.Stone_amount -= stone_cost;
         ResourceData.Wood_amount -= wood_cost;
         ResourceData.Money -= ResourceData.Stone_value * stone_cost;
+        ResourceData.Money -= ResourceData.Wood_value * wood_cost;
         }
 
 
