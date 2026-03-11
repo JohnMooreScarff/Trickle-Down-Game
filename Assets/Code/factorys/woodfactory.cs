@@ -19,6 +19,7 @@ public class woodfactory : MonoBehaviour
         yield return new WaitForSeconds(4);
         ResourceData.Wood_amount += wood;
         StartCoroutine(WoodProduction());
+        ResourceData.Money += wood * ResourceData.Wood_value;
      }
     public void OnTriggerStay2D(Collider2D collision)
     {

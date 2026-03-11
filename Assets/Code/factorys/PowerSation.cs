@@ -12,7 +12,9 @@ public class PowerStation : MonoBehaviour
     private int wood = 10;
     private int Coal = 5;
     //produce
-    private int power = 50;
+    private int wood_power = 25;
+    private int coal_power = 50;
+
     //consuming
     private bool using_wood = false;
     private bool using_Coal = false;
@@ -22,7 +24,7 @@ public class PowerStation : MonoBehaviour
         StartCoroutine(PowerStationConsumption());
         if(ResourceData.Stone_amount >= stone_cost)
         {
-            ResourceData.Power_supply += power;
+            // ResourceData.Power_supply += power;
             ResourceData.Money -= money_cost + wood_cost * ResourceData.Wood_value_currant + stone_cost * ResourceData.Stone_value_currant;
             ResourceData.Wood_amount -= wood_cost;
             ResourceData.Stone_amount -= stone_cost;
@@ -33,6 +35,7 @@ public class PowerStation : MonoBehaviour
         if(!using_Coal)
         {
             using_wood = true;
+        
 
         }
         else
@@ -48,6 +51,8 @@ public class PowerStation : MonoBehaviour
         if (ResourceData.Coal_amount >= Coal)
      {
         ResourceData.Coal_amount -= Coal;
+        // ResourceData.Power_supply += 
+
         using_Coal = true;
         using_wood = false;
      }
