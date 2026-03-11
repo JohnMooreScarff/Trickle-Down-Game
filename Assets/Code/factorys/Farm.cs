@@ -2,27 +2,30 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 
-public class woodfactory : MonoBehaviour
+public class Farm : MonoBehaviour
 {
     //cost
-    private int money_cost = 300;
-    private int wood = 8;
+    private int money_cost = 1000;
+    private int stone_cost = 40;
+    private int wood_cost = 60;
+    //production
+    private int food = 5;
     //consume
     private int power = 10;
+    
 
     void Start()
     {
-        ResourceData.Power_demand += power;
-        ResourceData.Wood_supply += wood;
+        ResourceData.Food_supply += food;
         StartCoroutine(WoodProduction());
         ResourceData.Money -= money_cost;
     }
      IEnumerator WoodProduction()
      {
         yield return new WaitForSeconds(4);
-        ResourceData.Wood_amount += wood;
+        ResourceData.Food_amount += food;
         StartCoroutine(WoodProduction());
-        ResourceData.Money += wood * ResourceData.Wood_value * 2;
+        ResourceData.Money += food * ResourceData.Food_value * 2;
      }
     public void OnTriggerStay2D(Collider2D collision)
     {

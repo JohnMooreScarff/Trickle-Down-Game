@@ -232,7 +232,7 @@ public class ResourceData : MonoBehaviour
         }   
         else 
         {
-        power_percentage_display = 40f;
+        // power_percentage_display = 40f;
         Power_SD_Diff_ = (float)Power_demand / Power_supply;
         if (Power_SD_Diff_ <= 0.4)
             {
@@ -249,8 +249,10 @@ public class ResourceData : MonoBehaviour
             power_percentage_display += (float)(2 * Time.deltaTime);
         }
         else
+        {
             power_percentage_display -= (float)(2 * Time.deltaTime);
-        
+        }
+        Power_multiplier = power_percentage_display/100;
     }
 
     void text()

@@ -27,7 +27,7 @@ public class Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        if (isPlacing == false)
+        if (isPlacing == false )
         {
         Debug.Log("StartPlacing");
         currentObject = Instantiate(objectPrefab);

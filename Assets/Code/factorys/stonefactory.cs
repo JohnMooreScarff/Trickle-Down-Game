@@ -11,17 +11,27 @@ public class stonefactory : MonoBehaviour
 
     //produce
     private int stone = 5;
+    //consume
+    private int wood = 2;
+    private int power = 10;
 
     void Start()
     {
+        ResourceData.Power_demand += power;
+        ResourceData.Wood_demand += wood;
         ResourceData.Stone_supply += stone;
+        ResourceData.Wood_amount -= wood_cost;
+        ResourceData.Money -=  wood_cost * ResourceData.Wood_value;
         StartCoroutine(StoneProduction());
-        ResourceData.Money -= money_cost + wood_cost * ResourceData.Wood_value;
     }
      IEnumerator StoneProduction()
      {
         yield return new WaitForSeconds(4);
         ResourceData.Stone_amount += stone;
+        ResourceData.Money += stone * ResourceData.Stone_value * 2;
+        ResourceData.Wood_amount -= wood;
+        
+
         StartCoroutine(StoneProduction());
      }  
     public void OnTriggerStay2D(Collider2D collision)

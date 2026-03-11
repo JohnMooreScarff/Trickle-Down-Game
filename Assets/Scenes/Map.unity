@@ -6419,8 +6419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Money_text: {fileID: 437412304}
   Power_Percentage_text: {fileID: 1874394201}
-  Pollution_Percentage_text: {fileID: 0}
-  QOL_Percentage_text: {fileID: 0}
+  Pollution_Percentage_text: {fileID: 2001558705}
+  QOL_Percentage_text: {fileID: 1399773172}
   Wood_amount_text: {fileID: 167469257}
   Wood_value_currant_text: {fileID: 1436669994}
   Stone_amount_text: {fileID: 2092768000}
