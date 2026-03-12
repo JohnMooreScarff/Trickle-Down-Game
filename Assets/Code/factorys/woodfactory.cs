@@ -19,7 +19,7 @@ public class woodfactory : MonoBehaviour
     }
      IEnumerator WoodProduction()
      {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
         ResourceData.Wood_amount += wood;
         StartCoroutine(WoodProduction());
         ResourceData.Money += wood * ResourceData.Wood_value * 2;

@@ -6,8 +6,8 @@ public class Farm : MonoBehaviour
 {
     //cost
     private int money_cost = 1000;
-    private int stone_cost = 40;
-    private int wood_cost = 60;
+    public static int stone_cost = 40;
+    public static int wood_cost = 60;
     //production
     private int food = 5;
     //consume
@@ -16,13 +16,16 @@ public class Farm : MonoBehaviour
 
     void Start()
     {
+        ResourceData.Power_demand += power;
+        ResourceData.Stone_amount -= stone_cost;
+        ResourceData.Wood_amount -= wood_cost;
         ResourceData.Food_supply += food;
         StartCoroutine(WoodProduction());
         ResourceData.Money -= money_cost;
     }
      IEnumerator WoodProduction()
      {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
         ResourceData.Food_amount += food;
         StartCoroutine(WoodProduction());
         ResourceData.Money += food * ResourceData.Food_value * 2;

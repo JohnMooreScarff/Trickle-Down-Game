@@ -27,7 +27,8 @@ public class Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        if (isPlacing == false )
+        //                            stone factory cost                                                                         farm cost                                                                                       powerstation cost
+        if (isPlacing == false && (ResourceData.Wood_amount >= stonefactory.wood_cost || (ResourceData.Wood_amount >= Farm.wood_cost && ResourceData.Stone_amount >= Farm.stone_cost) || (ResourceData.Wood_amount >= PowerStation.wood_cost && ResourceData.Stone_amount >= PowerStation.stone_cost)))
         {
         Debug.Log("StartPlacing");
         currentObject = Instantiate(objectPrefab);
@@ -39,8 +40,7 @@ public class Follow_place_buildings : MonoBehaviour
         }
         isPlacing = true;
         button.interactable = false;
-        OverVillage = false;
-        }
+        }   
     }
 
     public void PlaceObject()
@@ -57,7 +57,7 @@ public class Follow_place_buildings : MonoBehaviour
         isPlacing = false;
         currentObject = null;
         button.interactable = true;
-        OverVillage = false;
+        //OverVillage = false;
         
         
         }
@@ -72,7 +72,7 @@ public class Follow_place_buildings : MonoBehaviour
         currentObject = null;
         isPlacing = false;
         button.interactable = true;
-        OverVillage = false;
+        //OverVillage = false;
         }
     }
     

@@ -6,70 +6,87 @@ public class PowerStation : MonoBehaviour
 {
     //cost
     private int money_cost = 1000;
-    private int wood_cost = 30;
-    private int stone_cost = 40;
+    public static int wood_cost = 30;
+    public static int stone_cost = 40;
     //consume 
     private int wood = 10;
     private int Coal = 5;
     //produce
-    private int wood_power = 25;
-    private int coal_power = 50;
+    private int wood_power = 40;
+    private int coal_power = 100;
 
     //consuming
-    private bool using_wood = false;
-    private bool using_Coal = false;
+    private enum ConsumptionType { None, Wood, Coal }
+    private ConsumptionType currentConsumption = ConsumptionType.None;
+    private ConsumptionType lastConsumption = ConsumptionType.None;
+
 
     void Start()
     {
         StartCoroutine(PowerStationConsumption());
-        if(ResourceData.Stone_amount >= stone_cost)
+        if(ResourceData.Stone_amount >= stone_cost && ResourceData.Wood_amount >= wood_cost)
         {
-            // ResourceData.Power_supply += power;
             ResourceData.Money -= money_cost + wood_cost * ResourceData.Wood_value_currant + stone_cost * ResourceData.Stone_value_currant;
             ResourceData.Wood_amount -= wood_cost;
             ResourceData.Stone_amount -= stone_cost;
         }
     }
-    void Update()
+IEnumerator PowerStationConsumption()
+{
+    while (true)
     {
-        if(!using_Coal)
-        {
-            using_wood = true;
-        
-
-        }
-        else
-        if(!using_wood)
-        {
-            using_Coal = true;
-
-        }
-    }
-     IEnumerator PowerStationConsumption()
-     {
         yield return new WaitForSeconds(4);
         if (ResourceData.Coal_amount >= Coal)
-     {
-        ResourceData.Coal_amount -= Coal;
-        // ResourceData.Power_supply += 
+        {
+            ResourceData.Coal_amount -= Coal;
+            currentConsumption = ConsumptionType.Coal;
 
-        using_Coal = true;
-        using_wood = false;
-     }
-     else if (ResourceData.Wood_amount >= wood)
-     {
-        ResourceData.Wood_amount -= wood;
-        using_wood = true;
-        using_Coal = false;
+            if (currentConsumption != lastConsumption)
+            {
+                if (lastConsumption == ConsumptionType.Wood)
+                {
+                    ResourceData.Wood_demand -= wood;
+                    ResourceData.Power_supply -= wood_power;
+                }
+                ResourceData.Power_supply += coal_power;
+                ResourceData.Coal_demand += Coal;
+                lastConsumption = currentConsumption;
+            }
+        }
+        else if (ResourceData.Wood_amount >= wood)
+        {
+            ResourceData.Wood_amount -= wood;
+            currentConsumption = ConsumptionType.Wood;
+            if (currentConsumption != lastConsumption)
+            {
+                if (lastConsumption == ConsumptionType.Coal)
+                {
+                    ResourceData.Power_supply -= coal_power;
+                    ResourceData.Coal_demand -= Coal;
+                }
+                ResourceData.Power_supply += wood_power; 
+                ResourceData.Wood_demand += wood;
+                lastConsumption = currentConsumption;
+            }
+        }
+        else
+        {
+            currentConsumption = ConsumptionType.None;
+            if (lastConsumption == ConsumptionType.Wood)
+            {
+                ResourceData.Power_supply -= wood_power;
+                ResourceData.Wood_demand -= wood;
+            }
+            else if (lastConsumption == ConsumptionType.Coal)
+            {
+                ResourceData.Power_supply -= coal_power;
+                ResourceData.Coal_demand -= Coal;
+            }
+            lastConsumption = currentConsumption;
+        }
+    }
+}
 
-        // ResourceData.Wood_demand += wood;
-        // if (ResourceData.Coal_demand > 0)
-        // {
-        // ResourceData.Coal_demand -= Coal;
-        // }
-     }
-     StartCoroutine(PowerStationConsumption());
-     }
 
     public void OnTriggerStay2D(Collider2D collision)
     {

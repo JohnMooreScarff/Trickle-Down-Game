@@ -7,7 +7,7 @@ public class stonefactory : MonoBehaviour
     
     //cost
     private int money_cost = 500;
-    private int wood_cost = 20;
+    public static int wood_cost = 20;
 
     //produce
     private int stone = 5;
@@ -26,10 +26,13 @@ public class stonefactory : MonoBehaviour
     }
      IEnumerator StoneProduction()
      {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        if(ResourceData.Wood_amount >= wood)
+        {
         ResourceData.Stone_amount += stone;
         ResourceData.Money += stone * ResourceData.Stone_value * 2;
         ResourceData.Wood_amount -= wood;
+        }
         
 
         StartCoroutine(StoneProduction());

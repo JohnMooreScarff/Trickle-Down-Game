@@ -10,14 +10,14 @@ public class Village : MonoBehaviour
     
     public static int stone_cost = 70;
     public static int wood_cost = 100;
-    //public static float money_cost = 10000;
+    public static float money_cost = 10000;
     // consume
     private int wood = 4;
     private int stone = 2;
     private int food = 10; 
     private int power = 25;
     //produce
-    private int money = 50;  
+    private int money = 10;  
 
     //Leveling
     private int Level = 1;
@@ -26,11 +26,12 @@ public class Village : MonoBehaviour
     void Start()
     {
         StartCoroutine(villageProduction());
-        if(ResourceData.Stone_amount >= stone_cost)
+        if(ResourceData.Stone_amount >= stone_cost && ResourceData.Wood_amount >= wood_cost)
         {
         ResourceData.Power_demand += power;
         ResourceData.Wood_demand += wood;
         ResourceData.Stone_demand += stone;
+        ResourceData.Food_demand += food;
         ResourceData.Stone_amount -= stone_cost;
         ResourceData.Wood_amount -= wood_cost;
         ResourceData.Money -= ResourceData.Stone_value * stone_cost;
@@ -43,17 +44,25 @@ public class Village : MonoBehaviour
      IEnumerator villageProduction()
      {
         yield return new WaitForSeconds(3);
+        if (ResourceData.Wood_amount >= wood && ResourceData.Stone_amount >= stone && ResourceData.Food_amount >= food)
+        {
+            ResourceData.Money += money * Level;    
+        }
         if (ResourceData.Wood_amount >= wood)
         {
-            ResourceData.Money += money * Level;
             ResourceData.Money -= wood * Level * ResourceData.Wood_value;
-            ResourceData.Money -= stone * Level * ResourceData.Stone_value;
-            ResourceData.Money -= food * Level * ResourceData.Food_value;
             ResourceData.Wood_amount -= wood * Level;
+        }
+        if (ResourceData.Stone_amount >= stone)
+        {
+            ResourceData.Money -= stone * Level * ResourceData.Stone_value;
             ResourceData.Stone_amount -= stone * Level;
         }
-                // Debug.Log(Level);
-                // Debug.Log(building_count);
+        if(ResourceData.Food_amount >= food)
+        {
+            ResourceData.Money -= food * Level * ResourceData.Food_value;
+            ResourceData.Food_amount -= food * Level;
+        }
 
         //Level check 
         // if (building_count >= 10 && building_count <= 20)

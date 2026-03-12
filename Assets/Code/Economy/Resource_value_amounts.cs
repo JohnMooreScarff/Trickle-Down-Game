@@ -10,11 +10,11 @@ public class ResourceData : MonoBehaviour
     public static float Pollution = 0f;
 
     //power
-    public static float Power_supply = 1f;
-    public static float Power_demand = 1f;
-    public static float Power_SD_Diff_ = 1f;
+    public static int Power_supply = 1;
+    public static int Power_demand = 0;
+    public static float Power_SD_Diff_ = 0f;
     public static float Power_multiplier = 0.4f;
-    public static float power_percentage_display = 40f;
+    public static float power_percentage_display = 0f;
 
     //money
     public static float Money = 100;
@@ -223,48 +223,43 @@ public class ResourceData : MonoBehaviour
         else
         Iron_value_currant -= (float)(0.3 * Time.deltaTime);
     }
-        void SupplyDemandPower()
+void SupplyDemandPower()
+{
+    if (Power_supply == 0 || Power_demand == 0) {
+    } else if (Iron_supply == 0) {
+    Iron_SD_Diff_ = 1;
+    } 
+    else 
     {
-        Power_SD_Diff_ = 1;
-        if (Power_supply == 0 && Power_demand == 0) {
-        } else if (Power_supply == 0) {
-        Power_SD_Diff_ = 1;
-        }   
-        else 
-        {
-        // power_percentage_display = 40f;
-        Power_SD_Diff_ = (float)Power_demand / Power_supply;
-        if (Power_SD_Diff_ <= 0.4)
-            {
-                power_percentage_display = 40f;
-                
-            }
-            else if (Power_SD_Diff_ >= 1)
-            {
-                power_percentage_display = 100;
-            }
-        }
-        if (Power_SD_Diff_ >= power_percentage_display/100)
-        {
-            power_percentage_display += (float)(2 * Time.deltaTime);
-        }
-        else
-        {
-            power_percentage_display -= (float)(2 * Time.deltaTime);
-        }
-        Power_multiplier = power_percentage_display/100;
+    Power_SD_Diff_ = (float)Power_supply / Power_demand;
+
+    float targetPercentage = Power_SD_Diff_ * 100f;
+    if (power_percentage_display <= targetPercentage)
+    {
+        power_percentage_display += 5f * Time.deltaTime;
     }
+    else if (power_percentage_display >= targetPercentage)
+    {
+        power_percentage_display -= 5f * Time.deltaTime;
+    }
+    power_percentage_display = Mathf.Clamp(power_percentage_display, 0f, 100f);
+    Power_multiplier = Mathf.Clamp(power_percentage_display / 100f, 0.4f, 1f);
+
+
+    Debug.Log($"Power_SD_Diff_: {Power_SD_Diff_}, targetPercentage: {targetPercentage}, power_percentage_display: {power_percentage_display}, Power_multiplier: {Power_multiplier}");
+    }
+}
 
     void text()
     {
         //money
         Money_text.text =Mathf.RoundToInt(Money).ToString();
         //power
-        if(Power_SD_Diff_ >= 100)
+        if(power_percentage_display >= 99)
         {
         Power_Percentage_text.text = power_percentage_display.ToString("0");
         }
-        else if( Power_SD_Diff_ <= 40)
+        else if( power_percentage_display <= 41)
         {
             Power_Percentage_text.text = power_percentage_display.ToString("0");
         }
