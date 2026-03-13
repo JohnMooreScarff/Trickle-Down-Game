@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Follow_place_buildings : MonoBehaviour
+public class Farm_Follow_place_buildings : MonoBehaviour
 {
     
 
@@ -27,8 +27,7 @@ public class Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        //                            stone factory cost                                                                         farm cost                                                                                       powerstation cost
-        if (isPlacing == false && (ResourceData.Wood_amount >= stonefactory.wood_cost || (ResourceData.Wood_amount >= Farm.wood_cost && ResourceData.Stone_amount >= Farm.stone_cost) || (ResourceData.Wood_amount >= PowerStation.wood_cost && ResourceData.Stone_amount >= PowerStation.stone_cost)))
+        if (isPlacing == false && ResourceData.Wood_amount >= Farm.wood_cost && ResourceData.Stone_amount >= Farm.stone_cost)
         {
         Debug.Log("StartPlacing");
         currentObject = Instantiate(objectPrefab);

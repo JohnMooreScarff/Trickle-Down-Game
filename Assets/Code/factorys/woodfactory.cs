@@ -5,8 +5,10 @@ using TMPro;
 public class woodfactory : MonoBehaviour
 {
     //cost
-    private int money_cost = 300;
+    private int money_cost = 600;
+    //produce
     private int wood = 8;
+    private float Pollution = 0.01f;
     //consume
     private int power = 10;
 
@@ -14,22 +16,27 @@ public class woodfactory : MonoBehaviour
     {
         ResourceData.Power_demand += power;
         ResourceData.Wood_supply += wood;
-        StartCoroutine(WoodProduction());
         ResourceData.Money -= money_cost;
+        StartCoroutine(WoodProduction());
     }
      IEnumerator WoodProduction()
      {
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
         ResourceData.Wood_amount += wood;
+        ResourceData.Money += wood * ResourceData.Wood_value;
+        ResourceData.Pollution += Pollution;
         StartCoroutine(WoodProduction());
-        ResourceData.Money += wood * ResourceData.Wood_value * 2;
      }
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))
         {
             Debug.Log("over village");
-            Follow_place_buildings.OverVillage = true;
+            Wood_Follow_place_buildings.OverVillage = true;
+        }
+        else
+        {
+            Wood_Follow_place_buildings.OverVillage = false;
         }
     }
 }

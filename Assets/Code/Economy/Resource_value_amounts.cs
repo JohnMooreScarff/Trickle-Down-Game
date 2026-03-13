@@ -37,7 +37,7 @@ public class ResourceData : MonoBehaviour
     public static float Stone_value_currant = 8f;
 
     //food
-    public static float Food_amount = 10;
+    public static float Food_amount = 0;
     public static float Food_value = 5;
     public static int Food_supply = 1;
     public static int Food_demand = 1;
@@ -45,7 +45,7 @@ public class ResourceData : MonoBehaviour
     public static float Food_value_currant = 5F;
 
     //coal
-    public static float Coal_amount = 10;
+    public static float Coal_amount = 0;
     public static float Coal_value = 20;
     public static int Coal_supply = 1;
     public static int Coal_demand = 1;
@@ -53,7 +53,7 @@ public class ResourceData : MonoBehaviour
     public static float Coal_value_currant = 20F;
 
     //Iron
-    public static float Iron_amount = 10;
+    public static float Iron_amount = 0;
     public static float Iron_value = 30;
     public static int Iron_supply = 1;
     public static int Iron_demand = 1;
@@ -246,7 +246,7 @@ void SupplyDemandPower()
     Power_multiplier = Mathf.Clamp(power_percentage_display / 100f, 0.4f, 1f);
 
 
-    Debug.Log($"Power_SD_Diff_: {Power_SD_Diff_}, targetPercentage: {targetPercentage}, power_percentage_display: {power_percentage_display}, Power_multiplier: {Power_multiplier}");
+    //Debug.Log($"Power_SD_Diff_: {Power_SD_Diff_}, targetPercentage: {targetPercentage}, power_percentage_display: {power_percentage_display}, Power_multiplier: {Power_multiplier}");
     }
 }
 
@@ -267,6 +267,8 @@ void SupplyDemandPower()
         {
             Power_Percentage_text.text = power_percentage_display.ToString("0.00");
         }
+        //pollution
+        Pollution_Percentage_text.text = Pollution.ToString("0.00");
         //wood
         if(Wood_value_currant >= 10)
         {

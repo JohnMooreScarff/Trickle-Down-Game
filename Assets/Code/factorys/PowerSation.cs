@@ -11,6 +11,7 @@ public class PowerStation : MonoBehaviour
     //consume 
     private int wood = 10;
     private int Coal = 5;
+    private float Pollution = 0.03f;
     //produce
     private int wood_power = 40;
     private int coal_power = 100;
@@ -29,6 +30,7 @@ public class PowerStation : MonoBehaviour
             ResourceData.Money -= money_cost + wood_cost * ResourceData.Wood_value_currant + stone_cost * ResourceData.Stone_value_currant;
             ResourceData.Wood_amount -= wood_cost;
             ResourceData.Stone_amount -= stone_cost;
+            
         }
     }
 IEnumerator PowerStationConsumption()
@@ -38,6 +40,7 @@ IEnumerator PowerStationConsumption()
         yield return new WaitForSeconds(4);
         if (ResourceData.Coal_amount >= Coal)
         {
+            ResourceData.Pollution += Pollution;
             ResourceData.Coal_amount -= Coal;
             currentConsumption = ConsumptionType.Coal;
 
@@ -55,6 +58,7 @@ IEnumerator PowerStationConsumption()
         }
         else if (ResourceData.Wood_amount >= wood)
         {
+            ResourceData.Pollution += Pollution;
             ResourceData.Wood_amount -= wood;
             currentConsumption = ConsumptionType.Wood;
             if (currentConsumption != lastConsumption)
@@ -93,7 +97,7 @@ IEnumerator PowerStationConsumption()
         if (collision.CompareTag("Village"))
         {
             Debug.Log("over village");
-            Follow_place_buildings.OverVillage = true;
+            Power_Follow_place_buildings.OverVillage = true;
         }
     }
 }

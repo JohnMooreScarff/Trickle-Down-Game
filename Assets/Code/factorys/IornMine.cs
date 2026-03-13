@@ -2,28 +2,31 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 
-public class stonefactory : MonoBehaviour
+public class IornMine : MonoBehaviour
 {
     
     //cost
     private int money_cost = 500;
-    public static int wood_cost = 20;
+    public static int coal_cost = 20;
+    public static int stone_cost = 70;
 
     //produce
-    private int stone = 5;
-    private float Pollution = 0.01f;
+    private int Iron = 3;
+    private float Pollution = 0.03f;
     //consume
-    private int wood = 2;
-    private int power = 10;
+    private int wood = 4;
+    private int coal = 2;
+    private int power = 20;
 
     void Start()
     {
         ResourceData.Power_demand += power;
         ResourceData.Wood_demand += wood;
-        ResourceData.Stone_supply += stone;
-        ResourceData.Wood_amount -= wood_cost;
-        ResourceData.Money -=  money_cost + wood_cost * ResourceData.Wood_value;
-
+        ResourceData.Coal_demand += coal;
+        ResourceData.Iron_supply += Iron;
+        ResourceData.Coal_amount -= coal_cost;
+        ResourceData.Stone_amount -= stone_cost;
+        ResourceData.Money -= money_cost + (ResourceData.Wood_value * coal_cost) + (ResourceData.Stone_value * stone_cost);
         StartCoroutine(StoneProduction());
     }
      IEnumerator StoneProduction()
@@ -31,10 +34,10 @@ public class stonefactory : MonoBehaviour
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
         if(ResourceData.Wood_amount >= wood)
         {
-        ResourceData.Stone_amount += stone;
-        ResourceData.Money += stone * ResourceData.Stone_value;
-        ResourceData.Money -= wood * ResourceData.Wood_value;
+        ResourceData.Iron_amount += Iron;
+        ResourceData.Money += Iron * ResourceData.Stone_value;
         ResourceData.Wood_amount -= wood;
+        ResourceData.Coal_amount -= coal;
         ResourceData.Pollution += Pollution;
         }
         
@@ -46,7 +49,7 @@ public class stonefactory : MonoBehaviour
         if (collision.CompareTag("Village"))
         {
             Debug.Log("over village");
-            Stone_Follow_place_buildings.OverVillage = true;
+            Iron_Follow_place_buildings.OverVillage = true;
         }
         else
         {
