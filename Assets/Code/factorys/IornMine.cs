@@ -35,7 +35,6 @@ public class IornMine : MonoBehaviour
         if(ResourceData.Wood_amount >= wood)
         {
         ResourceData.Iron_amount += Iron;
-        ResourceData.Money += Iron * ResourceData.Stone_value;
         ResourceData.Wood_amount -= wood;
         ResourceData.Coal_amount -= coal;
         ResourceData.Pollution += Pollution;
@@ -51,9 +50,9 @@ public class IornMine : MonoBehaviour
             Debug.Log("over village");
             Iron_Follow_place_buildings.OverVillage = true;
         }
-        else
-        {
-            Stone_Follow_place_buildings.OverVillage = false;
-        }
+        // else
+        // {
+        //     Iron_Follow_place_buildings.OverVillage = false;
+        // }
     }
 }

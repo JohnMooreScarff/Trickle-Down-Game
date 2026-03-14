@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 79964161}
   - component: {fileID: 79964160}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,9 +872,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1369436051}
-        m_TargetAssemblyTypeName: VillagePlacementManager2D, Assembly-CSharp
-        m_MethodName: StartPlacingVillage
+      - m_Target: {fileID: 1369436058}
+        m_TargetAssemblyTypeName: Tree_Follow_place_buildings, Assembly-CSharp
+        m_MethodName: StartPlacing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14875,6 +14875,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1369436058}
+        m_TargetAssemblyTypeName: Tree_Follow_place_buildings, Assembly-CSharp
+        m_MethodName: PlaceObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1369436057}
+        m_TargetAssemblyTypeName: Carbon_capture_Follow_place_buildings, Assembly-CSharp
+        m_MethodName: PlaceObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 4d0708ac-ce9e-4437-ab41-db8206484115
     m_ActionName: 'Player/PlaceBuildings[/Mouse/leftButton]'
   - m_PersistentCalls:
@@ -15006,6 +15030,30 @@ MonoBehaviour:
       - m_Target: {fileID: 1369436055}
         m_TargetAssemblyTypeName: Iron_Follow_place_buildings, Assembly-CSharp
         m_MethodName: PlaceObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1369436058}
+        m_TargetAssemblyTypeName: Tree_Follow_place_buildings, Assembly-CSharp
+        m_MethodName: CancelPlacement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1369436057}
+        m_TargetAssemblyTypeName: Carbon_capture_Follow_place_buildings, Assembly-CSharp
+        m_MethodName: CancelPlacement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15171,7 +15219,7 @@ GameObject:
   - component: {fileID: 553065028}
   - component: {fileID: 553065027}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Carbon capture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15240,7 +15288,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 553065028}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1369436057}
+        m_TargetAssemblyTypeName: Carbon_capture_Follow_place_buildings, Assembly-CSharp
+        m_MethodName: StartPlacing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &553065028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16042,6 +16102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670577351}
   - component: {fileID: 670577352}
+  - component: {fileID: 670577353}
   m_Layer: 5
   m_Name: Quality of life
   m_TagString: Untagged
@@ -16078,6 +16139,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670577350}
   m_CullTransparentMesh: 1
+--- !u!114 &670577353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670577350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8097c61d0675ca42b77ebb93b4d306a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QOLImage: {fileID: 2111224381}
+  image0to19: {fileID: -141625738779452837, guid: 1413af5783d5fe149a126f64c9c5dbbd, type: 3}
+  image20to39: {fileID: -9122674516859078773, guid: ccb670a0ed4d09b4d81f5938306c7577, type: 3}
+  image40to59: {fileID: -4096742242179672985, guid: acee97de58541164b9109b7e6c3ebea3, type: 3}
+  image60to79: {fileID: -4822992106638919893, guid: 6309cea507570d24ebe2e0ad7527083f, type: 3}
+  image80to100: {fileID: -8903585902225333882, guid: 2c5e80ddfc18cd94187d3eaf5a7a6609, type: 3}
 --- !u!1 &695880892
 GameObject:
   m_ObjectHideFlags: 0
@@ -16135,7 +16214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Carbon capture
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18306,7 +18385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Tree
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19521,6 +19600,8 @@ GameObject:
   - component: {fileID: 1369436052}
   - component: {fileID: 1369436056}
   - component: {fileID: 1369436055}
+  - component: {fileID: 1369436058}
+  - component: {fileID: 1369436057}
   m_Layer: 0
   m_Name: BuildingCreator
   m_TagString: Untagged
@@ -19641,6 +19722,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1511807058}
   objectPrefab: {fileID: 5594748921629491420, guid: 55bcf4631b1e33744bf37e7296c0231f, type: 3}
+--- !u!114 &1369436057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369436044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943b8eacb88470a4da8f27666b586e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 553065027}
+  objectPrefab: {fileID: 5594748921629491420, guid: 899ac72a0e623394eab01a6d894ee13a, type: 3}
+--- !u!114 &1369436058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369436044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5056be960271c294b90475eb71c3f7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 79964160}
+  objectPrefab: {fileID: 5594748921629491420, guid: 23262286dee72a64b86c13b87b426f2c, type: 3}
 --- !u!1 &1379521779
 GameObject:
   m_ObjectHideFlags: 0
@@ -23117,7 +23226,7 @@ GameObject:
   - component: {fileID: 2111224382}
   - component: {fileID: 2111224381}
   m_Layer: 5
-  m_Name: Image
+  m_Name: QolEmotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23162,7 +23271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4096742242179672985, guid: acee97de58541164b9109b7e6c3ebea3, type: 3}
+  m_Sprite: {fileID: -141625738779452837, guid: 1413af5783d5fe149a126f64c9c5dbbd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

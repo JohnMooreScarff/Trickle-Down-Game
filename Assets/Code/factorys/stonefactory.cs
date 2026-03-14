@@ -32,7 +32,6 @@ public class stonefactory : MonoBehaviour
         if(ResourceData.Wood_amount >= wood)
         {
         ResourceData.Stone_amount += stone;
-        ResourceData.Money += stone * ResourceData.Stone_value;
         ResourceData.Money -= wood * ResourceData.Wood_value;
         ResourceData.Wood_amount -= wood;
         ResourceData.Pollution += Pollution;
@@ -48,9 +47,9 @@ public class stonefactory : MonoBehaviour
             Debug.Log("over village");
             Stone_Follow_place_buildings.OverVillage = true;
         }
-        else
-        {
-            Stone_Follow_place_buildings.OverVillage = false;
-        }
+        // else
+        // {
+        //     Stone_Follow_place_buildings.OverVillage = false;
+        // }
     }
 }

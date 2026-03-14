@@ -13,7 +13,7 @@ public class Debt : MonoBehaviour
         yield return new WaitForSeconds(30);
         if (ResourceData.Money <= 0)
         {
-            ResourceData.Money *= ResourceData.IntrestRate;
+            ResourceData.Money = ResourceData.Money *= ResourceData.IntrestRate;
             Mathf.RoundToInt(ResourceData.Money);
         }
    

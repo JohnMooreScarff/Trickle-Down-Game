@@ -3,17 +3,15 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Power_Follow_place_buildings : MonoBehaviour
+public class Carbon_capture_Follow_place_buildings : MonoBehaviour
 {
     
-
     public Button button;
     public GameObject objectPrefab;
     private GameObject currentObject;
 
     private bool isPlacing = false;
     public static bool OverVillage = false;
-    
 
     void Update()
     {
@@ -28,7 +26,7 @@ public class Power_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        if (isPlacing == false && ResourceData.Wood_amount >= PowerStation.wood_cost && ResourceData.Stone_amount >= PowerStation.stone_cost)
+        if (isPlacing == false && ResourceData.Iron_amount >= CarbonCapture.iron_cost)
         {
         Debug.Log("StartPlacing");
         currentObject = Instantiate(objectPrefab);

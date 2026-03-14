@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 518365190828414606}
   - component: {fileID: 5557931524244962016}
-  - component: {fileID: -6857108901305944694}
   - component: {fileID: 4111954381161679413}
   - component: {fileID: -8612905692825776906}
+  - component: {fileID: 1200288083408626915}
   m_Layer: 0
-  m_Name: Farm
+  m_Name: Carbon capture
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -6007857137893288414, guid: 8fa455dc044f72d4aa2070e0489e1c2d, type: 3}
-  m_Color: {r: 1, g: 0.84050083, b: 0, a: 1}
+  m_Color: {r: 0.3437378, g: 0.43529412, b: 0.20392157, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -90,18 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6857108901305944694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5594748921629491420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46373211ac5c9a741b0a1b5d937d5051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &4111954381161679413
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,3 +153,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1200288083408626915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d824462777b9d9448ffae1b8fededbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -26,7 +26,7 @@ public class Coal_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        if (isPlacing == false)
+        if (isPlacing == false && ResourceData.Wood_amount >= CoalMine.wood_cost && ResourceData.Stone_amount >= CoalMine.stone_cost)
         {
         Debug.Log("StartPlacing");
         currentObject = Instantiate(objectPrefab);
@@ -38,6 +38,7 @@ public class Coal_Follow_place_buildings : MonoBehaviour
         }
         isPlacing = true;
         button.interactable = false;
+        
         }   
     }
 
@@ -55,7 +56,7 @@ public class Coal_Follow_place_buildings : MonoBehaviour
         isPlacing = false;
         currentObject = null;
         button.interactable = true;
-        //OverVillage = false;
+        OverVillage = false;
         
         
         }
@@ -70,7 +71,7 @@ public class Coal_Follow_place_buildings : MonoBehaviour
         currentObject = null;
         isPlacing = false;
         button.interactable = true;
-        //OverVillage = false;
+        OverVillage = false;
         }
     }
     

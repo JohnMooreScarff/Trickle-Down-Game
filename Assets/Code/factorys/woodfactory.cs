@@ -23,7 +23,6 @@ public class woodfactory : MonoBehaviour
      {
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
         ResourceData.Wood_amount += wood;
-        ResourceData.Money += wood * ResourceData.Wood_value;
         ResourceData.Pollution += Pollution;
         StartCoroutine(WoodProduction());
      }
@@ -34,9 +33,9 @@ public class woodfactory : MonoBehaviour
             Debug.Log("over village");
             Wood_Follow_place_buildings.OverVillage = true;
         }
-        else
-        {
-            Wood_Follow_place_buildings.OverVillage = false;
-        }
+        // else
+        // {
+        //     Wood_Follow_place_buildings.OverVillage = false;
+        // }
     }
 }

@@ -4,6 +4,7 @@ using TMPro;
 
 public class PowerStation : MonoBehaviour
 {
+
     //cost
     private int money_cost = 1000;
     public static int wood_cost = 30;
@@ -13,8 +14,8 @@ public class PowerStation : MonoBehaviour
     private int Coal = 5;
     private float Pollution = 0.03f;
     //produce
-    private int wood_power = 40;
-    private int coal_power = 100;
+    private int wood_power = 60;
+    private int coal_power = 200;
 
     //consuming
     private enum ConsumptionType { None, Wood, Coal }

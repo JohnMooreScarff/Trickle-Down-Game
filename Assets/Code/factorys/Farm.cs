@@ -9,7 +9,7 @@ public class Farm : MonoBehaviour
     public static int stone_cost = 40;
     public static int wood_cost = 60;
     //production
-    private int food = 5;
+    private int food = 6;
     private float Pollution = 0.02f;
     //consume
     private int power = 10;
@@ -29,7 +29,6 @@ public class Farm : MonoBehaviour
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
         ResourceData.Food_amount += food;
         StartCoroutine(WoodProduction());
-        ResourceData.Money += food * ResourceData.Food_value;
         ResourceData.Pollution += Pollution;
      }
     public void OnTriggerStay2D(Collider2D collision)
@@ -39,6 +38,10 @@ public class Farm : MonoBehaviour
             Debug.Log("over village");
             Farm_Follow_place_buildings.OverVillage = true;
         }
+        // else
+        // {
+        //     Farm_Follow_place_buildings.OverVillage = false;
+        // }
 
     }
 }

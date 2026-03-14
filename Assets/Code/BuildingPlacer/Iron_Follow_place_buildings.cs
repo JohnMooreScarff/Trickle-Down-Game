@@ -12,10 +12,11 @@ public class Iron_Follow_place_buildings : MonoBehaviour
 
     private bool isPlacing = false;
     public static bool OverVillage = false;
+    
 
     void Update()
     {
-        if (isPlacing == true)
+        if (isPlacing == true )
         {
             Vector3 mousePos = Input.mousePosition;
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -27,7 +28,7 @@ public class Iron_Follow_place_buildings : MonoBehaviour
     public void StartPlacing()
     {
 
-        if (isPlacing == false)
+        if (isPlacing == false && ResourceData.Stone_amount >= IornMine.stone_cost && ResourceData.Coal_amount >= IornMine.coal_cost)
         {
         Debug.Log("StartPlacing");
         currentObject = Instantiate(objectPrefab);
@@ -56,7 +57,7 @@ public class Iron_Follow_place_buildings : MonoBehaviour
         isPlacing = false;
         currentObject = null;
         button.interactable = true;
-        //OverVillage = false;
+        OverVillage = false;
         
         
         }
@@ -71,7 +72,7 @@ public class Iron_Follow_place_buildings : MonoBehaviour
         currentObject = null;
         isPlacing = false;
         button.interactable = true;
-        //OverVillage = false;
+        OverVillage = false;
         }
     }
     

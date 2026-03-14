@@ -56,7 +56,7 @@ public class Farm_Follow_place_buildings : MonoBehaviour
         isPlacing = false;
         currentObject = null;
         button.interactable = true;
-        //OverVillage = false;
+        OverVillage = false;
         
         
         }
@@ -71,7 +71,7 @@ public class Farm_Follow_place_buildings : MonoBehaviour
         currentObject = null;
         isPlacing = false;
         button.interactable = true;
-        //OverVillage = false;
+        OverVillage = false;
         }
     }
     

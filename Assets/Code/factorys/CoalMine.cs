@@ -25,16 +25,16 @@ public class CoalMine : MonoBehaviour
         ResourceData.Stone_demand += stone;
         ResourceData.Coal_supply += coal;
         ResourceData.Wood_amount -= wood_cost;
+        ResourceData.Stone_amount -= stone_cost;
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * wood_cost) + (ResourceData.Stone_value * stone_cost);
         StartCoroutine(CoalProduction());
     }
      IEnumerator CoalProduction()
      {
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
-        if(ResourceData.Wood_amount >= wood)
+        if(ResourceData.Wood_amount >= wood && ResourceData.Stone_amount >= wood)
         {
         ResourceData.Coal_amount += coal;
-        ResourceData.Money += coal * ResourceData.Coal_value;
         ResourceData.Wood_amount -= wood;
         ResourceData.Stone_amount -= stone;
         ResourceData.Pollution += Pollution;
@@ -51,9 +51,9 @@ public class CoalMine : MonoBehaviour
             Debug.Log("over village");
             Coal_Follow_place_buildings.OverVillage = true;
         }
-        else
-        {
-            Coal_Follow_place_buildings.OverVillage = false;
-        }
+        // else
+        // {
+        //     Coal_Follow_place_buildings.OverVillage = false;
+        // }
     }
 }

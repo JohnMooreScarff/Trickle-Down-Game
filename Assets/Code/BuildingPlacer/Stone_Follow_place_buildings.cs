@@ -13,6 +13,7 @@ public class Stone_Follow_place_buildings : MonoBehaviour
 
     private bool isPlacing = false;
     public static bool OverVillage = false;
+    
 
     void Update()
     {
@@ -59,6 +60,7 @@ public class Stone_Follow_place_buildings : MonoBehaviour
         isPlacing = false;
         currentObject = null;
         button.interactable = true;
+        OverVillage = false;
 
         
         
@@ -74,6 +76,7 @@ public class Stone_Follow_place_buildings : MonoBehaviour
         currentObject = null;
         isPlacing = false;
         button.interactable = true;
+        OverVillage = false;
         }
     }
     

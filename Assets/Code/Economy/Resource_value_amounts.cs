@@ -6,8 +6,16 @@ public class ResourceData : MonoBehaviour
 {
     // effects
     public static float IntrestRate = 1.05F;
-    public static float QOL = 50;
     public static float Pollution = 0f;
+
+    //QOL
+    public static float QOl_wood = 0f;
+    public static float QOl_stone = 0f;
+    public static float QOl_food = 0f;
+    public static float QOl_coal = 0f;
+    public static float QOl_iron = 0f;
+    public static float QOL = 4f;
+    public static int village_ammount = 0;
 
     //power
     public static int Power_supply = 1;
@@ -93,6 +101,7 @@ public class ResourceData : MonoBehaviour
         SupplyDemandFood();
         SupplyDemandCoal();
         SupplyDemandIron();
+        Qol();
         text();
     }
     void SupplyDemandWood()
@@ -117,14 +126,14 @@ public class ResourceData : MonoBehaviour
         }
         else
         Wood_value_currant -= (float)(0.3 * Time.deltaTime);
-        if (Wood_value_currant >= 5 || Wood_value_currant <= 2)
-        {
-            Wood_value_currant_text.color = Color.red;
-        }
-        else 
-        {
-            Wood_value_currant_text.color = Color.green;
-        }
+        // if (Wood_value_currant >= 5 || Wood_value_currant <= 2)
+        // {
+        //     Wood_value_currant_text.color = Color.red;
+        // }
+        // else 
+        // {
+        //     Wood_value_currant_text.color = Color.green;
+        // }
 
     }
         void SupplyDemandStone()
@@ -249,11 +258,19 @@ void SupplyDemandPower()
     //Debug.Log($"Power_SD_Diff_: {Power_SD_Diff_}, targetPercentage: {targetPercentage}, power_percentage_display: {power_percentage_display}, Power_multiplier: {Power_multiplier}");
     }
 }
+void Qol()
+    {
+        if(village_ammount != 0)
+        {
+        QOL = 20 * (QOl_wood/village_ammount) + 20 * (QOl_stone/village_ammount) + 20 * (QOl_food/village_ammount) + 20 * (QOl_coal/village_ammount) + 20 * (QOl_iron/village_ammount);
+        }
+    }
 
     void text()
     {
         //money
         Money_text.text =Mathf.RoundToInt(Money).ToString();
+
         //power
         if(power_percentage_display >= 99)
         {
@@ -267,8 +284,13 @@ void SupplyDemandPower()
         {
             Power_Percentage_text.text = power_percentage_display.ToString("0.00");
         }
+
         //pollution
         Pollution_Percentage_text.text = Pollution.ToString("0.00");
+
+        //QOL
+        QOL_Percentage_text.text = QOL.ToString("0");
+
         //wood
         if(Wood_value_currant >= 10)
         {
@@ -279,6 +301,7 @@ void SupplyDemandPower()
             Wood_value_currant_text.text = Wood_value_currant.ToString("0.0");
         }
         Wood_amount_text.text = Wood_amount.ToString("0");
+
         //stone
         if(Stone_value_currant >= 10)
         {
@@ -289,6 +312,7 @@ void SupplyDemandPower()
             Stone_value_currant_text.text = Stone_value_currant.ToString("0.0");
         }
         Stone_amount_text.text = Stone_amount.ToString("0");
+
         //food
         if(Food_value_currant >= 10)
         {
@@ -299,6 +323,7 @@ void SupplyDemandPower()
             Food_value_currant_text.text = Food_value_currant.ToString("0.0");
         }
         Food_amount_text.text = Food_amount.ToString("0");
+
         //coal
         if(Coal_value_currant >= 10)
         {
@@ -309,6 +334,7 @@ void SupplyDemandPower()
             Coal_value_currant_text.text = Coal_value_currant.ToString("0.0");
         }
         Coal_amount_text.text = Coal_amount.ToString("0");
+        
         //Iron
         if(Iron_value_currant >= 10)
         {
