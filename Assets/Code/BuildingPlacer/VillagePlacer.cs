@@ -28,6 +28,12 @@ public class VillagePlacement : MonoBehaviour
         if (isPlacing == false &&ResourceData.Stone_amount >= Village.stone_cost && ResourceData.Wood_amount >= Village.wood_cost)
         {
         villageToPlace = Instantiate(villagePrefab);
+        MonoBehaviour[] scripts = villageToPlace.GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            Debug.Log("scriptdisabled");
+            script.enabled = false;
+        }
         isPlacing = true;
         placeVillageButton.interactable = false;
         }
@@ -37,6 +43,12 @@ public class VillagePlacement : MonoBehaviour
     {
         if (isPlacing == true && OverWater == false)
         {
+        MonoBehaviour[] scripts = villageToPlace.GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            Debug.Log("scriptenabled");
+            script.enabled = true;
+        }
         villageToPlace = null;
         isPlacing = false;
         placeVillageButton.interactable = true;

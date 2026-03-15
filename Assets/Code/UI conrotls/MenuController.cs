@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -7,8 +9,12 @@ public class MenuController : MonoBehaviour
     public CanvasGroup ResourceMenu;
     public CanvasGroup ManufacturingMenu;
     public CanvasGroup EnergyMenu;
+    public CanvasGroup Quitmenu;
+    public CanvasGroup gameUi;
+    
 
     public float transitionDuration = 0.25f;
+    public bool QuitmenuOPEN = false;
 
     void Start()
     {
@@ -42,6 +48,23 @@ public class MenuController : MonoBehaviour
     {
         StartCoroutine(TransitionMenus(EnergyMenu, mainMenu));
     }
+    public void ToggleQuitMenu()
+    {
+        if (QuitmenuOPEN)
+        {
+        
+            StartCoroutine(TransitionMenus(Quitmenu, gameUi));
+            Quitmenu.interactable = false;
+            QuitmenuOPEN = false;
+        }
+        else
+        {
+        
+            StartCoroutine(TransitionMenus(gameUi, Quitmenu));
+            Quitmenu.interactable = true;
+            QuitmenuOPEN = true;
+        }
+    }
 
 
     // ---------- INITIAL STATE ----------
@@ -72,6 +95,9 @@ public class MenuController : MonoBehaviour
 
     IEnumerator TransitionMenus(CanvasGroup currentMenu, CanvasGroup nextMenu)
     {
+        currentMenu.interactable = false;
+        currentMenu.blocksRaycasts = false;
+        currentMenu.gameObject.SetActive(false);
         float timer = 0f;
 
         nextMenu.gameObject.SetActive(true);
@@ -92,12 +118,11 @@ public class MenuController : MonoBehaviour
         }
 
         // disable the old menu
-        currentMenu.interactable = false;
-        currentMenu.blocksRaycasts = false;
-        currentMenu.gameObject.SetActive(false);
 
         // enable the new menu
         nextMenu.interactable = true;
         nextMenu.blocksRaycasts = true;
     }
+
+
 }

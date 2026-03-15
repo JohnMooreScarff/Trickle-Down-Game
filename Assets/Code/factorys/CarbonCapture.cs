@@ -11,9 +11,9 @@ public class CarbonCapture : MonoBehaviour
     
 
     //produce
-    private float Pollution = -0.20f;
+    private float Pollution = -0.40f;
     //consume
-    private int money = 20;
+    private int money = 50;
     private int power = 25;
 
     void Start()

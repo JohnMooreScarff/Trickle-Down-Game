@@ -53,8 +53,8 @@ public class SceneLoader : MonoBehaviour
     // ---------- QUIT ----------
     public void QuitGame()
     {
+        
         Debug.Log("Quitting Game...");
-
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #else

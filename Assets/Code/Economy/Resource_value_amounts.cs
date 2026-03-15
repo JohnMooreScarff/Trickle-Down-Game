@@ -14,7 +14,7 @@ public class ResourceData : MonoBehaviour
     public static float QOl_food = 0f;
     public static float QOl_coal = 0f;
     public static float QOl_iron = 0f;
-    public static float QOL = 4f;
+    public static float QOL = 0f;
     public static int village_ammount = 0;
 
     //power
@@ -25,7 +25,7 @@ public class ResourceData : MonoBehaviour
     public static float power_percentage_display = 0f;
 
     //money
-    public static float Money = 100;
+    public static float Money = 0;
 
     // wood
     public static float Wood_amount = 100;
@@ -37,7 +37,7 @@ public class ResourceData : MonoBehaviour
     
 
     //stone
-    public static float Stone_amount = 100;
+    public static float Stone_amount = 70;
     public static float Stone_value = 8;
     public static int Stone_supply = 1;
     public static int Stone_demand = 1;
@@ -254,7 +254,6 @@ void SupplyDemandPower()
     power_percentage_display = Mathf.Clamp(power_percentage_display, 0f, 100f);
     Power_multiplier = Mathf.Clamp(power_percentage_display / 100f, 0.4f, 1f);
 
-
     //Debug.Log($"Power_SD_Diff_: {Power_SD_Diff_}, targetPercentage: {targetPercentage}, power_percentage_display: {power_percentage_display}, Power_multiplier: {Power_multiplier}");
     }
 }
@@ -269,6 +268,18 @@ void Qol()
     void text()
     {
         //money
+        if (Money <= -90000)
+        {
+            Money_text.color = Color.red;
+        }
+        else if (Money <= -75000)
+        {
+            Money_text.color = Color.yellow;
+        }
+        else
+        {
+            Money_text.color = Color.white;
+        }
         Money_text.text =Mathf.RoundToInt(Money).ToString();
 
         //power
@@ -286,7 +297,14 @@ void Qol()
         }
 
         //pollution
+        if (Pollution >= 0)
+        {
         Pollution_Percentage_text.text = Pollution.ToString("0.00");
+        }
+        else
+        {
+            Pollution_Percentage_text.text = 0.ToString();
+        }
 
         //QOL
         QOL_Percentage_text.text = QOL.ToString("0");
