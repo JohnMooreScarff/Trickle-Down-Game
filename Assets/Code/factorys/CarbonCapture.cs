@@ -19,6 +19,7 @@ public class CarbonCapture : MonoBehaviour
     void Start()
     {
         ResourceData.Power_demand += power;
+        ResourceData.Iron_amount -= iron_cost;
         ResourceData.Money -=  money_cost + iron_cost * ResourceData.Iron_value;
         StartCoroutine(Carboncapture());
     }
