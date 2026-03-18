@@ -37868,6 +37868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 76130205}
   objectPrefab: {fileID: 5594748921629491420, guid: 0273b7470e45e404988b6d9b6aeca4a0, type: 3}
+  isPlacing: 0
 --- !u!114 &1369436051
 MonoBehaviour:
   m_ObjectHideFlags: 0
