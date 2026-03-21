@@ -36,6 +36,7 @@ public class Village : MonoBehaviour
     //Leveling
     private int Level = 1;
     // private int building_count = 0;
+    private int watercount = 0;
 
     void Start()
     {
@@ -199,4 +200,25 @@ public class Village : MonoBehaviour
     //         VillagePlacement.OverWater = true;
     //     }
     // }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("water"))
+        {
+            watercount++;
+            VillagePlacement.OverWater = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("water"))
+        {
+            watercount--;
+            if (watercount <= 0)
+            {
+                watercount = 0;
+                VillagePlacement.OverWater = false;
+            }
+        }
+    }
 }

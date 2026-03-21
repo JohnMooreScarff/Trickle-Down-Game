@@ -15,6 +15,7 @@ public class stonefactory : MonoBehaviour
     //consume
     private int wood = 2;
     private int power = 10;
+    private int villageColliderCount = 0;
 
     void Start()
     {
@@ -40,16 +41,25 @@ public class stonefactory : MonoBehaviour
 
         StartCoroutine(StoneProduction());
      }  
-    public void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))
         {
-            Debug.Log("over village");
+            villageColliderCount++;
             Stone_Follow_place_buildings.OverVillage = true;
         }
-        // else
-        // {
-        //     Stone_Follow_place_buildings.OverVillage = false;
-        // }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Village"))
+        {
+            villageColliderCount--;
+            if (villageColliderCount <= 0)
+            {
+                villageColliderCount = 0;
+                Stone_Follow_place_buildings.OverVillage = false;
+            }
+        }
     }
 }

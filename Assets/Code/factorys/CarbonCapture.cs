@@ -15,6 +15,7 @@ public class CarbonCapture : MonoBehaviour
     //consume
     private int money = 50;
     private int power = 25;
+    private int villageColliderCount = 0;
 
     void Start()
     {
@@ -30,16 +31,25 @@ public class CarbonCapture : MonoBehaviour
         ResourceData.Pollution += Pollution;
         StartCoroutine(Carboncapture());
      }  
-    public void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))
         {
-            Debug.Log("over village");
+            villageColliderCount++;
             Carbon_capture_Follow_place_buildings.OverVillage = true;
         }
-        // else
-        // {
-        //     Stone_Follow_place_buildings.OverVillage = false;
-        // }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Village"))
+        {
+            villageColliderCount--;
+            if (villageColliderCount <= 0)
+            {
+                villageColliderCount = 0;
+                Carbon_capture_Follow_place_buildings.OverVillage = false;
+            }
+        }
     }
 }

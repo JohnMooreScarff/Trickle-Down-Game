@@ -6,7 +6,7 @@ public class ResourceData : MonoBehaviour
 {
     // effects
     public static float IntrestRate = 1.05F;
-    public static float Pollution = 0f;
+    public static float Pollution = 10f;
 
     //QOL
     public static float QOl_wood = 0f;
@@ -28,7 +28,7 @@ public class ResourceData : MonoBehaviour
     public static float Money = 0;
 
     // wood
-    public static float Wood_amount = 100;
+    public static float Wood_amount = 10000;
     public static float Wood_value = 4;
     public static int Wood_supply = 1;
     public static int Wood_demand = 1;
@@ -37,7 +37,7 @@ public class ResourceData : MonoBehaviour
     
 
     //stone
-    public static float Stone_amount = 70;
+    public static float Stone_amount = 7000;
     public static float Stone_value = 8;
     public static int Stone_supply = 1;
     public static int Stone_demand = 1;
@@ -45,7 +45,7 @@ public class ResourceData : MonoBehaviour
     public static float Stone_value_currant = 8f;
 
     //food
-    public static float Food_amount = 0;
+    public static float Food_amount = 100000;
     public static float Food_value = 5;
     public static int Food_supply = 1;
     public static int Food_demand = 1;
@@ -53,7 +53,7 @@ public class ResourceData : MonoBehaviour
     public static float Food_value_currant = 5F;
 
     //coal
-    public static float Coal_amount = 0;
+    public static float Coal_amount = 10000;
     public static float Coal_value = 20;
     public static int Coal_supply = 1;
     public static int Coal_demand = 1;
@@ -61,7 +61,7 @@ public class ResourceData : MonoBehaviour
     public static float Coal_value_currant = 20F;
 
     //Iron
-    public static float Iron_amount = 0;
+    public static float Iron_amount = 10000;
     public static float Iron_value = 30;
     public static int Iron_supply = 1;
     public static int Iron_demand = 1;

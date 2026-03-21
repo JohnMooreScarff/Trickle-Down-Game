@@ -12,6 +12,7 @@ public class Tree : MonoBehaviour
 
     //produce
     private float Pollution = -0.05f;
+    private int villageColliderCount = 0;
 
 
     void Start()
@@ -28,16 +29,26 @@ public class Tree : MonoBehaviour
         ResourceData.Pollution += Pollution;
         StartCoroutine(Tree_oxygen());
      }  
-    public void OnTriggerStay2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))
         {
-            Debug.Log("over village");
+            villageColliderCount++;
             Tree_Follow_place_buildings.OverVillage = true;
         }
-        // else
-        // {
-        //     Stone_Follow_place_buildings.OverVillage = false;
-        // }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Village"))
+        {
+            villageColliderCount--;
+            if (villageColliderCount <= 0)
+            {
+                villageColliderCount = 0;
+                Tree_Follow_place_buildings.OverVillage = false;
+            }
+        }
     }
 }

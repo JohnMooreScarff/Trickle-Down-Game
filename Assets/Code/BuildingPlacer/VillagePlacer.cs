@@ -52,6 +52,7 @@ public class VillagePlacement : MonoBehaviour
         villageToPlace = null;
         isPlacing = false;
         placeVillageButton.interactable = true;
+        OverWater = false;
         }
     }
 
@@ -63,6 +64,7 @@ public class VillagePlacement : MonoBehaviour
         villageToPlace = null;
         isPlacing = false;
         placeVillageButton.interactable = true;
+        OverWater = false;
         }
     }
 }

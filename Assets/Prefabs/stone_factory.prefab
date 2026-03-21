@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 518365190828414606}
   - component: {fileID: 5557931524244962016}
   - component: {fileID: 5717197576643174976}
-  - component: {fileID: -2397892003169537109}
   - component: {fileID: -6817591873376790923}
   - component: {fileID: 1251476933107600935}
   - component: {fileID: 3080169792241967714}
+  - component: {fileID: 3937841228788918184}
   m_Layer: 0
   m_Name: stone_factory
   m_TagString: Building
@@ -104,42 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d47578e6b3ccc40b48ddc1352dcd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &-2397892003169537109
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5594748921629491420}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.64
 --- !u!50 &-6817591873376790923
 Rigidbody2D:
   serializedVersion: 5
@@ -201,3 +165,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8212e7268ee06489266ddd8235711d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &3937841228788918184
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.96852875, y: -0.45438445}
+  - {x: -1.1165428, y: -0.9598801}
+  - {x: -0.9224844, y: -1.1011708}
+  - {x: -0.77102375, y: -1.1096804}
+  - {x: 0.82436466, y: -1.0844829}
+  - {x: 0.7924471, y: -0.9783864}
+  - {x: 0.673975, y: -0.90041685}
+  - {x: 0.6667013, y: -0.7137902}
+  - {x: 0.46303558, y: -0.5744232}
+  - {x: 0.24535179, y: -0.42913425}
+  - {x: -0.9567032, y: -0.4337697}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

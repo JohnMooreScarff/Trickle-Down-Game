@@ -12,6 +12,7 @@ public class WindTurbine : MonoBehaviour
 
     //produce
     private int power = 100;
+    private int villageColliderCount = 0;
 
 
     void Start()
@@ -22,16 +23,25 @@ public class WindTurbine : MonoBehaviour
         ResourceData.Power_supply += power;
     }
  
-    public void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))
         {
-            Debug.Log("over village");
+            villageColliderCount++;
             WindTurbine_Follow_place_buildings.OverVillage = true;
         }
-        // else
-        // {
-        //     Stone_Follow_place_buildings.OverVillage = false;
-        // }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Village"))
+        {
+            villageColliderCount--;
+            if (villageColliderCount <= 0)
+            {
+                villageColliderCount = 0;
+                WindTurbine_Follow_place_buildings.OverVillage = false;
+            }
+        }
     }
 }

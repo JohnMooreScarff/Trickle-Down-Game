@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 
 public class woodfactory : MonoBehaviour
@@ -11,6 +12,7 @@ public class woodfactory : MonoBehaviour
     private float Pollution = 0.01f;
     //consume
     private int power = 10;
+    private int villageColliderCount = 0;
 
     void Start()
     {
@@ -26,16 +28,27 @@ public class woodfactory : MonoBehaviour
         ResourceData.Pollution += Pollution;
         StartCoroutine(WoodProduction());
      }
-    public void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))
         {
-            Debug.Log("over village");
+            villageColliderCount++;
             Wood_Follow_place_buildings.OverVillage = true;
+            Debug.Log("Entered village collider, count: " + villageColliderCount);
         }
-        // else
-        // {
-        //     Wood_Follow_place_buildings.OverVillage = false;
-        // }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Village"))
+        {
+            villageColliderCount--;
+            Debug.Log("Exited village collider, count: " + villageColliderCount);
+            if (villageColliderCount <= 0)
+            {
+                villageColliderCount = 0;
+                Wood_Follow_place_buildings.OverVillage = false;
+            }
+        }
     }
 }

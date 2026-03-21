@@ -22,6 +22,7 @@ public class PowerStation : MonoBehaviour
     private enum ConsumptionType { None, Wood, Coal }
     private ConsumptionType currentConsumption = ConsumptionType.None;
     private ConsumptionType lastConsumption = ConsumptionType.None;
+    private int villageColliderCount = 0;
 
 
     void Start()
@@ -94,12 +95,26 @@ IEnumerator PowerStationConsumption()
 }
 
 
-    public void OnTriggerStay2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))
         {
-            Debug.Log("over village");
+            villageColliderCount++;
             Power_Follow_place_buildings.OverVillage = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Village"))
+        {
+            villageColliderCount--;
+            if (villageColliderCount <= 0)
+            {
+                villageColliderCount = 0;
+                Power_Follow_place_buildings.OverVillage = false;
+            }
         }
     }
 }

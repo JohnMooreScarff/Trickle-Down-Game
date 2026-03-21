@@ -17,6 +17,7 @@ public class CoalMine : MonoBehaviour
     private int wood = 4;
     private int stone = 2;
     private int power = 20;
+    private int villageColliderCount = 0;
 
     void Start()
     {
@@ -44,16 +45,25 @@ public class CoalMine : MonoBehaviour
 
         StartCoroutine(CoalProduction());
      }  
-    public void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))
         {
-            Debug.Log("over village");
+            villageColliderCount++;
             Coal_Follow_place_buildings.OverVillage = true;
         }
-        // else
-        // {
-        //     Coal_Follow_place_buildings.OverVillage = false;
-        // }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Village"))
+        {
+            villageColliderCount--;
+            if (villageColliderCount <= 0)
+            {
+                villageColliderCount = 0;
+                Coal_Follow_place_buildings.OverVillage = false;
+            }
+        }
     }
 }

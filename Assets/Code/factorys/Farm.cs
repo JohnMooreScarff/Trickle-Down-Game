@@ -13,7 +13,8 @@ public class Farm : MonoBehaviour
     private float Pollution = 0.02f;
     //consume
     private int power = 10;
-    
+    private int villageColliderCount = 0;  
+    private ParticleSystem ps;  
 
     void Start()
     {
@@ -23,6 +24,8 @@ public class Farm : MonoBehaviour
         ResourceData.Food_supply += food;
         StartCoroutine(WoodProduction());
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * wood_cost) + (ResourceData.Stone_value * stone_cost);
+        ps = GetComponent<ParticleSystem>();
+        ps.Play();
     }
      IEnumerator WoodProduction()
      {
@@ -31,17 +34,25 @@ public class Farm : MonoBehaviour
         StartCoroutine(WoodProduction());
         ResourceData.Pollution += Pollution;
      }
-    public void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))
         {
-            Debug.Log("over village");
+            villageColliderCount++;
             Farm_Follow_place_buildings.OverVillage = true;
         }
-        // else
-        // {
-        //     Farm_Follow_place_buildings.OverVillage = false;
-        // }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Village"))
+        {
+            villageColliderCount--;
+            if (villageColliderCount <= 0)
+            {
+                villageColliderCount = 0;
+                Farm_Follow_place_buildings.OverVillage = false;
+            }
+        }
     }
 }
