@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6addbb8e09c491841990c39129866cd7
+guid: 428fa00b1f85d8047bb0ddff29af7919
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3553768683937651634
-    second: Sprite-0002 1_0
+      213: 5064898690316692493
+    second: thedigitalartist-one-706897_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite-0002 1_0
+      name: thedigitalartist-one-706897_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 24
-        width: 232
-        height: 177
+        x: 0
+        y: 0
+        width: 2000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e442dfbe53a7eaec0800000000000000
-      internalID: -3553768683937651634
+      spriteID: d0ceaab16822a4640800000000000000
+      internalID: 5064898690316692493
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sprite-0002 1_0: -3553768683937651634
+      thedigitalartist-one-706897_0: 5064898690316692493
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

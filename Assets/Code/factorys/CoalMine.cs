@@ -18,6 +18,7 @@ public class CoalMine : MonoBehaviour
     private int stone = 2;
     private int power = 20;
     private int villageColliderCount = 0;
+    private ParticleSystem ps;  
 
     void Start()
     {
@@ -29,6 +30,8 @@ public class CoalMine : MonoBehaviour
         ResourceData.Stone_amount -= stone_cost;
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * wood_cost) + (ResourceData.Stone_value * stone_cost);
         StartCoroutine(CoalProduction());
+        ps = GetComponent<ParticleSystem>();
+        ps.Play();
     }
      IEnumerator CoalProduction()
      {

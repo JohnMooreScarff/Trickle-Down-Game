@@ -16,6 +16,7 @@ public class stonefactory : MonoBehaviour
     private int wood = 2;
     private int power = 10;
     private int villageColliderCount = 0;
+    private ParticleSystem ps;  
 
     void Start()
     {
@@ -26,6 +27,8 @@ public class stonefactory : MonoBehaviour
         ResourceData.Money -=  money_cost + wood_cost * ResourceData.Wood_value;
 
         StartCoroutine(StoneProduction());
+        ps = GetComponent<ParticleSystem>();
+        ps.Play();
     }
      IEnumerator StoneProduction()
      {

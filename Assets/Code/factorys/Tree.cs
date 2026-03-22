@@ -13,6 +13,7 @@ public class Tree : MonoBehaviour
     //produce
     private float Pollution = -0.05f;
     private int villageColliderCount = 0;
+    private ParticleSystem ps;  
 
 
     void Start()
@@ -22,6 +23,8 @@ public class Tree : MonoBehaviour
         ResourceData.Money -=  money_cost + wood_cost * ResourceData.Wood_value + food_cost * ResourceData.Food_value;
 
         StartCoroutine(Tree_oxygen());
+        ps = GetComponent<ParticleSystem>();
+        ps.Play();
     }
      IEnumerator Tree_oxygen()
      {

@@ -17,6 +17,7 @@ public class Village : MonoBehaviour
     private int food = 10; 
     private int coal = 2;
     private int iron = 1;
+    private ParticleSystem ps;  
 
     private int power = 25;
     private enum ConsumptionType { None, Wood, Stone, Food, Coal, Iron }
@@ -49,6 +50,8 @@ public class Village : MonoBehaviour
         ResourceData.Money -= ResourceData.Stone_value * stone_cost;
         ResourceData.Money -= ResourceData.Wood_value * wood_cost;
         ResourceData.village_ammount += 1;
+        ps = GetComponent<ParticleSystem>();
+        ps.Play();
         
         }
 
