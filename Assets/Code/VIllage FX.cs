@@ -1,11 +1,15 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class VIllageFX : MonoBehaviour
 {
-    public GameObject gameobject;
+    public GameObject PlaceParticals;
+    
+
     void Start()
     {
-        gameobject.gameObject.SetActive(true);
+        PlaceParticals.gameObject.SetActive(true);
     }
 
 

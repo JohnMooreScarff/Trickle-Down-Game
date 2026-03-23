@@ -17,7 +17,6 @@ public class Village : MonoBehaviour
     private int food = 10; 
     private int coal = 2;
     private int iron = 1;
-    private ParticleSystem ps;  
 
     private int power = 25;
     private enum ConsumptionType { None, Wood, Stone, Food, Coal, Iron }
@@ -32,12 +31,18 @@ public class Village : MonoBehaviour
     private ConsumptionType Iron_currentConsumption = ConsumptionType.None;
     private ConsumptionType Iron_lastConsumption = ConsumptionType.None;
     //produce
-    private int money = 40;
+    private int money = 30;
 
     //Leveling
     private int Level = 1;
     // private int building_count = 0;
     private int watercount = 0;
+    //incoming particals
+    public GameObject WoodParticals;
+    public GameObject StoneParticals;
+    public GameObject FoodParticals;
+    public GameObject CoalParticals;
+    public GameObject IronParticals;
 
     void Start()
     {
@@ -50,8 +55,6 @@ public class Village : MonoBehaviour
         ResourceData.Money -= ResourceData.Stone_value * stone_cost;
         ResourceData.Money -= ResourceData.Wood_value * wood_cost;
         ResourceData.village_ammount += 1;
-        ps = GetComponent<ParticleSystem>();
-        ps.Play();
         
         }
 
@@ -68,7 +71,10 @@ public class Village : MonoBehaviour
             ResourceData.Wood_amount -= wood * Level;
             ResourceData.Money += money * Level;
 
+
             Wood_currentConsumption = ConsumptionType.Wood;
+            WoodParticals.SetActive(true);
+
             if (Wood_currentConsumption != Wood_lastConsumption)
             {
                 ResourceData.Wood_demand += wood;
@@ -78,6 +84,7 @@ public class Village : MonoBehaviour
         }
         else
         {
+            WoodParticals.SetActive(false);
             Wood_currentConsumption = ConsumptionType.None;
             if (Wood_currentConsumption != Wood_lastConsumption)
             {
@@ -93,6 +100,8 @@ public class Village : MonoBehaviour
             ResourceData.Stone_amount -= stone * Level;
             ResourceData.Money += money * Level * 2;
             Stone_currentConsumption = ConsumptionType.Stone;
+            StoneParticals.SetActive(true);
+
             if(Stone_currentConsumption != Stone_lastConsumption)
             {
                 ResourceData.Wood_demand += wood;
@@ -102,6 +111,7 @@ public class Village : MonoBehaviour
         }
         else
         {
+            StoneParticals.SetActive(false);
             Wood_currentConsumption = ConsumptionType.None;
             if (Stone_currentConsumption != Stone_lastConsumption)
             {
@@ -117,6 +127,7 @@ public class Village : MonoBehaviour
             ResourceData.Food_amount -= food * Level;
             ResourceData.Money += money * Level * 3;
             Food_currentConsumption = ConsumptionType.Food;
+            FoodParticals.SetActive(true);
             if(Food_currentConsumption != Food_lastConsumption)
             {
                 ResourceData.Wood_demand += wood;
@@ -126,6 +137,7 @@ public class Village : MonoBehaviour
         }
         else
         {
+            FoodParticals.SetActive(false);
             Wood_currentConsumption = ConsumptionType.None;
             if (Food_currentConsumption != Food_lastConsumption)
             {
@@ -141,6 +153,7 @@ public class Village : MonoBehaviour
             ResourceData.Coal_amount -= coal * Level;
             ResourceData.Money += money * Level * 4;
             Coal_currentConsumption = ConsumptionType.Coal;
+            CoalParticals.SetActive(true);
             if(Coal_currentConsumption != Coal_lastConsumption)
             {
                 ResourceData.Wood_demand += wood;
@@ -150,6 +163,7 @@ public class Village : MonoBehaviour
         }
         else
         {
+            CoalParticals.SetActive(false);
             Wood_currentConsumption = ConsumptionType.None;
             if (Coal_currentConsumption != Coal_lastConsumption)
             {
@@ -165,6 +179,7 @@ public class Village : MonoBehaviour
             ResourceData.Iron_amount -= iron * Level;
             ResourceData.Money += money * Level * 5;
             Iron_currentConsumption = ConsumptionType.Iron;
+            IronParticals.SetActive(true);
             if(Iron_currentConsumption != Iron_lastConsumption)
             {
                 ResourceData.Wood_demand += wood;
@@ -174,6 +189,7 @@ public class Village : MonoBehaviour
         }
         else
         {
+            IronParticals.SetActive(false);
             Wood_currentConsumption = ConsumptionType.None;
             if (Iron_currentConsumption != Iron_lastConsumption)
             {
