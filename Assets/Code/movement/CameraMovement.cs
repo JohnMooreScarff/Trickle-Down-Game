@@ -1,22 +1,23 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CameraController : MonoBehaviour
 {
     public Camera mainCamera;
-    public SpriteRenderer targetSprite;
+    public TilemapRenderer targetTilemap;
 
     void Update()
     {
-        Bounds spriteBounds = targetSprite.bounds;
+        Bounds TilemapBounds = targetTilemap.bounds;
 
         float camHalfHeight = mainCamera.orthographicSize /4f;
         float camHalfWidth = camHalfHeight * mainCamera.aspect / 4f;
 
 
-        float minX = spriteBounds.min.x + camHalfHeight;
-        float maxX = spriteBounds.max.x - camHalfHeight;
-        float minY = spriteBounds.min.y + camHalfWidth;
-        float maxY = spriteBounds.max.y - camHalfWidth;
+        float minX = TilemapBounds.min.x + camHalfHeight;
+        float maxX = TilemapBounds.max.x - camHalfHeight;
+        float minY = TilemapBounds.min.y + camHalfWidth;
+        float maxY = TilemapBounds.max.y - camHalfWidth;
 
         Vector3 pos = transform.position;
 

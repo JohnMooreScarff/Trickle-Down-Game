@@ -3,68 +3,143 @@ using UnityEngine.Tilemaps;
 
 public class MapGen : MonoBehaviour
 {
-    public Tilemap tilemap;
-    public AnimatedTile waterTile, landTile, farmlandTile, forestTile, mountainTile, coalTile, ironTile;
+    public Tilemap tilemapsurface;
+    public Tilemap tilemapunder;
+    public AnimatedTile sandTile, waterTile, DeepwaterTile, landTile, farmlandTile, forestTile, MountainlowTile, mountainTile, MountainhighTile, coalTile, ironTile, snowTile;
 
-    public enum TileType
-    {
-        Water,
-        Land,
-        Farmland,
-        Forest,
-        Mountain,
-        Coal,
-        Iron
-    }
+    public enum TileType { None, Sand, Water, Deepwater, Land, Farmland, Forest, Mountainlow, Mountain, Mountainhigh, Coal, Iron, Snow }
 
     private TileType[,] mapGrid;
-    private int mapWidth = 500;
-    private int mapHeight =500;
-    public float scale = 0.1f;
+    private TileType[,] mapGridUnder;
+    private int mapWidth = 400;
+    private int mapHeight = 400;
+    public float scale;
+    [Range(-1.00f,1.00f)]
+    public float sealevel;
+
+    private float offsetX;
+    private float offsetY;
 
     void Start()
     {
-        mapGrid = new TileType[mapWidth, mapHeight];
+        scale = Random.Range(0.001f, 0.012f);
+        offsetX = Random.Range(0f, 10000f);
+        offsetY = Random.Range(0f, 10000f);
 
-        // Generate base terrain
+        mapGrid = new TileType[mapWidth, mapHeight];
+        mapGridUnder = new TileType[mapWidth, mapHeight];
+        genmap();
+        RenderMap();
+    }
+    // void Update()
+    // {
+    //     sealevel = sealevel += 0.00005f;
+    //     genmap();
+    //     RenderMap();
+    // }
+
+    float GenerateFractalNoise(float x, float y, int octaves, float persistence, float lacunarity)
+    {
+        float amplitude = 7f;
+        float frequency = 4f;
+        float noiseHeight = 8f;
+        float maxAmplitude = 2f;
+
+        for (int i = 0; i < octaves; i++)
+        {
+            float sampleX = (x + offsetX) * scale * frequency;
+            float sampleY = (y + offsetY) * scale * frequency;
+            float perlinValue = Mathf.PerlinNoise(sampleX, sampleY) * 2 - 1;
+
+            noiseHeight += perlinValue * amplitude;
+            maxAmplitude += amplitude;
+
+            amplitude *= persistence;
+            frequency *= lacunarity;
+        }
+
+        noiseHeight /= maxAmplitude;
+        return (noiseHeight + 1) / 2f;
+    }
+
+    float ApplyRadialMask(int x, int y)
+    {
+        float centerX = mapWidth / 2f;
+        float centerY = mapHeight / 2f;
+        float maxDistance = Mathf.Sqrt(centerX * centerX * 3 + centerY * centerY * 2);
+
+        float dx = x - centerX;
+        float dy = y - centerY;
+        float distance = Mathf.Sqrt(dx * dx + dy * dy);
+
+        return Mathf.Clamp01(1 - (distance / maxDistance));
+    }
+    float ApplyRadialMaskU(int x, int y)
+    {
+        
+        float dx = x;
+        float dy = y;
+        float distance = Mathf.Sqrt(dx * dx + dy * dy);
+
+        return Mathf.Clamp01(1 - (distance/3));
+    }
+
+    void genmap()
+    {
+        int octaves = 8;
+        float amplitude = 0.5f;
+        float frequency  = 2f;
+
+        int octavesU = 2;
+        float amplitudeU = 1f;
+        float frequencyU  = Random.Range(0.50f,3.00f);
+
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                float noiseValue = Mathf.PerlinNoise(x * scale, y * scale);
+                float noiseValue = GenerateFractalNoise(x, y, octaves, amplitude, frequency );
+                float mask = ApplyRadialMask(x, y);
+                noiseValue *= mask;
 
-                if (noiseValue < 0.3f)
+                if (noiseValue < 0.45f + sealevel)
+                    mapGrid[x, y] = TileType.Deepwater;
+                else if (noiseValue < 0.5f + sealevel)
                     mapGrid[x, y] = TileType.Water;
-                else if (noiseValue < 0.5f)
+                else if (noiseValue < 0.52f)
+                    mapGrid[x, y] = TileType.Sand;
+                else if (noiseValue < 0.57f)
                     mapGrid[x, y] = TileType.Land;
-                else if (noiseValue < 0.7f)
-                    mapGrid[x, y] = TileType.Forest;
-                else
+                else if (noiseValue < 0.6f)
+                    mapGrid[x, y] = TileType.Farmland;
+                else if (noiseValue < 0.67f)
+                    mapGrid[x, y] = TileType.Land;
+                else if (noiseValue < 0.68f)
+                    mapGrid[x, y] = TileType.Mountainlow;
+                else if (noiseValue < 0.73f)
                     mapGrid[x, y] = TileType.Mountain;
+                else if (noiseValue < 0.81f)
+                    mapGrid[x, y] = TileType.Mountainhigh;
+                else
+                mapGrid[x, y] = TileType.Snow;
             }
         }
-
-        RenderMap();
-    }
-
-    bool IsNearTileType(int x, int y, TileType type)
-    {
-        for (int dx = -1; dx <= 1; dx++)
-        {
-            for (int dy = -1; dy <= 1; dy++)
+        for (int x = 0; x < mapWidth; x++)
             {
-                int nx = x + dx;
-                int ny = y + dy;
-                if (nx >= 0 && nx < mapWidth && ny >= 0 && ny < mapHeight)
-                {
-                    if (mapGrid[nx, ny] == type)
-                        return true;
-                }
-            }
-        }
-        return false;
-    }
+            for (int y = 0; y < mapHeight; y++)
+            {
+                float noiseValueU = GenerateFractalNoise(x, y, octavesU, amplitudeU, frequencyU );
 
+                if (noiseValueU < 0.5f)
+                    mapGridUnder[x, y] = TileType.Coal;
+                else if (noiseValueU > 0.95f)
+                    mapGridUnder[x, y] = TileType.Iron;
+                else
+                    mapGridUnder[x, y] = TileType.None;
+                
+            }
+        }           
+    }
     void RenderMap()
     {
         for (int x = 0; x < mapWidth; x++)
@@ -74,16 +149,30 @@ public class MapGen : MonoBehaviour
                 AnimatedTile tileToPlace = null;
                 switch (mapGrid[x, y])
                 {
+                    case TileType.Sand: tileToPlace = sandTile; break;
                     case TileType.Water: tileToPlace = waterTile; break;
+                    case TileType.Deepwater: tileToPlace = DeepwaterTile; break;
                     case TileType.Land: tileToPlace = landTile; break;
                     case TileType.Farmland: tileToPlace = farmlandTile; break;
                     case TileType.Forest: tileToPlace = forestTile; break;
                     case TileType.Mountain: tileToPlace = mountainTile; break;
-                    case TileType.Coal: tileToPlace = coalTile; break;
-                    case TileType.Iron: tileToPlace = ironTile; break;
+                    case TileType.Mountainlow: tileToPlace = MountainlowTile; break;
+                    case TileType.Mountainhigh: tileToPlace = MountainhighTile; break;
+                    case TileType.Snow: tileToPlace = snowTile; break;
+                    
                 }
                 if (tileToPlace != null)
-                    tilemap.SetTile(new Vector3Int(x, y, 0), tileToPlace);
+                    tilemapsurface.SetTile(new Vector3Int(x, y, 0), tileToPlace);
+
+                AnimatedTile undergroundTileToPlace = null;
+                switch (mapGridUnder[x, y])
+                {
+                    case TileType.Coal: undergroundTileToPlace = coalTile; break;
+                    case TileType.Iron: undergroundTileToPlace = ironTile; break;
+                }
+                if (undergroundTileToPlace != null)
+                    tilemapunder.SetTile(new Vector3Int(x, y, 0), undergroundTileToPlace);
+        
             }
         }
     }

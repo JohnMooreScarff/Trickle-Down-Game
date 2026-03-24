@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sand
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 21300000, guid: 08d2970da67690b4fbd0eacc39a20098, type: 3}
+  - {fileID: -323825113, guid: 8da668386e370a74c86074b7e3d3eb4a, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0

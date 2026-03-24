@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Coal
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 861460521, guid: d1937917f9a529c47bcbfb45144aa00c, type: 3}
+  - {fileID: -6007857137893288414, guid: 0644f03a07ae2e346a6c1430a5d60d86, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
-  m_TileColliderType: 2
+  m_TileColliderType: 0
   m_TileAnimationFlags: 0

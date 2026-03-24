@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sea
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 6769522608242751252, guid: d1937917f9a529c47bcbfb45144aa00c, type: 3}
+  - {fileID: 1274519262, guid: 8da668386e370a74c86074b7e3d3eb4a, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
