@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 252663913}
   - component: {fileID: 252663912}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1684,8 +1684,8 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     mode: 1
-    timeMode: 0
-    fps: 30
+    timeMode: 2
+    fps: 4
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
