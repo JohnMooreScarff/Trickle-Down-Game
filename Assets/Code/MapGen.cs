@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
+using System.Collections;
+using TMPro;
 public class MapGen : MonoBehaviour
 {
     public Tilemap tilemapsurface;
     public Tilemap tilemapunder;
-    public AnimatedTile sandTile, waterTile, DeepwaterTile, landTile, farmlandTile, forestTile, MountainlowTile, mountainTile, MountainhighTile, coalTile, ironTile, snowTile;
+    public RuleTile sandTile, waterTile, DeepwaterTile, landTile, farmlandTile, forestTile, MountainlowTile, mountainTile, MountainhighTile, coalTile, ironTile, snowTile;
 
     public enum TileType { None, Sand, Water, Deepwater, Land, Farmland, Forest, Mountainlow, Mountain, Mountainhigh, Coal, Iron, Snow }
 
     private TileType[,] mapGrid;
     private TileType[,] mapGridUnder;
-    private int mapWidth = 200;
-    private int mapHeight = 200;
+    private int mapWidth = 500;
+    private int mapHeight = 500;
     public float scale;
     [Range(-1.00f,1.00f)]
     public float sealevel;
@@ -29,14 +30,18 @@ public class MapGen : MonoBehaviour
         mapGrid = new TileType[mapWidth, mapHeight];
         mapGridUnder = new TileType[mapWidth, mapHeight];
         genmap();
-        RenderMap();
+        RenderMap();    
+        // StartCoroutine(searise());    
     }
-    void Update()
-    {
-        // sealevel = sealevel += 0.002f;
-        // genmap();
-        // RenderMap();
-    }
+    // IEnumerator searise()
+    //  {
+    //     yield return new WaitForSeconds(2);
+    //     sealevel = sealevel += 0.002f;
+    //     genmap();
+    //     RenderMap();
+    //     StartCoroutine(searise());
+    //  }
+   
 
     float GenerateFractalNoise(float x, float y, int octaves, float persistence, float lacunarity)
     {
@@ -150,7 +155,7 @@ public class MapGen : MonoBehaviour
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                AnimatedTile tileToPlace = null;
+                RuleTile tileToPlace = null;
                 switch (mapGrid[x, y])
                 {
                     case TileType.Sand: tileToPlace = sandTile; break;
@@ -168,7 +173,7 @@ public class MapGen : MonoBehaviour
                 if (tileToPlace != null)
                     tilemapsurface.SetTile(new Vector3Int(x, y, 0), tileToPlace);
 
-                AnimatedTile undergroundTileToPlace = null;
+                RuleTile undergroundTileToPlace = null;
                 switch (mapGridUnder[x, y])
                 {
                     case TileType.Coal: undergroundTileToPlace = coalTile; break;

@@ -18989,7 +18989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 100
-  multiplier: 90
+  multiplier: 40
   minzoom: 1
   maxzoom: 300
   smoothTime: 0.1
@@ -19007,7 +19007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420041}
-  targetTilemap: {fileID: 1834362717}
+  targetTilemap: {fileID: 890308562}
 --- !u!114 &519420044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23354,18 +23354,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemapsurface: {fileID: 890308563}
   tilemapunder: {fileID: 1834362718}
-  sandTile: {fileID: 11400000, guid: 9ef4099f43cef0e47ad24983b93ee57a, type: 2}
-  waterTile: {fileID: 11400000, guid: 18439fcdd77086548b03b53970c3f3c6, type: 2}
-  DeepwaterTile: {fileID: 11400000, guid: 8df2f68629fb1c9458448cfce3620d4c, type: 2}
-  landTile: {fileID: 11400000, guid: 6ff559325a8d8c04c8050cb0f4929878, type: 2}
-  farmlandTile: {fileID: 11400000, guid: 39ac6dc2e31c73a4bafbc0cc50960593, type: 2}
-  forestTile: {fileID: 11400000, guid: ec06b654813d07049b3277b4ca12d7e3, type: 2}
-  MountainlowTile: {fileID: 11400000, guid: 60d50a552d9bd2b4c8da480056ac4e3b, type: 2}
-  mountainTile: {fileID: 11400000, guid: 1e33c9ad0b0a0b742b5d7501bc178d5f, type: 2}
-  MountainhighTile: {fileID: 11400000, guid: e7d91bd1b649ff84ab79e29536e3c30c, type: 2}
-  coalTile: {fileID: 11400000, guid: 42ffd00ee993f064a8e29a5495ebc33b, type: 2}
-  ironTile: {fileID: 11400000, guid: 3bb4b3e4197890e479825549f3db074f, type: 2}
-  snowTile: {fileID: 11400000, guid: 3b7ce377487f3434882b24af325292df, type: 2}
+  sandTile: {fileID: 11400000, guid: bd29c65a884c0284b86ef8fae112dae1, type: 2}
+  waterTile: {fileID: 11400000, guid: 5fcbbb205d82b9b41a8775f1513cfc5d, type: 2}
+  DeepwaterTile: {fileID: 11400000, guid: ebed8f41d206ded4b84e676d7f322f0e, type: 2}
+  landTile: {fileID: 11400000, guid: 505903369305bc044a14550a0ee9e0cd, type: 2}
+  farmlandTile: {fileID: 11400000, guid: 0efd98f09210cb245a0b9eea2abeb9f1, type: 2}
+  forestTile: {fileID: 11400000, guid: 8fa20720b04af7c4e866333cc4af5a64, type: 2}
+  MountainlowTile: {fileID: 11400000, guid: 353d61f764aaa4848a77656cebe9c47c, type: 2}
+  mountainTile: {fileID: 11400000, guid: ad86eaa4b364b034f987bc4e79334eb1, type: 2}
+  MountainhighTile: {fileID: 11400000, guid: ab9dbd63904241b4095dedce36182b1c, type: 2}
+  coalTile: {fileID: 11400000, guid: 64f392970cda73c4f859eb80ea78e073, type: 2}
+  ironTile: {fileID: 11400000, guid: 1c7e76058d7c0624b81ba8160a0b4ed1, type: 2}
+  snowTile: {fileID: 11400000, guid: 8d9d7e652b2217f488663ff003ce7a0a, type: 2}
   scale: 0.01
   sealevel: 0
 --- !u!156049354 &695970617
@@ -26293,7 +26293,7 @@ GameObject:
   - component: {fileID: 890308561}
   m_Layer: 0
   m_Name: surface
-  m_TagString: Untagged
+  m_TagString: map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26370,7 +26370,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 5000, y: 5000, z: 0}
+  m_ChunkCullingBounds: {x: 1, y: 1, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -43698,7 +43698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &1754332717
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -43859,7 +43859,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40.6
+      scalar: 31.86
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -44415,7 +44415,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 90, z: 0}
-    m_Scale: {x: 91.82, y: 1, z: 1}
+    m_Scale: {x: 129.95, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -48508,7 +48508,7 @@ Transform:
   m_GameObject: {fileID: 1754332716}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -103.2, y: 1.1, z: 0}
+  m_LocalPosition: {x: -21.6, y: 62.6, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49407,7 +49407,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 1, y: 1, z: 0}
   m_MaxChunkCount: 16
