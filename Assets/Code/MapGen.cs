@@ -11,8 +11,8 @@ public class MapGen : MonoBehaviour
 
     private TileType[,] mapGrid;
     private TileType[,] mapGridUnder;
-    private int mapWidth = 400;
-    private int mapHeight = 400;
+    private int mapWidth = 200;
+    private int mapHeight = 200;
     public float scale;
     [Range(-1.00f,1.00f)]
     public float sealevel;
@@ -31,12 +31,12 @@ public class MapGen : MonoBehaviour
         genmap();
         RenderMap();
     }
-    // void Update()
-    // {
-    //     sealevel = sealevel += 0.00005f;
-    //     genmap();
-    //     RenderMap();
-    // }
+    void Update()
+    {
+        // sealevel = sealevel += 0.002f;
+        // genmap();
+        // RenderMap();
+    }
 
     float GenerateFractalNoise(float x, float y, int octaves, float persistence, float lacunarity)
     {
@@ -114,7 +114,9 @@ public class MapGen : MonoBehaviour
                     mapGrid[x, y] = TileType.Farmland;
                 else if (noiseValue < 0.67f)
                     mapGrid[x, y] = TileType.Land;
-                else if (noiseValue < 0.68f)
+                else if (noiseValue < 0.69f)
+                    mapGrid[x, y] = TileType.Forest;
+                else if (noiseValue < 0.7f)
                     mapGrid[x, y] = TileType.Mountainlow;
                 else if (noiseValue < 0.73f)
                     mapGrid[x, y] = TileType.Mountain;
@@ -142,6 +144,8 @@ public class MapGen : MonoBehaviour
     }
     void RenderMap()
     {
+        tilemapsurface.ClearAllTiles();
+        tilemapunder.ClearAllTiles();
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
@@ -171,8 +175,7 @@ public class MapGen : MonoBehaviour
                     case TileType.Iron: undergroundTileToPlace = ironTile; break;
                 }
                 if (undergroundTileToPlace != null)
-                    tilemapunder.SetTile(new Vector3Int(x, y, 0), undergroundTileToPlace);
-        
+                    tilemapunder.SetTile(new Vector3Int(x, y, 0), undergroundTileToPlace);        
             }
         }
     }

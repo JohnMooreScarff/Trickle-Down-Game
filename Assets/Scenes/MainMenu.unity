@@ -680,16 +680,10 @@ MonoBehaviour:
   ResourceMenu: {fileID: 0}
   ManufacturingMenu: {fileID: 0}
   EnergyMenu: {fileID: 0}
-  wood: {fileID: 0}
-  stone: {fileID: 0}
-  food: {fileID: 0}
-  coal: {fileID: 0}
-  iron: {fileID: 0}
-  tree: {fileID: 0}
-  carboncatcher: {fileID: 0}
-  powerplant: {fileID: 0}
-  windturbine: {fileID: 0}
+  Quitmenu: {fileID: 0}
+  gameUi: {fileID: 0}
   transitionDuration: 0.25
+  QuitmenuOPEN: 0
 --- !u!1 &578338245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,7 +1563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960.00006, y: -64.600006}
+  m_AnchoredPosition: {x: 960.00006, y: -105.4}
   m_SizeDelta: {x: 1120.0001, y: 136.32855}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674805296
