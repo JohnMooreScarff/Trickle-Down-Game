@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4111954381161679413}
   - component: {fileID: -8612905692825776906}
   - component: {fileID: 7319320168839826005}
+  - component: {fileID: -8107904846478698259}
   m_Layer: 0
   m_Name: WindTurbine
   m_TagString: Building
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -6007857137893288414, guid: 8fa455dc044f72d4aa2070e0489e1c2d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.39000797, a: 1}
+  m_Sprite: {fileID: 8713120321045492238, guid: c4a8ca907cb3403439a27ee4199a92b7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -165,3 +166,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae027b6c6f346241be34fb77a6277ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-8107904846478698259
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6419b4afddf8e574d82ad2fbb8b5d679, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1469995607763382365}
   - component: {fileID: 4111954381161679413}
   - component: {fileID: -8612905692825776906}
+  - component: {fileID: 6497676589255491498}
   m_Layer: 0
   m_Name: Power_Station
   m_TagString: Building
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -6007857137893288414, guid: 8fa455dc044f72d4aa2070e0489e1c2d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.68598413, a: 1}
+  m_Sprite: {fileID: 179173025687594190, guid: 8373eacd712bf9b4999ab44093bb63fd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -165,3 +166,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &6497676589255491498
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2d88f35ec8871a418c00e88517aeeaf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
