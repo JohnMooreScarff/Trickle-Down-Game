@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4917,12 +4917,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8524394709142811192, guid: 8450cc737dbe3b04b98f7a571682285a, type: 3}
+  m_Sprite: {fileID: -8524394709142811192, guid: 3c23dccaf33b65346b8fb91f2afff8a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.7200003, y: 5.441833}
+  m_Size: {x: 3.1249998, y: 2.0080566}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5013,7 +5013,7 @@ Animator:
   m_GameObject: {fileID: 5594748921629491420}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6992bbfb7c73574418716d10010d2026, type: 2}
+  m_Controller: {fileID: 9100000, guid: cd737ac7128bc804da725c44a778a283, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
