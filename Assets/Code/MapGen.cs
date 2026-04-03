@@ -12,6 +12,11 @@ public class MapGen : MonoBehaviour
 
     private TileType[,] mapGrid;
     private TileType[,] mapGridUnder;
+    private TileType[,] previousMapGrid;
+    private TileType[,] previousMapGridUnder;
+    private float[,] SavedNoiseValue;
+    private float[,] maskValues;
+    float mask;
     private int mapWidth = 500;
     private int mapHeight = 500;
     public float scale;
@@ -29,18 +34,26 @@ public class MapGen : MonoBehaviour
 
         mapGrid = new TileType[mapWidth, mapHeight];
         mapGridUnder = new TileType[mapWidth, mapHeight];
-        genmap();
+        previousMapGrid = new TileType[mapWidth, mapHeight];
+        previousMapGridUnder = new TileType[mapWidth, mapHeight];
+        SavedNoiseValue = new float[mapWidth, mapHeight];
+        maskValues = new float[mapWidth, mapHeight];
+        FractalNoise();
+        genmapover();
+        genmapunder();
         RenderMap();    
-        // StartCoroutine(searise());    
+        StartCoroutine(searise());
     }
-    // IEnumerator searise()
-    //  {
-    //     yield return new WaitForSeconds(2);
-    //     sealevel = sealevel += 0.002f;
-    //     genmap();
-    //     RenderMap();
-    //     StartCoroutine(searise());
-    //  }
+    IEnumerator searise()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            sealevel += 0.002f;
+            genmapover();
+            RenderMap();
+        }
+    }
    
 
     float GenerateFractalNoise(float x, float y, int octaves, float persistence, float lacunarity)
@@ -88,24 +101,31 @@ public class MapGen : MonoBehaviour
 
         return Mathf.Clamp01(1 - (distance/3));
     }
-
-    void genmap()
-    {
+    void FractalNoise()
+    {   
         int octaves = 8;
         float amplitude = 0.5f;
         float frequency  = 2f;
-
-        int octavesU = 2;
-        float amplitudeU = 1f;
-        float frequencyU  = Random.Range(0.50f,3.00f);
 
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                float noiseValue = GenerateFractalNoise(x, y, octaves, amplitude, frequency );
-                float mask = ApplyRadialMask(x, y);
-                noiseValue *= mask;
+                SavedNoiseValue[x,y] = GenerateFractalNoise(x, y, octaves, amplitude, frequency );
+                maskValues[x,y] = ApplyRadialMask(x, y);
+            }
+        }
+    }
+
+    void genmapover()
+    {
+
+        for (int x = 0; x < mapWidth; x++)
+        {
+            for (int y = 0; y < mapHeight; y++)
+            {
+                float noiseValue = SavedNoiseValue[x,y];
+                noiseValue *= maskValues[x,y];
 
                 if (noiseValue < 0.45f + sealevel)
                     mapGrid[x, y] = TileType.Deepwater;
@@ -131,6 +151,14 @@ public class MapGen : MonoBehaviour
                 mapGrid[x, y] = TileType.Snow;
             }
         }
+                   
+    }
+    void genmapunder()
+    {
+        int octavesU = 2;
+        float amplitudeU = 1f;
+        float frequencyU  = Random.Range(0.50f,3.00f);
+
         for (int x = 0; x < mapWidth; x++)
             {
             for (int y = 0; y < mapHeight; y++)
@@ -145,43 +173,50 @@ public class MapGen : MonoBehaviour
                     mapGridUnder[x, y] = TileType.None;
                 
             }
-        }           
+        }
     }
     void RenderMap()
     {
-        tilemapsurface.ClearAllTiles();
-        tilemapunder.ClearAllTiles();
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                RuleTile tileToPlace = null;
-                switch (mapGrid[x, y])
+                if (mapGrid[x, y] != previousMapGrid[x, y])
                 {
-                    case TileType.Sand: tileToPlace = sandTile; break;
-                    case TileType.Water: tileToPlace = waterTile; break;
-                    case TileType.Deepwater: tileToPlace = DeepwaterTile; break;
-                    case TileType.Land: tileToPlace = landTile; break;
-                    case TileType.Farmland: tileToPlace = farmlandTile; break;
-                    case TileType.Forest: tileToPlace = forestTile; break;
-                    case TileType.Mountain: tileToPlace = mountainTile; break;
-                    case TileType.Mountainlow: tileToPlace = MountainlowTile; break;
-                    case TileType.Mountainhigh: tileToPlace = MountainhighTile; break;
-                    case TileType.Snow: tileToPlace = snowTile; break;
-                    
-                }
-                if (tileToPlace != null)
-                    tilemapsurface.SetTile(new Vector3Int(x, y, 0), tileToPlace);
+                    RuleTile tileToPlace = null;
+                    switch (mapGrid[x, y])
+                    {
+                        case TileType.Sand: tileToPlace = sandTile; break;
+                        case TileType.Water: tileToPlace = waterTile; break;
+                        case TileType.Deepwater: tileToPlace = DeepwaterTile; break;
+                        case TileType.Land: tileToPlace = landTile; break;
+                        case TileType.Farmland: tileToPlace = farmlandTile; break;
+                        case TileType.Forest: tileToPlace = forestTile; break;
+                        case TileType.Mountain: tileToPlace = mountainTile; break;
+                        case TileType.Mountainlow: tileToPlace = MountainlowTile; break;
+                        case TileType.Mountainhigh: tileToPlace = MountainhighTile; break;
+                        case TileType.Snow: tileToPlace = snowTile; break;
+                        default: tileToPlace = null; break;
+                    }
 
-                RuleTile undergroundTileToPlace = null;
-                switch (mapGridUnder[x, y])
-                {
-                    case TileType.Coal: undergroundTileToPlace = coalTile; break;
-                    case TileType.Iron: undergroundTileToPlace = ironTile; break;
+                    tilemapsurface.SetTile(new Vector3Int(x, y, 0), tileToPlace);
+                    previousMapGrid[x, y] = mapGrid[x, y];
                 }
-                if (undergroundTileToPlace != null)
-                    tilemapunder.SetTile(new Vector3Int(x, y, 0), undergroundTileToPlace);        
+
+                if (mapGridUnder[x, y] != previousMapGridUnder[x, y])
+                {
+                    RuleTile undergroundTileToPlace = null;
+                    switch (mapGridUnder[x, y])
+                    {
+                        case TileType.Coal: undergroundTileToPlace = coalTile; break;
+                        case TileType.Iron: undergroundTileToPlace = ironTile; break;
+                        default: undergroundTileToPlace = null; break;
+                    }
+
+                    tilemapunder.SetTile(new Vector3Int(x, y, 0), undergroundTileToPlace);
+                    previousMapGridUnder[x, y] = mapGridUnder[x, y];
+                }
             }
         }
-    }
+}
 }

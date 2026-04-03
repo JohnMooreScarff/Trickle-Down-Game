@@ -11,7 +11,7 @@ public class Farm_Follow_place_buildings : MonoBehaviour
     public GameObject objectPrefab;
     private GameObject currentObject;
 
-    private bool isPlacing = false;
+    public static bool isPlacing = false;
     public static bool OverVillage = false;
 
     void Update()
@@ -27,32 +27,34 @@ public class Farm_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        if (isPlacing == false && ResourceData.Wood_amount >= Farm.wood_cost && ResourceData.Stone_amount >= Farm.stone_cost)
+        if (isPlacing == false && ResourceData.Stone_amount >= Village.stone_cost && ResourceData.Wood_amount >= Village.wood_cost)
         {
-        Debug.Log("StartPlacing");
-        currentObject = Instantiate(objectPrefab);
-        MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
-        foreach (MonoBehaviour script in scripts)
-        {
-            Debug.Log("scriptdisabled");
-            script.enabled = false;
+            currentObject = Instantiate(objectPrefab);
+            MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
+
+            for (int i = 0; i < scripts.Length && i < 2; i++)
+            {
+                Debug.Log("Disabling script: " + scripts[i].GetType().Name);
+                scripts[i].enabled = false;
+            }
+
+            isPlacing = true;
+            button.interactable = false;
         }
-        isPlacing = true;
-        button.interactable = false;
-        }   
     }
 
     public void PlaceObject()
     {
-        if (isPlacing == true && OverVillage == true)
+        if (isPlacing == true && FarmTile.Overwater == false && OverVillage == true)
         {
-        Debug.Log("PlaceObject");
-        MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
-        foreach (MonoBehaviour script in scripts)
-        {
-            Debug.Log("scriptenabled");
-            script.enabled = true;
-        }
+            MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
+
+            for (int i = 0; i < scripts.Length && i < 2; i++)
+            {
+                Debug.Log("Enabling script: " + scripts[i].GetType().Name);
+                scripts[i].enabled = true;
+            }
+
         isPlacing = false;
         currentObject = null;
         button.interactable = true;

@@ -11,6 +11,6 @@ public class LayerControl : MonoBehaviour
     }
     void LateUpdate()
     {
-        spriteRenderer.sortingOrder = (int)((120 - transform.position.y) * 100);
+        spriteRenderer.sortingOrder = (int)((130 - transform.position.y) * 100);
     }
 }

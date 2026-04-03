@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6778609054723540717}
   - component: {fileID: -6919901702056905449}
   - component: {fileID: 746156405536625795}
+  - component: {fileID: 7631916739685817087}
   m_Layer: 0
   m_Name: stone_factory
   m_TagString: Building
@@ -5089,6 +5090,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c115586688fc9e0459eb26fdebd66be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7631916739685817087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07405c16ed1678c42a61215c6be29400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9153644541609451743

@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 using System.Collections;
 using System.Collections.Generic;
 
-public class VillageTile : MonoBehaviour
+public class FarmTile : MonoBehaviour
 {
     public static bool Overwater;
     private Tilemap tilemap;
@@ -18,7 +18,7 @@ public class VillageTile : MonoBehaviour
 
     void Update()
     {
-        if(VillagePlacement.isPlacing == true)
+        if(Farm_Follow_place_buildings.isPlacing == true)
         {
         Vector3 worldPosition = transform.position;
         Vector3Int cellPosition = tilemap.WorldToCell(worldPosition);

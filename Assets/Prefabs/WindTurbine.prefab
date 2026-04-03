@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7783072760877081168}
   - component: {fileID: 8104479478924155069}
   - component: {fileID: 7735247504988229134}
+  - component: {fileID: -3716978352536986678}
   m_Layer: 0
   m_Name: WindTurbine
   m_TagString: Building
@@ -5059,5 +5060,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c115586688fc9e0459eb26fdebd66be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3716978352536986678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53760edce78fa84e85dcde7773a52c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

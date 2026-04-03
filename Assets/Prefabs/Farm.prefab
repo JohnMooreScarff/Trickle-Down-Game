@@ -4851,6 +4851,7 @@ GameObject:
   - component: {fileID: -5485148601323932876}
   - component: {fileID: -1847785228436230766}
   - component: {fileID: 7763319527022785779}
+  - component: {fileID: 8254705011027249326}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Building
@@ -9906,5 +9907,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c115586688fc9e0459eb26fdebd66be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8254705011027249326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6325bbb53360b354ab7e7f30e8b9ca9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

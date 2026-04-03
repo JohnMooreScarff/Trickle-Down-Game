@@ -1380,7 +1380,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &79964158
 GameObject:
@@ -2645,7 +2645,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &182571423
 GameObject:
@@ -4395,7 +4395,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -492.3146, w: 0}
+  m_margin: {x: 0, y: 0, z: -450.51434, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -4447,7 +4447,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &317771380
 GameObject:
@@ -4698,7 +4698,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &338502402
 GameObject:
@@ -6450,7 +6450,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1138899717875629526, guid: 0abe0fcb33abe70428f1d787e424f6c0, type: 2}
@@ -6473,7 +6473,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &438478692
 GameObject:
@@ -10347,7 +10347,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -492.3146, w: 0}
+  m_margin: {x: 0, y: 0, z: -450.51434, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -10399,7 +10399,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &629204449
 GameObject:
@@ -21410,7 +21410,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -492.3146, w: 0}
+  m_margin: {x: 0, y: 0, z: -450.51434, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -21462,7 +21462,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1027042784
 GameObject:
@@ -21778,7 +21778,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 13000
   m_TargetDisplay: 0
 --- !u!224 &1032861672
 RectTransform:
@@ -26420,7 +26420,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 76130205}
   objectPrefab: {fileID: 5594748921629491420, guid: 0273b7470e45e404988b6d9b6aeca4a0, type: 3}
-  isPlacing: 0
 --- !u!114 &1369436051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27607,7 +27606,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -492.3146, w: 0}
+  m_margin: {x: 0, y: 0, z: -450.51434, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -27659,7 +27658,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1447306980
 GameObject:
@@ -38335,7 +38334,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1872508247
 GameObject:
@@ -41965,7 +41964,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2094841031
 GameObject:
@@ -43760,7 +43759,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -492.3146, w: 0}
+  m_margin: {x: 0, y: 0, z: -450.51434, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -43812,7 +43811,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 13001
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

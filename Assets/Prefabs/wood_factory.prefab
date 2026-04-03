@@ -4851,6 +4851,7 @@ GameObject:
   - component: {fileID: -5130617455542870282}
   - component: {fileID: -562196240313783326}
   - component: {fileID: 7704023548420342677}
+  - component: {fileID: 7835669823070803965}
   m_Layer: 0
   m_Name: wood_factory
   m_TagString: Building
@@ -9918,5 +9919,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c115586688fc9e0459eb26fdebd66be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7835669823070803965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a017716989c56547808dd0f8c552586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

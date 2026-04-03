@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1129290557705450356}
   - component: {fileID: 5719427719634992493}
   - component: {fileID: 4994904507083817952}
+  - component: {fileID: -5204893354329391501}
   m_Layer: 0
   m_Name: Power_Station
   m_TagString: Building
@@ -5059,5 +5060,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c115586688fc9e0459eb26fdebd66be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5204893354329391501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1784c654cd7db489f212b3c0aef2ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
