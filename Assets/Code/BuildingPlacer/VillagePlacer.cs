@@ -8,7 +8,7 @@ public class VillagePlacement : MonoBehaviour
     public Button placeVillageButton;
 
     private GameObject villageToPlace;
-    private bool isPlacing = false;
+    public static bool isPlacing = false;
     public static bool OverWater = false;
 
 
@@ -25,36 +25,40 @@ public class VillagePlacement : MonoBehaviour
 
     public void StartPlacingVillage()
     {
-        if (isPlacing == false &&ResourceData.Stone_amount >= Village.stone_cost && ResourceData.Wood_amount >= Village.wood_cost)
+        if (isPlacing == false && ResourceData.Stone_amount >= Village.stone_cost && ResourceData.Wood_amount >= Village.wood_cost)
         {
-        villageToPlace = Instantiate(villagePrefab);
-        MonoBehaviour[] scripts = villageToPlace.GetComponents<MonoBehaviour>();
-        foreach (MonoBehaviour script in scripts)
-        {
-            Debug.Log("scriptdisabled");
-            script.enabled = false;
-        }
-        isPlacing = true;
-        placeVillageButton.interactable = false;
+            villageToPlace = Instantiate(villagePrefab);
+            MonoBehaviour[] scripts = villageToPlace.GetComponents<MonoBehaviour>();
+
+            for (int i = 0; i < scripts.Length && i < 3; i++)
+            {
+                Debug.Log("Disabling script: " + scripts[i].GetType().Name);
+                scripts[i].enabled = false;
+            }
+
+            isPlacing = true;
+            placeVillageButton.interactable = false;
         }
     }
 
     public void PlaceVillage()
     {
-        if (isPlacing == true && OverWater == false)
+        if (isPlacing == true && VillageTile.Overwater == false)
         {
-        MonoBehaviour[] scripts = villageToPlace.GetComponents<MonoBehaviour>();
-        foreach (MonoBehaviour script in scripts)
-        {
-            Debug.Log("scriptenabled");
-            script.enabled = true;
-        }
-        villageToPlace = null;
-        isPlacing = false;
-        placeVillageButton.interactable = true;
-        OverWater = false;
+            MonoBehaviour[] scripts = villageToPlace.GetComponents<MonoBehaviour>();
+
+            for (int i = 0; i < scripts.Length && i < 3; i++)
+            {
+                Debug.Log("Enabling script: " + scripts[i].GetType().Name);
+                scripts[i].enabled = true;
+            }
+
+            villageToPlace = null;
+            isPlacing = false;
+            placeVillageButton.interactable = true;
         }
     }
+
 
     public void CancelPlacement()
     {

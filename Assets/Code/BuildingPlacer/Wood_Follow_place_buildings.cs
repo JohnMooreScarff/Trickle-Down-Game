@@ -10,7 +10,7 @@ public class Wood_Follow_place_buildings : MonoBehaviour
     public GameObject objectPrefab;
     private GameObject currentObject;
 
-    public bool isPlacing = false;
+    public static bool isPlacing = false;
     public static bool OverVillage = false;
     
 
