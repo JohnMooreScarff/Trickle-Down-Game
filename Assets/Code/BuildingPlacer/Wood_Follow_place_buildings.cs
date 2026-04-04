@@ -34,7 +34,7 @@ public class Wood_Follow_place_buildings : MonoBehaviour
 
             for (int i = 0; i < scripts.Length && i < 3; i++)
             {
-                Debug.Log("Disabling script: " + scripts[i].GetType().Name);
+                Debug.Log("Dissabling script: " + scripts[i].GetType().Name);
                 scripts[i].enabled = false;
             }
 

@@ -65,146 +65,150 @@ public class Village : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         //wood
-        if (ResourceData.Wood_amount >= wood)
+        if(GetComponent<WaterDissable>().Flooded == false)
         {
-            ResourceData.Money -= wood * Level * ResourceData.Wood_value;
-            ResourceData.Wood_amount -= wood * Level;
-            ResourceData.Money += money * Level;
+            if (ResourceData.Wood_amount >= wood)
+            {
+                ResourceData.Money -= wood * Level * ResourceData.Wood_value;
+                ResourceData.Wood_amount -= wood * Level;
+                ResourceData.Money += money * Level;
 
 
-            Wood_currentConsumption = ConsumptionType.Wood;
-            WoodParticals.SetActive(true);
+                Wood_currentConsumption = ConsumptionType.Wood;
+                WoodParticals.SetActive(true);
 
-            if (Wood_currentConsumption != Wood_lastConsumption)
-            {
-                ResourceData.Wood_demand += wood;
-                Wood_lastConsumption = Wood_currentConsumption;
-                ResourceData.QOl_wood += 1;
+                if (Wood_currentConsumption != Wood_lastConsumption)
+                {
+                    ResourceData.Wood_demand += wood;
+                    Wood_lastConsumption = Wood_currentConsumption;
+                    ResourceData.QOl_wood += 1;
+                }
             }
-        }
-        else
-        {
-            WoodParticals.SetActive(false);
-            Wood_currentConsumption = ConsumptionType.None;
-            if (Wood_currentConsumption != Wood_lastConsumption)
+            else
             {
-                Wood_lastConsumption = Wood_currentConsumption;
-                ResourceData.QOl_wood -= 1;
+                WoodParticals.SetActive(false);
+                Wood_currentConsumption = ConsumptionType.None;
+                if (Wood_currentConsumption != Wood_lastConsumption)
+                {
+                    Wood_lastConsumption = Wood_currentConsumption;
+                    ResourceData.QOl_wood -= 1;
+                }
             }
-        }
 
-        //stone
-        if (ResourceData.Stone_amount >= stone)
-        {
-            ResourceData.Money -= stone * Level * ResourceData.Stone_value;
-            ResourceData.Stone_amount -= stone * Level;
-            ResourceData.Money += money * Level * 2;
-            Stone_currentConsumption = ConsumptionType.Stone;
-            StoneParticals.SetActive(true);
+            //stone
+            if (ResourceData.Stone_amount >= stone)
+            {
+                ResourceData.Money -= stone * Level * ResourceData.Stone_value;
+                ResourceData.Stone_amount -= stone * Level;
+                ResourceData.Money += money * Level * 2;
+                Stone_currentConsumption = ConsumptionType.Stone;
+                StoneParticals.SetActive(true);
 
-            if(Stone_currentConsumption != Stone_lastConsumption)
-            {
-                ResourceData.Wood_demand += wood;
-                Stone_lastConsumption = Stone_currentConsumption;
-                ResourceData.QOl_stone += 1;
+                if(Stone_currentConsumption != Stone_lastConsumption)
+                {
+                    ResourceData.Wood_demand += wood;
+                    Stone_lastConsumption = Stone_currentConsumption;
+                    ResourceData.QOl_stone += 1;
+                }
             }
-        }
-        else
-        {
-            StoneParticals.SetActive(false);
-            Wood_currentConsumption = ConsumptionType.None;
-            if (Stone_currentConsumption != Stone_lastConsumption)
+            else
             {
-                Stone_lastConsumption = Stone_currentConsumption;
-                ResourceData.QOl_stone -= 1;
+                StoneParticals.SetActive(false);
+                Wood_currentConsumption = ConsumptionType.None;
+                if (Stone_currentConsumption != Stone_lastConsumption)
+                {
+                    Stone_lastConsumption = Stone_currentConsumption;
+                    ResourceData.QOl_stone -= 1;
+                }
             }
-        }
 
-        //food
-        if(ResourceData.Food_amount >= food)
-        {
-            ResourceData.Money -= food * Level * ResourceData.Food_value;
-            ResourceData.Food_amount -= food * Level;
-            ResourceData.Money += money * Level * 3;
-            Food_currentConsumption = ConsumptionType.Food;
-            FoodParticals.SetActive(true);
-            if(Food_currentConsumption != Food_lastConsumption)
+            //food
+            if(ResourceData.Food_amount >= food)
             {
-                ResourceData.Wood_demand += wood;
-                Food_lastConsumption = Food_currentConsumption;
-                ResourceData.QOl_stone += 1;
+                ResourceData.Money -= food * Level * ResourceData.Food_value;
+                ResourceData.Food_amount -= food * Level;
+                ResourceData.Money += money * Level * 3;
+                Food_currentConsumption = ConsumptionType.Food;
+                FoodParticals.SetActive(true);
+                if(Food_currentConsumption != Food_lastConsumption)
+                {
+                    ResourceData.Wood_demand += wood;
+                    Food_lastConsumption = Food_currentConsumption;
+                    ResourceData.QOl_stone += 1;
+                }
             }
-        }
-        else
-        {
-            FoodParticals.SetActive(false);
-            Wood_currentConsumption = ConsumptionType.None;
-            if (Food_currentConsumption != Food_lastConsumption)
+            else
             {
-                Food_lastConsumption = Food_currentConsumption;
-                ResourceData.QOl_stone -= 1;
+                FoodParticals.SetActive(false);
+                Wood_currentConsumption = ConsumptionType.None;
+                if (Food_currentConsumption != Food_lastConsumption)
+                {
+                    Food_lastConsumption = Food_currentConsumption;
+                    ResourceData.QOl_stone -= 1;
+                }
             }
-        }
 
-        //coal
-        if(ResourceData.Coal_amount >= coal)
-        {
-            ResourceData.Money -= coal * Level * ResourceData.Coal_value;
-            ResourceData.Coal_amount -= coal * Level;
-            ResourceData.Money += money * Level * 4;
-            Coal_currentConsumption = ConsumptionType.Coal;
-            CoalParticals.SetActive(true);
-            if(Coal_currentConsumption != Coal_lastConsumption)
+            //coal
+            if(ResourceData.Coal_amount >= coal)
             {
-                ResourceData.Wood_demand += wood;
-                Coal_lastConsumption = Coal_currentConsumption;
-                ResourceData.QOl_stone += 1;
+                ResourceData.Money -= coal * Level * ResourceData.Coal_value;
+                ResourceData.Coal_amount -= coal * Level;
+                ResourceData.Money += money * Level * 4;
+                Coal_currentConsumption = ConsumptionType.Coal;
+                CoalParticals.SetActive(true);
+                if(Coal_currentConsumption != Coal_lastConsumption)
+                {
+                    ResourceData.Wood_demand += wood;
+                    Coal_lastConsumption = Coal_currentConsumption;
+                    ResourceData.QOl_stone += 1;
+                }
             }
-        }
-        else
-        {
-            CoalParticals.SetActive(false);
-            Wood_currentConsumption = ConsumptionType.None;
-            if (Coal_currentConsumption != Coal_lastConsumption)
+            else
             {
-                Coal_lastConsumption = Coal_currentConsumption;
-                ResourceData.QOl_stone -= 1;
+                CoalParticals.SetActive(false);
+                Wood_currentConsumption = ConsumptionType.None;
+                if (Coal_currentConsumption != Coal_lastConsumption)
+                {
+                    Coal_lastConsumption = Coal_currentConsumption;
+                    ResourceData.QOl_stone -= 1;
+                }
             }
-        }
 
-        //iron
-        if(ResourceData.Iron_amount >= iron)
-        {
-            ResourceData.Money -= iron * Level * ResourceData.Iron_value;
-            ResourceData.Iron_amount -= iron * Level;
-            ResourceData.Money += money * Level * 5;
-            Iron_currentConsumption = ConsumptionType.Iron;
-            IronParticals.SetActive(true);
-            if(Iron_currentConsumption != Iron_lastConsumption)
+            //iron
+            if(ResourceData.Iron_amount >= iron)
             {
-                ResourceData.Wood_demand += wood;
-                Iron_lastConsumption = Iron_currentConsumption;
-                ResourceData.QOl_stone += 1;
+                ResourceData.Money -= iron * Level * ResourceData.Iron_value;
+                ResourceData.Iron_amount -= iron * Level;
+                ResourceData.Money += money * Level * 5;
+                Iron_currentConsumption = ConsumptionType.Iron;
+                IronParticals.SetActive(true);
+                if(Iron_currentConsumption != Iron_lastConsumption)
+                {
+                    ResourceData.Wood_demand += wood;
+                    Iron_lastConsumption = Iron_currentConsumption;
+                    ResourceData.QOl_stone += 1;
+                }
+            }
+            else
+            {
+                IronParticals.SetActive(false);
+                Wood_currentConsumption = ConsumptionType.None;
+                if (Iron_currentConsumption != Iron_lastConsumption)
+                {
+                    Iron_lastConsumption = Iron_currentConsumption;
+                    ResourceData.QOl_stone -= 1;
+                }
             }
         }
-        else
-        {
-            IronParticals.SetActive(false);
-            Wood_currentConsumption = ConsumptionType.None;
-            if (Iron_currentConsumption != Iron_lastConsumption)
-            {
-                Iron_lastConsumption = Iron_currentConsumption;
-                ResourceData.QOl_stone -= 1;
-            }
-        }
-
         //Level check 
         // if (building_count >= 10 && building_count <= 20)
         // {
         //     Level = 2;
         //     ResourceData.Wood_demand = wood wood * Level;
         // }
+        
         StartCoroutine(villageProduction());
+
      }
     // public void OnTriggerStay2D(Collider2D collision)
     // {

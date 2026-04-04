@@ -11,7 +11,6 @@ public class EnableAnimation : MonoBehaviour
 
     void Update()
     {
-        animator.enabled = true;
         if (animator.enabled)
         {
             animator.speed = ResourceData.Power_multiplier;

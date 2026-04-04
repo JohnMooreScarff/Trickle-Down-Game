@@ -4850,6 +4850,7 @@ GameObject:
   - component: {fileID: 8425541084357666045}
   - component: {fileID: 3283728075683211701}
   - component: {fileID: -5664930287914363008}
+  - component: {fileID: -3425197355835180921}
   - component: {fileID: 920063724930137874}
   - component: {fileID: 7773725991871674090}
   m_Layer: 0
@@ -9909,6 +9910,20 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &-3425197355835180921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522e409d72072a546a759763215e13a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Flooded: 0
+  PlaceParticals: {fileID: 0}
 --- !u!114 &920063724930137874
 MonoBehaviour:
   m_ObjectHideFlags: 0

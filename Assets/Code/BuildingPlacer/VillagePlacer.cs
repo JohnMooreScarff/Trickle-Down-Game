@@ -30,7 +30,7 @@ public class VillagePlacement : MonoBehaviour
             villageToPlace = Instantiate(villagePrefab);
             MonoBehaviour[] scripts = villageToPlace.GetComponents<MonoBehaviour>();
 
-            for (int i = 0; i < scripts.Length && i < 3; i++)
+            for (int i = 0; i < scripts.Length && i < 4; i++)
             {
                 Debug.Log("Disabling script: " + scripts[i].GetType().Name);
                 scripts[i].enabled = false;
@@ -47,7 +47,7 @@ public class VillagePlacement : MonoBehaviour
         {
             MonoBehaviour[] scripts = villageToPlace.GetComponents<MonoBehaviour>();
 
-            for (int i = 0; i < scripts.Length && i < 3; i++)
+            for (int i = 0; i < scripts.Length && i < 4; i++)
             {
                 Debug.Log("Enabling script: " + scripts[i].GetType().Name);
                 scripts[i].enabled = true;
