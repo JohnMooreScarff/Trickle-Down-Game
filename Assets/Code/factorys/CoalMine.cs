@@ -18,7 +18,7 @@ public class CoalMine : MonoBehaviour
     private int stone = 2;
     private int power = 20;
     private int villageColliderCount = 0;
-    private ParticleSystem ps;  
+  
 
     void Start()
     {

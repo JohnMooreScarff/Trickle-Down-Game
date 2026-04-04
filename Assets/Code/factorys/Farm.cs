@@ -14,7 +14,6 @@ public class Farm : MonoBehaviour
     //consume
     private int power = 10;
     private int villageColliderCount = 0;  
-    private ParticleSystem ps;  
 
     void Start()
     {
@@ -24,8 +23,6 @@ public class Farm : MonoBehaviour
         ResourceData.Food_supply += food;
         StartCoroutine(WoodProduction());
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * wood_cost) + (ResourceData.Stone_value * stone_cost);
-        ps = GetComponent<ParticleSystem>();
-        ps.Play();
     }
      IEnumerator WoodProduction()
      {

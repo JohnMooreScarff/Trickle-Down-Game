@@ -32,14 +32,20 @@ public class WaterDissable : MonoBehaviour
             {
                 Flooded = true;
                 spriteRenderer.color = Color.blue;
+                if(animator != null)
+                {
                 animator.enabled = false;  
+                }
                 PlaceParticals.gameObject.SetActive(false);              
             }
             else
             {
                 Flooded = false;
                 spriteRenderer.color = Color.white;
+                if(animator != null)
+                {
                 animator.enabled = true;  
+                } 
                 PlaceParticals.gameObject.SetActive(true);
 
             }

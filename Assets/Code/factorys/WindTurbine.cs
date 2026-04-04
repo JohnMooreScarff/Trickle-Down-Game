@@ -13,7 +13,7 @@ public class WindTurbine : MonoBehaviour
     //produce
     private int power = 100;
     private int villageColliderCount = 0;
-    private ParticleSystem ps;  
+
 
 
     void Start()
@@ -22,8 +22,6 @@ public class WindTurbine : MonoBehaviour
         ResourceData.Coal_amount -= coal_cost;
         ResourceData.Money -=  money_cost + iron_cost * ResourceData.Iron_value + coal_cost * ResourceData.Coal_value;
         ResourceData.Power_supply += power;
-        ps = GetComponent<ParticleSystem>();
-        ps.Play();
     }
  
     private void OnTriggerEnter2D(Collider2D collision)

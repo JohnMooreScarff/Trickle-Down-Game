@@ -17,7 +17,6 @@ public class PowerStation : MonoBehaviour
     private int wood_power = 60;
     private int coal_power = 200;
     private float Pollution = 0.03f;
-    private ParticleSystem ps;  
 
     //consuming
     private enum ConsumptionType { None, Wood, Coal }
@@ -33,10 +32,7 @@ public class PowerStation : MonoBehaviour
         {
             ResourceData.Money -= money_cost + wood_cost * ResourceData.Wood_value_currant + stone_cost * ResourceData.Stone_value_currant;
             ResourceData.Wood_amount -= wood_cost;
-            ResourceData.Stone_amount -= stone_cost;
-            ps = GetComponent<ParticleSystem>();
-            ps.Play();
-            
+            ResourceData.Stone_amount -= stone_cost;            
         }
     }
 IEnumerator PowerStationConsumption()

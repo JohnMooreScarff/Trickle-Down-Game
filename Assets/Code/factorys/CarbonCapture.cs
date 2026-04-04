@@ -16,7 +16,6 @@ public class CarbonCapture : MonoBehaviour
     private int money = 50;
     private int power = 25;
     private int villageColliderCount = 0;
-    private ParticleSystem ps;  
 
     void Start()
     {
@@ -24,8 +23,6 @@ public class CarbonCapture : MonoBehaviour
         ResourceData.Iron_amount -= iron_cost;
         ResourceData.Money -=  money_cost + iron_cost * ResourceData.Iron_value;
         StartCoroutine(Carboncapture());
-        ps = GetComponent<ParticleSystem>();
-        ps.Play();
     }
      IEnumerator Carboncapture()
      {

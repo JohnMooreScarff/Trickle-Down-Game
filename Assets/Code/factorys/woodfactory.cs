@@ -13,7 +13,7 @@ public class woodfactory : MonoBehaviour
     //consume
     private int power = 10;
     private int villageColliderCount = 0;
-    private ParticleSystem ps;  
+
 
     void Start()
     {
@@ -21,8 +21,6 @@ public class woodfactory : MonoBehaviour
         ResourceData.Wood_supply += wood;
         ResourceData.Money -= money_cost;
         StartCoroutine(WoodProduction());
-        ps = GetComponent<ParticleSystem>();
-        ps.Play();
     }
      IEnumerator WoodProduction()
      {

@@ -32,7 +32,7 @@ public class Farm_Follow_place_buildings : MonoBehaviour
             currentObject = Instantiate(objectPrefab);
             MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
 
-            for (int i = 0; i < scripts.Length && i < 2; i++)
+            for (int i = 0; i < scripts.Length && i < 4; i++)
             {
                 Debug.Log("Disabling script: " + scripts[i].GetType().Name);
                 scripts[i].enabled = false;
@@ -49,7 +49,7 @@ public class Farm_Follow_place_buildings : MonoBehaviour
         {
             MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
 
-            for (int i = 0; i < scripts.Length && i < 2; i++)
+            for (int i = 0; i < scripts.Length && i < 4; i++)
             {
                 Debug.Log("Enabling script: " + scripts[i].GetType().Name);
                 scripts[i].enabled = true;
