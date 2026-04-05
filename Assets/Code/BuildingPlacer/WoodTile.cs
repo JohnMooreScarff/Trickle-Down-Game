@@ -7,7 +7,6 @@ public class WoodTile : MonoBehaviour
 {
     public static bool Overwater;
     private Tilemap tilemap;
-
     void Start()
     {
         if (tilemap == null)

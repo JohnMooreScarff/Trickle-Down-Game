@@ -25,8 +25,11 @@ public class woodfactory : MonoBehaviour
      IEnumerator WoodProduction()
      {
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        if(GetComponent<WaterDissable>().Flooded == false)
+        {
         ResourceData.Wood_amount += wood;
         ResourceData.Pollution += Pollution;
+        }
         StartCoroutine(WoodProduction());
      }
     private void OnTriggerEnter2D(Collider2D collision)

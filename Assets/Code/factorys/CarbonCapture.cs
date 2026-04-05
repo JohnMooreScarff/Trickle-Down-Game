@@ -27,8 +27,11 @@ public class CarbonCapture : MonoBehaviour
      IEnumerator Carboncapture()
      {
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        if(GetComponent<WaterDissable>().Flooded == false)
+        {
         ResourceData.Money -= money;
         ResourceData.Pollution += Pollution;
+        }
         StartCoroutine(Carboncapture());
      }  
     private void OnTriggerEnter2D(Collider2D collision)

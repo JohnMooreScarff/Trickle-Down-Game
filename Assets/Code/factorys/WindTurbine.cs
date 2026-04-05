@@ -13,6 +13,7 @@ public class WindTurbine : MonoBehaviour
     //produce
     private int power = 100;
     private int villageColliderCount = 0;
+    private bool lastFloodedState = false;
 
 
 
@@ -22,8 +23,31 @@ public class WindTurbine : MonoBehaviour
         ResourceData.Coal_amount -= coal_cost;
         ResourceData.Money -=  money_cost + iron_cost * ResourceData.Iron_value + coal_cost * ResourceData.Coal_value;
         ResourceData.Power_supply += power;
+        StartCoroutine(Areweflooded());
     }
- 
+    IEnumerator Areweflooded()
+{
+    while (true)
+    {
+        yield return new WaitForSeconds(1);
+
+        bool isFlooded = GetComponent<WaterDissable>().Flooded;
+
+        if (isFlooded != lastFloodedState)
+        {
+            if (isFlooded)
+            {
+                ResourceData.Power_supply -= power;
+            }
+            else
+            {
+
+                ResourceData.Power_supply += power;
+            }
+            lastFloodedState = isFlooded;
+        }
+    }
+}
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Village"))

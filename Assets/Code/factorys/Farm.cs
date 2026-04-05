@@ -27,9 +27,12 @@ public class Farm : MonoBehaviour
      IEnumerator WoodProduction()
      {
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        if(GetComponent<WaterDissable>().Flooded == false)
+        {
         ResourceData.Food_amount += food;
-        StartCoroutine(WoodProduction());
         ResourceData.Pollution += Pollution;
+        }
+        StartCoroutine(WoodProduction());
      }
     private void OnTriggerEnter2D(Collider2D collision)
     {

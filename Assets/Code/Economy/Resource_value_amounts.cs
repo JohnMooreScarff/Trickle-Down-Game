@@ -7,7 +7,8 @@ public class ResourceData : MonoBehaviour
     // effects
     public static float IntrestRate = 1.05F;
     public static float Pollution = 10f;
-
+    public static float sealevel = 0f;
+    
     //QOL
     public static float QOl_wood = 0f;
     public static float QOl_stone = 0f;
@@ -102,6 +103,7 @@ public class ResourceData : MonoBehaviour
         SupplyDemandCoal();
         SupplyDemandIron();
         Qol();
+        Pollutionconsequences();
         text();
     }
     void SupplyDemandWood()
@@ -263,6 +265,10 @@ void Qol()
         {
         QOL = 20 * (QOl_wood/village_ammount) + 20 * (QOl_stone/village_ammount) + 20 * (QOl_food/village_ammount) + 20 * (QOl_coal/village_ammount) + 20 * (QOl_iron/village_ammount);
         }
+    }
+void Pollutionconsequences()
+    {
+        sealevel = Pollution / 500;
     }
 
     void text()

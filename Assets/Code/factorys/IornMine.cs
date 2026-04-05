@@ -18,6 +18,7 @@ public class IornMine : MonoBehaviour
     private int coal = 2;
     private int power = 20;
     private int villageColliderCount = 0;
+    public static bool OverIron = false;
   
 
     void Start()
@@ -34,12 +35,15 @@ public class IornMine : MonoBehaviour
      IEnumerator StoneProduction()
      {
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        if(GetComponent<WaterDissable>().Flooded == false)
+        {
         if(ResourceData.Wood_amount >= wood)
         {
         ResourceData.Iron_amount += Iron;
         ResourceData.Wood_amount -= wood;
         ResourceData.Coal_amount -= coal;
         ResourceData.Pollution += Pollution;
+        }
         }
         
 

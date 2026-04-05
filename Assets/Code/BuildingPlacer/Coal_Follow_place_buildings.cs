@@ -13,6 +13,7 @@ public class Coal_Follow_place_buildings : MonoBehaviour
     public static bool isPlacing = false;
     public static bool OverVillage = false;
 
+
     void Update()
     {
         if (isPlacing == true)

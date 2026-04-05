@@ -31,12 +31,15 @@ public class stonefactory : MonoBehaviour
      IEnumerator StoneProduction()
      {
         yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        if(GetComponent<WaterDissable>().Flooded == false)
+        {
         if(ResourceData.Wood_amount >= wood)
         {
         ResourceData.Stone_amount += stone;
         ResourceData.Money -= wood * ResourceData.Wood_value;
         ResourceData.Wood_amount -= wood;
         ResourceData.Pollution += Pollution;
+        }
         }
         
 

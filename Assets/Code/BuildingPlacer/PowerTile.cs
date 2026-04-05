@@ -23,7 +23,6 @@ public class PowerTile : MonoBehaviour
         Vector3 worldPosition = transform.position;
         Vector3Int cellPosition = tilemap.WorldToCell(worldPosition);
         TileBase tile = tilemap.GetTile(cellPosition);   
-        Debug.Log("Tile found: " + tile.name);
         if(tile.name == "Sea" || tile.name == "Deepsea")
         {
             Overwater = true;

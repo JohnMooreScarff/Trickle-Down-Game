@@ -13,7 +13,7 @@ public class EnableAnimation : MonoBehaviour
     {
         if (animator.enabled)
         {
-            animator.speed = ResourceData.Power_multiplier;
+            animator.speed = ResourceData.Power_multiplier ;
         }
     }
 }

@@ -7,13 +7,16 @@ public class CoalTile : MonoBehaviour
 {
     
     public static bool Overwater;
-    private Tilemap tilemap;
+    private Tilemap tilemapO;
+    private Tilemap tilemapU;
 
     void Start()
     {
-        if (tilemap == null)
+        if (tilemapO == null)
         {
-            tilemap = Object.FindFirstObjectByType<Tilemap>();
+            Tilemap[] allObjects = FindObjectsOfType<Tilemap>();
+            tilemapO = allObjects[0];
+            tilemapU = allObjects[1];
         }
     }
 
@@ -22,10 +25,10 @@ public class CoalTile : MonoBehaviour
         if(Coal_Follow_place_buildings.isPlacing == true)
         {
         Vector3 worldPosition = transform.position;
-        Vector3Int cellPosition = tilemap.WorldToCell(worldPosition);
-        TileBase tile = tilemap.GetTile(cellPosition);   
-        Debug.Log("Tile found: " + tile.name);
-        if(tile.name == "Sea" || tile.name == "Deepsea")
+        Vector3Int cellPosition = tilemapO.WorldToCell(worldPosition);
+        TileBase tilem1 = tilemapO.GetTile(cellPosition);   
+        Debug.Log("Tile found: " + tilem1.name);
+        if(tilem1.name == "Sea" || tilem1.name == "Deepsea")
         {
             Overwater = true;
         }
@@ -33,6 +36,16 @@ public class CoalTile : MonoBehaviour
         {
             Overwater = false;
         }
+        TileBase tilem2 = tilemapU.GetTile(cellPosition);
+        Debug.Log("Tile found: " + tilem2.name); 
+        if(tilem2.name == "Coal")
+            {
+                CoalMine.OverCoal = true;
+            }
+            else
+            {
+                CoalMine.OverCoal = false;
+            }
         }
     }
 }

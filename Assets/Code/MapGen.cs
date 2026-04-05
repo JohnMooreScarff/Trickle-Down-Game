@@ -49,7 +49,7 @@ public class MapGen : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(0.5f);
-            sealevel += 0.002f;
+            sealevel = ResourceData.sealevel;
             genmapover();
             RenderMap();
         }

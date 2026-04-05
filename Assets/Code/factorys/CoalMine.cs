@@ -18,6 +18,8 @@ public class CoalMine : MonoBehaviour
     private int stone = 2;
     private int power = 20;
     private int villageColliderCount = 0;
+    private float OverCoal_multiplier = 1f;
+    public static bool OverCoal = false;
   
 
     void Start()
@@ -29,11 +31,17 @@ public class CoalMine : MonoBehaviour
         ResourceData.Wood_amount -= wood_cost;
         ResourceData.Stone_amount -= stone_cost;
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * wood_cost) + (ResourceData.Stone_value * stone_cost);
+        if(OverCoal == true)
+        {
+            OverCoal_multiplier = 0.4f;
+        }
         StartCoroutine(CoalProduction());
     }
      IEnumerator CoalProduction()
      {
-        yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        yield return new WaitForSeconds(OverCoal_multiplier * (4 / ResourceData.Power_multiplier));
+        if(GetComponent<WaterDissable>().Flooded == false)
+        {
         if(ResourceData.Wood_amount >= wood && ResourceData.Stone_amount >= wood)
         {
         ResourceData.Coal_amount += coal;
@@ -41,6 +49,7 @@ public class CoalMine : MonoBehaviour
         ResourceData.Stone_amount -= stone;
         ResourceData.Pollution += Pollution;
 
+        }
         }
         
 
