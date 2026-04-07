@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class IronTile : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class IronTile : MonoBehaviour
         }
         TileBase tilem2 = tilemapU.GetTile(cellPosition);
         Debug.Log("Tile found: " + tilem2.name);
-        if(tilem2.name == "Coal")
+        if(tilem2.name == "Iron")
             {
                 IornMine.OverIron = true;
             }
@@ -45,6 +46,8 @@ public class IronTile : MonoBehaviour
             {
                 IornMine.OverIron = false;
             }
+        tilemapU.DOFade(1f,1f);
+        tilemapU.color = Color.red;
         }
     }
 }
