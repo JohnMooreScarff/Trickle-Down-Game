@@ -13,6 +13,7 @@ public class woodfactory : MonoBehaviour
     //consume
     private int power = 10;
     private int villageColliderCount = 0;
+    public static float TerrainMultiplier = 1f;
 
 
     void Start()
@@ -20,6 +21,10 @@ public class woodfactory : MonoBehaviour
         ResourceData.Power_demand += power;
         ResourceData.Wood_supply += wood;
         ResourceData.Money -= money_cost;
+        if(WoodTile.OverMountain == true)
+        {
+            TerrainMultiplier = TerrainMultiplier/2;
+        }
         StartCoroutine(WoodProduction());
     }
      IEnumerator WoodProduction()

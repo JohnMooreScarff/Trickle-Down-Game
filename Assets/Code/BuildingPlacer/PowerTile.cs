@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class PowerTile : MonoBehaviour
 {
     public static bool Overwater;
+    public static bool OverMountain;
     private Tilemap tilemap;
 
     void Start()
@@ -31,6 +32,14 @@ public class PowerTile : MonoBehaviour
         {
             Overwater = false;
         }
+        if(tile.name == "Mountainlow" || tile.name == "Mountain" || tile.name == "Mountainhigh")
+            {
+                OverMountain = true;
+            }
+            else
+            {
+                OverMountain = false;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using TMPro;
 public class Village : MonoBehaviour
 
 {
+    public static float TerrainMultiplier = 1f;
     //cost
     
     public static int stone_cost = 70;
@@ -55,7 +56,10 @@ public class Village : MonoBehaviour
         ResourceData.Money -= ResourceData.Stone_value * stone_cost;
         ResourceData.Money -= ResourceData.Wood_value * wood_cost;
         ResourceData.village_ammount += 1;
-        
+        if(VillageTile.OverMountain == true)
+        {
+            TerrainMultiplier = 0.5f;
+        }
         }
 
 

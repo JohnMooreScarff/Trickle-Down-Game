@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class VillageTile : MonoBehaviour
 {
     public static bool Overwater;
+    public static bool OverMountain;
     private Tilemap tilemap;
 
     void Start()
@@ -32,6 +33,14 @@ public class VillageTile : MonoBehaviour
         {
             Overwater = false;
         }
+        if(tile.name == "Mountainlow" || tile.name == "Mountain" || tile.name == "Mountainhigh")
+            {
+                OverMountain = true;
+            }
+            else
+            {
+                OverMountain = false;
+            }
         }
     }
 }

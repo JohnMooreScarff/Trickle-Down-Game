@@ -4852,6 +4852,7 @@ GameObject:
   - component: {fileID: -3425197355835180921}
   - component: {fileID: 920063724930137874}
   - component: {fileID: 7773725991871674090}
+  - component: {fileID: 1421174825402394769}
   m_Layer: 0
   m_Name: Iron_Mine
   m_TagString: Building
@@ -5100,6 +5101,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfc987958527b57409a041c1ed112884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1421174825402394769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2968f3b7be6e73f44a35937663935c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7067861058008875207

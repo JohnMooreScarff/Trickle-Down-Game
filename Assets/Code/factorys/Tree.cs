@@ -13,6 +13,7 @@ public class Tree : MonoBehaviour
     //produce
     private float Pollution = -0.05f;
     private int villageColliderCount = 0;
+    public static float TerrainMultiplier = 1f;
 
 
 
@@ -21,7 +22,10 @@ public class Tree : MonoBehaviour
         ResourceData.Wood_amount -= wood_cost;
         ResourceData.Food_amount -= food_cost;
         ResourceData.Money -=  money_cost + wood_cost * ResourceData.Wood_value + food_cost * ResourceData.Food_value;
-
+        if(TreeTile.OverMountain == true)
+        {
+            TerrainMultiplier = TerrainMultiplier/2;
+        }
         StartCoroutine(Tree_oxygen());
     }
      IEnumerator Tree_oxygen()

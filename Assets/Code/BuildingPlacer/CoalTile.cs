@@ -2,13 +2,16 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class CoalTile : MonoBehaviour
 {
     
     public static bool Overwater;
+    public static bool OverMountain;
     private Tilemap tilemapO;
     private Tilemap tilemapU;
+    private Tween fadeTween;
 
     void Start()
     {
@@ -22,29 +25,55 @@ public class CoalTile : MonoBehaviour
 
     void Update()
     {
-        if(Coal_Follow_place_buildings.isPlacing == true)
+        if (Coal_Follow_place_buildings.isPlacing == true)
         {
-        Vector3 worldPosition = transform.position;
-        Vector3Int cellPosition = tilemapO.WorldToCell(worldPosition);
-        TileBase tilem1 = tilemapO.GetTile(cellPosition);   
-        Debug.Log("Tile found: " + tilem1.name);
-        if(tilem1.name == "Sea" || tilem1.name == "Deepsea")
-        {
-            Overwater = true;
-        }
-        else
-        {
-            Overwater = false;
-        }
-        TileBase tilem2 = tilemapU.GetTile(cellPosition);
-        Debug.Log("Tile found: " + tilem2.name); 
-        if(tilem2.name == "Coal")
+            Vector3 worldPosition = transform.position;
+            Vector3Int cellPosition = tilemapO.WorldToCell(worldPosition);
+            TileBase tilem1 = tilemapO.GetTile(cellPosition);
+            
+            if (tilem1 != null)
             {
-                CoalMine.OverCoal = true;
+                Debug.Log("Tile : " + tilem1.name);
+                if (tilem1.name == "Sea" || tilem1.name == "Deepsea")
+                {
+                    Overwater = true;
+                }
+                else
+                {
+                    Overwater = false;
+                }
             }
             else
             {
+                Debug.Log("No tile ");
+                Overwater = false;
+            }
+
+            TileBase tilem2 = tilemapU.GetTile(cellPosition);
+            if (tilem2 != null)
+            {
+                Debug.Log("Tile " + tilem2.name);
+                if (tilem2.name == "Coal")
+                {
+                    CoalMine.OverCoal = true;
+                }
+                else
+                {
+                    CoalMine.OverCoal = false;
+                }
+            }
+            else
+            {
+                Debug.Log("No tile ");
                 CoalMine.OverCoal = false;
+            }
+            if(tilem1.name == "Mountainlow" || tilem1.name == "Mountain" || tilem1.name == "Mountainhigh")
+            {
+                OverMountain = true;
+            }
+            else
+            {
+                OverMountain = false;
             }
         }
     }

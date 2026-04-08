@@ -18,6 +18,7 @@ public class IornMine : MonoBehaviour
     private int coal = 2;
     private int power = 20;
     private int villageColliderCount = 0;
+    public static float TerrainMultiplier = 1f;
     public static bool OverIron = false;
   
 
@@ -30,11 +31,23 @@ public class IornMine : MonoBehaviour
         ResourceData.Coal_amount -= coal_cost;
         ResourceData.Stone_amount -= stone_cost;
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * coal_cost) + (ResourceData.Stone_value * stone_cost);
+        if(OverIron == true)
+        {
+            TerrainMultiplier = 3f;
+        }
+        else if(IronTile.OverMountain == true)
+        {
+            TerrainMultiplier =  0.5f;
+        }
+        else if(OverIron == true && IronTile.OverMountain == true)
+        {
+            TerrainMultiplier = 2f;
+        }
         StartCoroutine(StoneProduction());
     }
      IEnumerator StoneProduction()
      {
-        yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        yield return new WaitForSeconds(TerrainMultiplier * (4 / ResourceData.Power_multiplier));
         if(GetComponent<WaterDissable>().Flooded == false)
         {
         if(ResourceData.Wood_amount >= wood)

@@ -14,6 +14,7 @@ public class WindTurbine : MonoBehaviour
     private int power = 100;
     private int villageColliderCount = 0;
     private bool lastFloodedState = false;
+    public static float TerrainMultiplier = 1f;
 
 
 
@@ -23,7 +24,12 @@ public class WindTurbine : MonoBehaviour
         ResourceData.Coal_amount -= coal_cost;
         ResourceData.Money -=  money_cost + iron_cost * ResourceData.Iron_value + coal_cost * ResourceData.Coal_value;
         ResourceData.Power_supply += power;
+        if(WindTurbineTile.OverMountain == true)
+        {
+            TerrainMultiplier = TerrainMultiplier/2;
+        }
         StartCoroutine(Areweflooded());
+
     }
     IEnumerator Areweflooded()
 {

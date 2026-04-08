@@ -16,6 +16,7 @@ public class stonefactory : MonoBehaviour
     private int wood = 2;
     private int power = 10;
     private int villageColliderCount = 0;
+    public static float TerrainMultiplier = 1f;
 
 
     void Start()
@@ -25,7 +26,10 @@ public class stonefactory : MonoBehaviour
         ResourceData.Stone_supply += stone;
         ResourceData.Wood_amount -= wood_cost;
         ResourceData.Money -=  money_cost + wood_cost * ResourceData.Wood_value;
-
+        if(StoneTiles.OverMountain == true)
+        {
+            TerrainMultiplier = TerrainMultiplier/2;
+        }
         StartCoroutine(StoneProduction());
     }
      IEnumerator StoneProduction()

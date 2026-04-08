@@ -16,12 +16,17 @@ public class CarbonCapture : MonoBehaviour
     private int money = 50;
     private int power = 25;
     private int villageColliderCount = 0;
+    public static float TerrainMultiplier = 1f;
 
     void Start()
     {
         ResourceData.Power_demand += power;
         ResourceData.Iron_amount -= iron_cost;
         ResourceData.Money -=  money_cost + iron_cost * ResourceData.Iron_value;
+        if(CarbonCaptureTile.OverMountain == true)
+        {
+            TerrainMultiplier = TerrainMultiplier/2;
+        }
         StartCoroutine(Carboncapture());
     }
      IEnumerator Carboncapture()
