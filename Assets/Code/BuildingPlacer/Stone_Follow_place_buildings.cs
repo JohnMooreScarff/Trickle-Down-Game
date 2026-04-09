@@ -28,7 +28,7 @@ public class Stone_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        if (isPlacing == false && ResourceData.Stone_amount >= Village.stone_cost && ResourceData.Wood_amount >= Village.wood_cost)
+        if (isPlacing == false && ResourceData.Wood_amount >= stonefactory.wood_cost)
         {
             currentObject = Instantiate(objectPrefab);
             MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();

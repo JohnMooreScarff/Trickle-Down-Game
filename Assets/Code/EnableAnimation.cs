@@ -19,7 +19,6 @@ public class EnableAnimation : MonoBehaviour
             CarbonCapture carbonCapture = gameObject.GetComponent<CarbonCapture>();
             stonefactory stoneFactory = gameObject.GetComponent<stonefactory>();
             Farm farm = gameObject.GetComponent<Farm>();
-            Tree tree = gameObject.GetComponent<Tree>();
             woodfactory woodFactory = gameObject.GetComponent<woodfactory>();
             CoalMine coalMine = gameObject.GetComponent<CoalMine>();
             WindTurbine windTurbine = gameObject.GetComponent<WindTurbine>();
@@ -37,17 +36,13 @@ public class EnableAnimation : MonoBehaviour
             {
                 animator.speed = ResourceData.Power_multiplier * iornMine.TerrainMultiplier;
             }
-            else if (tree != null)
-            {
-                animator.speed = ResourceData.Power_multiplier * tree.TerrainMultiplier;
-            }
             else if (farm != null)
             {
                 animator.speed = ResourceData.Power_multiplier * farm.TerrainMultiplier;
             }
             else if (windTurbine != null)
             {
-                animator.speed = ResourceData.Power_multiplier * windTurbine.TerrainMultiplier;
+                animator.speed = windTurbine.TerrainMultiplier;
             }
             else if (coalMine != null)
             {
@@ -59,7 +54,7 @@ public class EnableAnimation : MonoBehaviour
             }
             else if (powerStation != null)
             {
-                animator.speed = ResourceData.Power_multiplier * powerStation.TerrainMultiplier;
+                animator.speed =  powerStation.TerrainMultiplier;
             }
             else if (carbonCapture != null)
             {

@@ -31,27 +31,23 @@ public class IornMine : MonoBehaviour
         ResourceData.Coal_amount -= coal_cost;
         ResourceData.Stone_amount -= stone_cost;
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * coal_cost) + (ResourceData.Stone_value * stone_cost);
-        if(OverIron == true)
+        if(IronTile.OverMountain == true)
         {
-            TerrainMultiplier = 3f;
+            TerrainMultiplier = 0.5f;
         }
-        else if(IronTile.OverMountain == true)
-        {
-            TerrainMultiplier =  0.5f;
-        }
-        else if(IronTile.OverSnow == true)
+        if(IronTile.OverSnow == true)
         {
             TerrainMultiplier = 0.2f;
         }
-        else if(OverIron == true && IronTile.OverMountain == true)
+        if(OverIron == true)
         {
-            TerrainMultiplier = 2f;
+            TerrainMultiplier = TerrainMultiplier * 3f;
         }
         StartCoroutine(StoneProduction());
     }
      IEnumerator StoneProduction()
      {
-        yield return new WaitForSeconds(TerrainMultiplier * (4 / ResourceData.Power_multiplier));
+        yield return new WaitForSeconds(4f / (TerrainMultiplier *ResourceData.Power_multiplier));
         if(GetComponent<WaterDissable>().Flooded == false)
         {
         if(ResourceData.Wood_amount >= wood)

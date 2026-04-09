@@ -29,11 +29,15 @@ public class woodfactory : MonoBehaviour
         {
             TerrainMultiplier = 0.2f;
         }
+        if(WoodTile.OverForest == true)
+        {
+            TerrainMultiplier = 2f;
+        }
         StartCoroutine(WoodProduction());
     }
      IEnumerator WoodProduction()
      {
-        yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        yield return new WaitForSeconds(4f / (TerrainMultiplier *ResourceData.Power_multiplier));
         if(GetComponent<WaterDissable>().Flooded == false)
         {
         ResourceData.Wood_amount += wood;

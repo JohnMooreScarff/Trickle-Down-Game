@@ -50,7 +50,7 @@ IEnumerator PowerStationConsumption()
 
     while (true)
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(4f/TerrainMultiplier);
         bool isFlooded = GetComponent<WaterDissable>().Flooded;
 
         if (isFlooded != lastFloodedState)

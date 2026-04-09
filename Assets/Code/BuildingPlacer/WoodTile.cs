@@ -8,6 +8,7 @@ public class WoodTile : MonoBehaviour
     public static bool Overwater;
     public static bool OverMountain;
     public static bool OverSnow;
+    public static bool OverForest;
     private Tilemap tilemap;
     void Start()
     {
@@ -48,6 +49,14 @@ public class WoodTile : MonoBehaviour
             else
             {
                 OverSnow = false;
+            }
+        if(tile.name == "Forest")
+            {
+                OverForest = true;
+            }
+            else
+            {
+                OverForest = true;
             }
         }
     }

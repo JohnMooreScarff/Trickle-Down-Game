@@ -8,6 +8,7 @@ public class FarmTile : MonoBehaviour
     public static bool Overwater;
     public static bool OverMountain;
     public static bool OverSnow;
+    public static bool OverFarmland;
     private Tilemap tilemap;
 
     void Start()
@@ -49,6 +50,14 @@ public class FarmTile : MonoBehaviour
             else
             {
                 OverSnow = false;
+            }
+        if(tile.name == "Farmland")
+            {
+                OverFarmland = true;
+            }
+            else
+            {
+                OverFarmland = false;
             }
         }
     }

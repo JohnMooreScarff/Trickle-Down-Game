@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8612905692825776906}
   - component: {fileID: 7319320168839826005}
   - component: {fileID: -8107904846478698259}
+  - component: {fileID: -623079600242960155}
   - component: {fileID: 7692680022530179540}
   - component: {fileID: -2666058888905812006}
   - component: {fileID: 7735247504988229134}
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae027b6c6f346241be34fb77a6277ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TerrainMultiplier: 1
 --- !u!95 &-8107904846478698259
 Animator:
   serializedVersion: 7
@@ -179,7 +181,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5594748921629491420}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6419b4afddf8e574d82ad2fbb8b5d679, type: 2}
   m_CullingMode: 0
@@ -193,6 +195,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-623079600242960155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8212e7268ee06489266ddd8235711d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7692680022530179540
 MonoBehaviour:
   m_ObjectHideFlags: 0

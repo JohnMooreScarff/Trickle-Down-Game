@@ -32,7 +32,7 @@ public class Village : MonoBehaviour
     private ConsumptionType Iron_currentConsumption = ConsumptionType.None;
     private ConsumptionType Iron_lastConsumption = ConsumptionType.None;
     //produce
-    private int money = 30;
+    private int money = 35;
 
     //Leveling
     private int Level = 1;
@@ -70,7 +70,7 @@ public class Village : MonoBehaviour
     }
      IEnumerator villageProduction()
      {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3f/TerrainMultiplier);
 
         //wood
         if(GetComponent<WaterDissable>().Flooded == false)

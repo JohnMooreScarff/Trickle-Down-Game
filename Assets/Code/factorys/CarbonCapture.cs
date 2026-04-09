@@ -35,7 +35,7 @@ public class CarbonCapture : MonoBehaviour
     }
      IEnumerator Carboncapture()
      {
-        yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        yield return new WaitForSeconds(4f / (TerrainMultiplier *ResourceData.Power_multiplier));
         if(GetComponent<WaterDissable>().Flooded == false)
         {
         ResourceData.Money -= money;

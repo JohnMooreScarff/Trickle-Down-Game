@@ -28,7 +28,7 @@ public class stonefactory : MonoBehaviour
         ResourceData.Money -=  money_cost + wood_cost * ResourceData.Wood_value;
         if(StoneTiles.OverMountain == true)
         {
-            TerrainMultiplier = 0.5f;
+            TerrainMultiplier = 2f;
         }
         else if(StoneTiles.OverSnow == true)
         {
@@ -38,7 +38,7 @@ public class stonefactory : MonoBehaviour
     }
      IEnumerator StoneProduction()
      {
-        yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        yield return new WaitForSeconds(4f / (TerrainMultiplier *ResourceData.Power_multiplier));
         if(GetComponent<WaterDissable>().Flooded == false)
         {
         if(ResourceData.Wood_amount >= wood)

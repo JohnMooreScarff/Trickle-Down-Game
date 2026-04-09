@@ -30,12 +30,16 @@ public class Farm : MonoBehaviour
         {
             TerrainMultiplier = 0.2f;
         }
+        else if(FarmTile.OverFarmland == true)
+        {
+            TerrainMultiplier = 2f;
+        }
         StartCoroutine(WoodProduction());
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * wood_cost) + (ResourceData.Stone_value * stone_cost);
     }
      IEnumerator WoodProduction()
      {
-        yield return new WaitForSeconds(4 / ResourceData.Power_multiplier);
+        yield return new WaitForSeconds(4f / (TerrainMultiplier *ResourceData.Power_multiplier));
         if(GetComponent<WaterDissable>().Flooded == false)
         {
         ResourceData.Food_amount += food;

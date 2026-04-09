@@ -31,23 +31,23 @@ public class CoalMine : MonoBehaviour
         ResourceData.Wood_amount -= wood_cost;
         ResourceData.Stone_amount -= stone_cost;
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * wood_cost) + (ResourceData.Stone_value * stone_cost);
-        if(OverCoal == true)
-        {
-            TerrainMultiplier = 3f;
-        }
         if(CoalTile.OverMountain == true)
         {
-            TerrainMultiplier = TerrainMultiplier/2;
+            TerrainMultiplier = 0.5f;
         }
         if(CoalTile.OverSnow == true)
         {
             TerrainMultiplier = 0.2f;
         }
+        if(OverCoal == true)
+        {
+            TerrainMultiplier = TerrainMultiplier * 3f;
+        }
         StartCoroutine(CoalProduction());
     }
      IEnumerator CoalProduction()
      {
-        yield return new WaitForSeconds(TerrainMultiplier * (4 / ResourceData.Power_multiplier));
+        yield return new WaitForSeconds(4f / (TerrainMultiplier *ResourceData.Power_multiplier));
         if(GetComponent<WaterDissable>().Flooded == false)
         {
         if(ResourceData.Wood_amount >= wood && ResourceData.Stone_amount >= wood)

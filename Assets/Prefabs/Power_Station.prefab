@@ -4905,6 +4905,7 @@ GameObject:
   - component: {fileID: 4111954381161679413}
   - component: {fileID: -8612905692825776906}
   - component: {fileID: 6497676589255491498}
+  - component: {fileID: 1693997773631248197}
   - component: {fileID: 8319880994924874176}
   - component: {fileID: 2182601041541675137}
   - component: {fileID: 4994904507083817952}
@@ -4999,6 +5000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012cf20c44d66d0439bccc4da28fa42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TerrainMultiplier: 1
 --- !u!58 &4111954381161679413
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5084,6 +5086,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1693997773631248197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594748921629491420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8212e7268ee06489266ddd8235711d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8319880994924874176
 MonoBehaviour:
   m_ObjectHideFlags: 0
