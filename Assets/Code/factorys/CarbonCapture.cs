@@ -16,7 +16,7 @@ public class CarbonCapture : MonoBehaviour
     private int money = 50;
     private int power = 25;
     private int villageColliderCount = 0;
-    public static float TerrainMultiplier = 1f;
+    public float TerrainMultiplier = 1f;
 
     void Start()
     {
@@ -25,7 +25,11 @@ public class CarbonCapture : MonoBehaviour
         ResourceData.Money -=  money_cost + iron_cost * ResourceData.Iron_value;
         if(CarbonCaptureTile.OverMountain == true)
         {
-            TerrainMultiplier = TerrainMultiplier/2;
+            TerrainMultiplier = 0.5f;
+        }
+        else if(CarbonCaptureTile.OverSnow == true)
+        {
+            TerrainMultiplier = 0.2f;
         }
         StartCoroutine(Carboncapture());
     }

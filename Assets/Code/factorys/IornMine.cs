@@ -18,7 +18,7 @@ public class IornMine : MonoBehaviour
     private int coal = 2;
     private int power = 20;
     private int villageColliderCount = 0;
-    public static float TerrainMultiplier = 1f;
+    public float TerrainMultiplier = 1f;
     public static bool OverIron = false;
   
 
@@ -38,6 +38,10 @@ public class IornMine : MonoBehaviour
         else if(IronTile.OverMountain == true)
         {
             TerrainMultiplier =  0.5f;
+        }
+        else if(IronTile.OverSnow == true)
+        {
+            TerrainMultiplier = 0.2f;
         }
         else if(OverIron == true && IronTile.OverMountain == true)
         {

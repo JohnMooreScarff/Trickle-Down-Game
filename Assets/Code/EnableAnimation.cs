@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class EnableAnimation : MonoBehaviour
 {
-    Animator animator;
-  
-    
+    private Animator animator;
+
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
         animator.enabled = true;
-
-        
     }
 
     void Update()
@@ -20,54 +17,54 @@ public class EnableAnimation : MonoBehaviour
             Village village = gameObject.GetComponent<Village>();
             IornMine iornMine = gameObject.GetComponent<IornMine>();
             CarbonCapture carbonCapture = gameObject.GetComponent<CarbonCapture>();
-            stonefactory Stonefactory = gameObject.GetComponent<stonefactory>();
+            stonefactory stoneFactory = gameObject.GetComponent<stonefactory>();
             Farm farm = gameObject.GetComponent<Farm>();
             Tree tree = gameObject.GetComponent<Tree>();
-            woodfactory Woodfactory = gameObject.GetComponent<woodfactory>();
+            woodfactory woodFactory = gameObject.GetComponent<woodfactory>();
             CoalMine coalMine = gameObject.GetComponent<CoalMine>();
             WindTurbine windTurbine = gameObject.GetComponent<WindTurbine>();
             PowerStation powerStation = gameObject.GetComponent<PowerStation>();
-            
-            if(village != null)
+
+            if (village != null)
             {
-                animator.speed = ResourceData.Power_multiplier * Village.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * village.TerrainMultiplier;
             }
-            else if(Woodfactory != null)
+            else if (woodFactory != null)
             {
-                animator.speed = ResourceData.Power_multiplier * woodfactory.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * woodFactory.TerrainMultiplier;
             }
-            else if(iornMine != null)
+            else if (iornMine != null)
             {
-                animator.speed = ResourceData.Power_multiplier * IornMine.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * iornMine.TerrainMultiplier;
             }
-            else if(tree != null)
+            else if (tree != null)
             {
-                animator.speed = ResourceData.Power_multiplier * Tree.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * tree.TerrainMultiplier;
             }
-            else if(farm != null)
+            else if (farm != null)
             {
-                animator.speed = ResourceData.Power_multiplier * Farm.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * farm.TerrainMultiplier;
             }
-            else if(windTurbine != null)
+            else if (windTurbine != null)
             {
-                animator.speed = ResourceData.Power_multiplier * WindTurbine.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * windTurbine.TerrainMultiplier;
             }
-            else if(coalMine != null)
+            else if (coalMine != null)
             {
-                animator.speed = ResourceData.Power_multiplier * CoalMine.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * coalMine.TerrainMultiplier;
             }
-            else if(Stonefactory != null)
+            else if (stoneFactory != null)
             {
-                animator.speed = ResourceData.Power_multiplier * stonefactory.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * stoneFactory.TerrainMultiplier;
             }
-            else if(powerStation != null)
+            else if (powerStation != null)
             {
-                animator.speed = ResourceData.Power_multiplier * PowerStation.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * powerStation.TerrainMultiplier;
             }
-            else if(carbonCapture != null)
+            else if (carbonCapture != null)
             {
-                animator.speed = ResourceData.Power_multiplier * CarbonCapture.TerrainMultiplier;
+                animator.speed = ResourceData.Power_multiplier * carbonCapture.TerrainMultiplier;
             }
-        }                   
+        }
     }
 }

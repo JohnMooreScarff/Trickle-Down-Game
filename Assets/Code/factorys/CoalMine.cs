@@ -18,7 +18,7 @@ public class CoalMine : MonoBehaviour
     private int stone = 2;
     private int power = 20;
     private int villageColliderCount = 0;
-    public static float TerrainMultiplier = 1f;
+    public float TerrainMultiplier = 1f;
     public static bool OverCoal = false;
   
 
@@ -38,6 +38,10 @@ public class CoalMine : MonoBehaviour
         if(CoalTile.OverMountain == true)
         {
             TerrainMultiplier = TerrainMultiplier/2;
+        }
+        if(CoalTile.OverSnow == true)
+        {
+            TerrainMultiplier = 0.2f;
         }
         StartCoroutine(CoalProduction());
     }

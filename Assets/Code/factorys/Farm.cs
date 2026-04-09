@@ -14,7 +14,7 @@ public class Farm : MonoBehaviour
     //consume
     private int power = 10;
     private int villageColliderCount = 0;  
-    public static float TerrainMultiplier = 1f;
+    public float TerrainMultiplier = 1f;
 
     void Start()
     {
@@ -24,7 +24,11 @@ public class Farm : MonoBehaviour
         ResourceData.Food_supply += food;
         if(FarmTile.OverMountain == true)
         {
-            TerrainMultiplier = TerrainMultiplier/2;
+            TerrainMultiplier = 0.5f;
+        }
+        else if(FarmTile.OverSnow == true)
+        {
+            TerrainMultiplier = 0.2f;
         }
         StartCoroutine(WoodProduction());
         ResourceData.Money -= money_cost + (ResourceData.Wood_value * wood_cost) + (ResourceData.Stone_value * stone_cost);

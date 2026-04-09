@@ -23,7 +23,7 @@ public class PowerStation : MonoBehaviour
     private ConsumptionType currentConsumption = ConsumptionType.None;
     private ConsumptionType lastConsumption = ConsumptionType.None;
     private int villageColliderCount = 0;
-    public static float TerrainMultiplier = 1f;
+    public float TerrainMultiplier = 1f;
 
 
     void Start()
@@ -37,7 +37,11 @@ public class PowerStation : MonoBehaviour
         }
         if(PowerTile.OverMountain == true)
         {
-            TerrainMultiplier = TerrainMultiplier/2;
+            TerrainMultiplier = 0.5f;
+        }
+        else if(PowerTile.OverSnow == true)
+        {
+            TerrainMultiplier = 0.2f;
         }
     }
 IEnumerator PowerStationConsumption()

@@ -8,6 +8,7 @@ public class IronTile : MonoBehaviour
 {
     public static bool Overwater;
     public static bool OverMountain;
+    public static bool OverSnow;
     private Tilemap tilemapO;
     private Tilemap tilemapU;
     
@@ -72,6 +73,14 @@ public class IronTile : MonoBehaviour
             else
             {
                 OverMountain = false;
+            }
+        if(tilem1.name == "Snow")
+            {
+                OverSnow = true;
+            }
+            else
+            {
+                OverSnow = false;
             }
         }
     }

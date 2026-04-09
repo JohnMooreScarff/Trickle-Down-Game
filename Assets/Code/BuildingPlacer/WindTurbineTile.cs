@@ -7,6 +7,7 @@ public class WindTurbineTile : MonoBehaviour
 {
     public static bool Overwater;
     public static bool OverMountain;
+    public static bool OverSnow;
     private Tilemap tilemap;
 
     void Start()
@@ -48,6 +49,14 @@ public class WindTurbineTile : MonoBehaviour
             else
             {
                 OverMountain = false;
+            }
+        if(tile.name == "Snow")
+            {
+                OverSnow = true;
+            }
+            else
+            {
+                OverSnow = false;
             }
         }
     }
