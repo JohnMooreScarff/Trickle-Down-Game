@@ -16,7 +16,7 @@ public class RandomParticleActivator : MonoBehaviour
         {
             int randomIndex = Random.Range(0, particleSystems.Length);
             particleSystems[randomIndex].Play();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

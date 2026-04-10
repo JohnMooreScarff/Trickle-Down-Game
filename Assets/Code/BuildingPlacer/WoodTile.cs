@@ -56,7 +56,7 @@ public class WoodTile : MonoBehaviour
             }
             else
             {
-                OverForest = true;
+                OverForest = false;
             }
         }
     }

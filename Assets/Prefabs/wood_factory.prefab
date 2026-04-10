@@ -4975,6 +4975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e19b3af660c8c24bad9c4fd4f5301d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TerrainMultiplier: 1
 --- !u!50 &-8612905692825776906
 Rigidbody2D:
   serializedVersion: 5

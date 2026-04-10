@@ -17,10 +17,7 @@ public class EndSceneLoader : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        
     }
     void Update()
     {
@@ -29,17 +26,23 @@ public class EndSceneLoader : MonoBehaviour
             if (ResourceData.QOL >= 100 && ResourceData.Pollution <= 0)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                
                 LoadScene(winScene);
+                ResourceData.ResetStaticData();
             }
             else if (ResourceData.Pollution >= 100)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                
                 LoadScene(looseScene);
+                ResourceData.ResetStaticData();
             }
             else if (ResourceData.Money <= -100000)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                
                 LoadScene(bankruptScene);
+                ResourceData.ResetStaticData();
             }
         }
     }

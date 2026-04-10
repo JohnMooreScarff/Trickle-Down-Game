@@ -369,11 +369,71 @@ void Pollutionconsequences()
             Iron_value_currant_text.text = Iron_value_currant.ToString("0.0");
         }
         Iron_amount_text.text = Iron_amount.ToString("0");
-
-
-        
-
-
     }
+    public static void ResetStaticData()
+    {
+        // effects
+        IntrestRate = 1.05f;
+        Pollution = 0f;
+        sealevel = 0f;
+        village_ammount = 0;
 
+        // QOL
+        QOl_wood = 0f;
+        QOl_stone = 0f;
+        QOl_food = 0f;
+        QOl_coal = 0f;
+        QOl_iron = 0f;
+        QOL = 0f;
+
+        // power
+        Power_supply = 1;
+        Power_demand = 0;
+        Power_SD_Diff_ = 0f;
+        Power_multiplier = 0.4f;
+        power_percentage_display = 0f;
+
+        // money
+        Money = 0;
+
+        // wood
+        Wood_amount = 100f;
+        Wood_value = 4f;
+        Wood_supply = 1;
+        Wood_demand = 1;
+        Wood_SD_Diff_ = 0f;
+        Wood_value_currant = 4f;
+
+        // stone
+        Stone_amount = 70f;
+        Stone_value = 8f;
+        Stone_supply = 1;
+        Stone_demand = 1;
+        Stone_SD_Diff_ = 0f;
+        Stone_value_currant = 8f;
+
+        // food
+        Food_amount = 0f;
+        Food_value = 5f;
+        Food_supply = 1;
+        Food_demand = 1;
+        Food_SD_Diff_ = 0f;
+        Food_value_currant = 5f;
+
+        // coal
+        Coal_amount = 0f;
+        Coal_value = 20f;
+        Coal_supply = 1;
+        Coal_demand = 1;
+        Coal_SD_Diff_ = 0f;
+        Coal_value_currant = 20f;
+
+        // iron
+        Iron_amount = 0f;
+        Iron_value = 30f;
+        Iron_supply = 1;
+        Iron_demand = 1;
+        Iron_SD_Diff_ = 0f;
+        Iron_value_currant = 30f;
+    }
 }
