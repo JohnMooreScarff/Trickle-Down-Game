@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 public class Wood_Follow_place_buildings : MonoBehaviour
 {
@@ -24,11 +25,17 @@ public class Wood_Follow_place_buildings : MonoBehaviour
             currentObject.transform.position = worldPos;
         }
     }
+    IEnumerator WaitToStart()
+        {
+             yield return new WaitForSeconds(0.2f);
+             StartPlacing();
+        }  
 
     public void StartPlacing()
     {
         if (isPlacing == false)
         {
+            
             currentObject = Instantiate(objectPrefab);
             MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
 
@@ -54,14 +61,12 @@ public class Wood_Follow_place_buildings : MonoBehaviour
                 Debug.Log("Enabling script: " + scripts[i].GetType().Name);
                 scripts[i].enabled = true;
             }
-
+        
         isPlacing = false;
-        currentObject = null;
         button.interactable = true;
-        OverVillage = false;
-        
-        
-        }
+        OverVillage = false; 
+        StartCoroutine(WaitToStart());
+        }    
     }
 
         public void CancelPlacement()
@@ -75,7 +80,6 @@ public class Wood_Follow_place_buildings : MonoBehaviour
         button.interactable = true;
         OverVillage = false;
         }
-    }
-        
+    }     
 }
 

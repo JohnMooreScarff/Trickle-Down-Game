@@ -110,8 +110,8 @@
                     "id": "4d0708ac-ce9e-4437-ab41-db8206484115",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "cancelPlace",
@@ -535,7 +535,7 @@
                     "name": "",
                     "id": "cf47b4b3-47c1-4062-987e-5a91538a17bd",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=0.1)",
                     "processors": "",
                     "groups": "",
                     "action": "PlaceBuildings",
