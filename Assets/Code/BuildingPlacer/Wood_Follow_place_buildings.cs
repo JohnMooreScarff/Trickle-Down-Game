@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UnityEngine.InputSystem;
 
 public class Wood_Follow_place_buildings : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class Wood_Follow_place_buildings : MonoBehaviour
     private GameObject currentObject;
 
     public static bool isPlacing = false;
+    public static bool JustPlaced = false;
     public static bool OverVillage = false;
-    
+
 
     void Update()
     {
@@ -23,13 +25,19 @@ public class Wood_Follow_place_buildings : MonoBehaviour
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             worldPos.z = 0f;
             currentObject.transform.position = worldPos;
+            if (JustPlaced == true)
+            {
+            if (Mouse.current.leftButton.isPressed)
+            {
+                JustPlaced = false;
+            }
+            else
+            {
+                JustPlaced = true;
+            }
+            }
         }
     }
-    IEnumerator WaitToStart()
-        {
-             yield return new WaitForSeconds(0.2f);
-             StartPlacing();
-        }  
 
     public void StartPlacing()
     {
@@ -47,26 +55,30 @@ public class Wood_Follow_place_buildings : MonoBehaviour
 
             isPlacing = true;
             button.interactable = false;
+            
         }
     }
 
     public void PlaceObject()
     {
-        if (isPlacing == true && WoodTile.Overwater == false && OverVillage == true)
-        {
-            MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
-
-            for (int i = 0; i < scripts.Length && i < 4; i++)
+        
+            if (JustPlaced == false && isPlacing == true && WoodTile.Overwater == false && OverVillage == true)
             {
-                Debug.Log("Enabling script: " + scripts[i].GetType().Name);
-                scripts[i].enabled = true;
+                MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
+
+                for (int i = 0; i < scripts.Length && i < 4; i++)
+                {
+                    Debug.Log("Enabling script: " + scripts[i].GetType().Name);
+                    scripts[i].enabled = true;
+                }
+            
+            isPlacing = false;
+            button.interactable = true;
+            OverVillage = false; 
+            StartPlacing();
             }
         
-        isPlacing = false;
-        button.interactable = true;
-        OverVillage = false; 
-        StartCoroutine(WaitToStart());
-        }    
+               
     }
 
         public void CancelPlacement()
