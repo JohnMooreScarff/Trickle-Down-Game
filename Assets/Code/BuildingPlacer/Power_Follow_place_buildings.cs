@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class Power_Follow_place_buildings : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Power_Follow_place_buildings : MonoBehaviour
 
     public static bool isPlacing = false;
     public static bool OverVillage = false;
+    public static bool JustPlaced = false;
     
 
     void Update()
@@ -23,6 +25,23 @@ public class Power_Follow_place_buildings : MonoBehaviour
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             worldPos.z = 0f;
             currentObject.transform.position = worldPos;
+            if (Mouse.current.leftButton.isPressed)
+            {
+                JustPlaced = false;
+            }
+            else
+            {
+                JustPlaced = true;
+            }
+        }
+        if(VillagePlacement.isPlacing == true || Tree_Follow_place_buildings.isPlacing == true || Wood_Follow_place_buildings.isPlacing == true || Carbon_capture_Follow_place_buildings.isPlacing == true || Stone_Follow_place_buildings.isPlacing == true || Iron_Follow_place_buildings.isPlacing == true || WindTurbine_Follow_place_buildings.isPlacing == true || Farm_Follow_place_buildings.isPlacing == true || Coal_Follow_place_buildings.isPlacing == true)
+        
+        {
+            Destroy(currentObject);
+            currentObject = null;
+            isPlacing = false;
+            button.interactable = true;
+            OverVillage = false;
         }
     }
 
@@ -46,7 +65,7 @@ public class Power_Follow_place_buildings : MonoBehaviour
 
     public void PlaceObject()
     {
-        if (isPlacing == true && PowerTile.Overwater == false && OverVillage == true)
+        if (JustPlaced == false && isPlacing == true && PowerTile.Overwater == false && OverVillage == true && ResourceData.Stone_amount >= PowerStation.stone_cost && ResourceData.Wood_amount >= PowerStation.wood_cost)
         {
             MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
 
@@ -60,7 +79,7 @@ public class Power_Follow_place_buildings : MonoBehaviour
         currentObject = null;
         button.interactable = true;
         OverVillage = false;
-        
+        StartPlacing();
         
         }
     }

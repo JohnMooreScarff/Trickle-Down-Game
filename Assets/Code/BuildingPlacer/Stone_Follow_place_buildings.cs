@@ -34,11 +34,21 @@ public class Stone_Follow_place_buildings : MonoBehaviour
                 JustPlaced = true;
             }
         }
+        if(VillagePlacement.isPlacing == true || Tree_Follow_place_buildings.isPlacing == true || Wood_Follow_place_buildings.isPlacing == true || Power_Follow_place_buildings.isPlacing == true || Carbon_capture_Follow_place_buildings.isPlacing == true || Iron_Follow_place_buildings.isPlacing == true || WindTurbine_Follow_place_buildings.isPlacing == true || Farm_Follow_place_buildings.isPlacing == true || Coal_Follow_place_buildings.isPlacing == true)
+        
+        {
+            Destroy(currentObject);
+            currentObject = null;
+            isPlacing = false;
+            button.interactable = true;
+            OverVillage = false;
+        }
         
     }
 
     public void StartPlacing()
     {
+        
         if (isPlacing == false && ResourceData.Wood_amount >= stonefactory.wood_cost)
         {
             currentObject = Instantiate(objectPrefab);
@@ -57,7 +67,7 @@ public class Stone_Follow_place_buildings : MonoBehaviour
 
     public void PlaceObject()
     {
-        if (JustPlaced == false && isPlacing == true && StoneTiles.Overwater == false && OverVillage == true)
+        if (JustPlaced == false && isPlacing == true && StoneTiles.Overwater == false && OverVillage == true && ResourceData.Wood_amount >= stonefactory.wood_cost)
         {
             MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
 

@@ -114,7 +114,7 @@ public class Village : MonoBehaviour
 
                 if(Stone_currentConsumption != Stone_lastConsumption)
                 {
-                    ResourceData.Wood_demand += wood;
+                    ResourceData.Wood_demand += stone;
                     Stone_lastConsumption = Stone_currentConsumption;
                     ResourceData.QOl_stone += 1;
                 }
@@ -140,9 +140,9 @@ public class Village : MonoBehaviour
                 FoodParticals.SetActive(true);
                 if(Food_currentConsumption != Food_lastConsumption)
                 {
-                    ResourceData.Wood_demand += wood;
+                    ResourceData.Wood_demand += food;
                     Food_lastConsumption = Food_currentConsumption;
-                    ResourceData.QOl_stone += 1;
+                    ResourceData.QOl_food += 1;
                 }
             }
             else
@@ -152,7 +152,7 @@ public class Village : MonoBehaviour
                 if (Food_currentConsumption != Food_lastConsumption)
                 {
                     Food_lastConsumption = Food_currentConsumption;
-                    ResourceData.QOl_stone -= 1;
+                    ResourceData.QOl_food -= 1;
                 }
             }
 
@@ -166,9 +166,9 @@ public class Village : MonoBehaviour
                 CoalParticals.SetActive(true);
                 if(Coal_currentConsumption != Coal_lastConsumption)
                 {
-                    ResourceData.Wood_demand += wood;
+                    ResourceData.Wood_demand += coal;
                     Coal_lastConsumption = Coal_currentConsumption;
-                    ResourceData.QOl_stone += 1;
+                    ResourceData.QOl_coal += 1;
                 }
             }
             else
@@ -178,7 +178,7 @@ public class Village : MonoBehaviour
                 if (Coal_currentConsumption != Coal_lastConsumption)
                 {
                     Coal_lastConsumption = Coal_currentConsumption;
-                    ResourceData.QOl_stone -= 1;
+                    ResourceData.QOl_coal -= 1;
                 }
             }
 
@@ -192,9 +192,9 @@ public class Village : MonoBehaviour
                 IronParticals.SetActive(true);
                 if(Iron_currentConsumption != Iron_lastConsumption)
                 {
-                    ResourceData.Wood_demand += wood;
+                    ResourceData.Wood_demand += iron;
                     Iron_lastConsumption = Iron_currentConsumption;
-                    ResourceData.QOl_stone += 1;
+                    ResourceData.QOl_iron += 1;
                 }
             }
             else
@@ -204,7 +204,7 @@ public class Village : MonoBehaviour
                 if (Iron_currentConsumption != Iron_lastConsumption)
                 {
                     Iron_lastConsumption = Iron_currentConsumption;
-                    ResourceData.QOl_stone -= 1;
+                    ResourceData.QOl_iron -= 1;
                 }
             }
         }

@@ -31,8 +31,16 @@ public class Wood_Follow_place_buildings : MonoBehaviour
             else
             {
                 JustPlaced = true;
-            }
-            
+            }         
+        }
+        if(VillagePlacement.isPlacing == true || Tree_Follow_place_buildings.isPlacing == true || Power_Follow_place_buildings.isPlacing == true || Carbon_capture_Follow_place_buildings.isPlacing == true || Stone_Follow_place_buildings.isPlacing == true || Iron_Follow_place_buildings.isPlacing == true || WindTurbine_Follow_place_buildings.isPlacing == true || Farm_Follow_place_buildings.isPlacing == true || Coal_Follow_place_buildings.isPlacing == true)
+        
+        {
+            Destroy(currentObject);
+            currentObject = null;
+            isPlacing = false;
+            button.interactable = true;
+            OverVillage = false;
         }
     }
 
