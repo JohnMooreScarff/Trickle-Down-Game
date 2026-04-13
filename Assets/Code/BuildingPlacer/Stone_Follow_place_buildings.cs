@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class Stone_Follow_place_buildings : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Stone_Follow_place_buildings : MonoBehaviour
 
     public static bool isPlacing = false;
     public static bool OverVillage = false;
+    public static bool JustPlaced = false;
     
 
     void Update()
@@ -23,7 +25,16 @@ public class Stone_Follow_place_buildings : MonoBehaviour
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             worldPos.z = 0f;
             currentObject.transform.position = worldPos;
+            if (Mouse.current.leftButton.isPressed)
+            {
+                JustPlaced = false;
+            }
+            else
+            {
+                JustPlaced = true;
+            }
         }
+        
     }
 
     public void StartPlacing()
@@ -46,7 +57,7 @@ public class Stone_Follow_place_buildings : MonoBehaviour
 
     public void PlaceObject()
     {
-        if (isPlacing == true && StoneTiles.Overwater == false && OverVillage == true)
+        if (JustPlaced == false && isPlacing == true && StoneTiles.Overwater == false && OverVillage == true)
         {
             MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
 
@@ -60,7 +71,7 @@ public class Stone_Follow_place_buildings : MonoBehaviour
         currentObject = null;
         button.interactable = true;
         OverVillage = false;
-        
+        StartPlacing();
         
         }
     }

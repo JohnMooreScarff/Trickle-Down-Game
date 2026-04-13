@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine.InputSystem;
 
 public class Wood_Follow_place_buildings : MonoBehaviour
@@ -24,9 +23,7 @@ public class Wood_Follow_place_buildings : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             worldPos.z = 0f;
-            currentObject.transform.position = worldPos;
-            if (JustPlaced == true)
-            {
+            currentObject.transform.position = worldPos;            
             if (Mouse.current.leftButton.isPressed)
             {
                 JustPlaced = false;
@@ -35,7 +32,7 @@ public class Wood_Follow_place_buildings : MonoBehaviour
             {
                 JustPlaced = true;
             }
-            }
+            
         }
     }
 
