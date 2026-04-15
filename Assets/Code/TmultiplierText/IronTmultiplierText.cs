@@ -37,6 +37,14 @@ public class IronTmultiplierText : MonoBehaviour
             {
                 ironmine.TerrainMultiplier = 2f;
             }
+            else if(IronTile.OverMountain == true && IornMine.OverIron == true)
+            {
+                ironmine.TerrainMultiplier = 1f;
+            }
+            else if(IronTile.OverSnow == true && IornMine.OverIron == true)
+            {
+                ironmine.TerrainMultiplier = 0.5f;
+            }
             else
             {
                 ironmine.TerrainMultiplier = 1f;

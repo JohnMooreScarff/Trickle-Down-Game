@@ -25,11 +25,11 @@ public class WindTurbineTmultiplierText : MonoBehaviour
             mousePos.y += 3f;
             Multiplier_text.transform.position = mousePos;
             
-            if(PowerTile.OverMountain == true)
+            if(WindTurbineTile.OverMountain == true)
             {
                 windturbine.TerrainMultiplier = 1f;
             }
-            else if(PowerTile.OverSnow == true)
+            else if(WindTurbineTile.OverSnow == true)
             {
                 windturbine.TerrainMultiplier = 2f;
             }

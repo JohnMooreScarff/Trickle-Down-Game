@@ -37,6 +37,14 @@ public class CoalTmultiplierText : MonoBehaviour
             {
                 coalmine.TerrainMultiplier = 2f;
             }
+            else if(CoalTile.OverMountain == true && CoalMine.OverCoal == true)
+            {
+                coalmine.TerrainMultiplier = 1f;
+            }
+            else if(CoalTile.OverSnow == true && CoalMine.OverCoal == true)
+            {
+                coalmine.TerrainMultiplier = 0.5f;
+            }
             else
             {
                 coalmine.TerrainMultiplier = 1f;

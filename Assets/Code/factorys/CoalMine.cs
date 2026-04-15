@@ -43,7 +43,7 @@ public class CoalMine : MonoBehaviour
         }
         if(OverCoal == true)
         {
-            TerrainMultiplier = TerrainMultiplier * 2f;
+            TerrainMultiplier = 2f;
         }
         if(CoalTile.OverMountain == true && OverCoal == true)
         {
