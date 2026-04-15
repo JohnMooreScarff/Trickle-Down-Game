@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class VillageTmultiplierText : MonoBehaviour
+public class WindTurbineTmultiplierText : MonoBehaviour
 {
     public TMP_Text Multiplier_text;
     private Color orange;
@@ -16,45 +16,45 @@ public class VillageTmultiplierText : MonoBehaviour
 
     void Update()
     {
-        Village village = gameObject.GetComponent<Village>();
+        WindTurbine windturbine = gameObject.GetComponent<WindTurbine>();
         
-        if(VillagePlacement.isPlacing == true && village.Isplaced == false)
+        if(WindTurbine_Follow_place_buildings.isPlacing == true && windturbine.Isplaced == false)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0f;
-            mousePos.y += 5f;
+            mousePos.y += 3f;
             Multiplier_text.transform.position = mousePos;
             
-            if(VillageTile.OverMountain == true)
+            if(PowerTile.OverMountain == true)
             {
-                village.TerrainMultiplier = 0.5f;
+                windturbine.TerrainMultiplier = 1f;
             }
-            else if(VillageTile.OverSnow == true)
+            else if(PowerTile.OverSnow == true)
             {
-                village.TerrainMultiplier = 0.2f;
+                windturbine.TerrainMultiplier = 2f;
             }
             else
             {
-                village.TerrainMultiplier = 1f;
+                windturbine.TerrainMultiplier = 0.5f;
             } 
         
-            if (village.TerrainMultiplier == 0.2f)
+            if (windturbine.TerrainMultiplier == 0.2f)
             {
                 Multiplier_text.color = Color.red;
             }
-            else if (village.TerrainMultiplier == 0.5f)
+            else if (windturbine.TerrainMultiplier == 0.5f)
             {
                 Multiplier_text.color = orange;
             }
-            else if (village.TerrainMultiplier == 1f)
+            else if (windturbine.TerrainMultiplier == 1f)
             {
                 Multiplier_text.color = Color.white;
             }
-            else if (village.TerrainMultiplier == 2f)
+            else if (windturbine.TerrainMultiplier == 2f)
             {
                 Multiplier_text.color = Color.green;
             }
-            Multiplier_text.text = village.TerrainMultiplier.ToString() + " x";
+            Multiplier_text.text = windturbine.TerrainMultiplier.ToString() + " x";
         }
         else
         {

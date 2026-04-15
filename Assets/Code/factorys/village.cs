@@ -7,6 +7,7 @@ public class Village : MonoBehaviour
 
 {
     public float TerrainMultiplier = 1f;
+    public bool Isplaced = false;
     //cost
     
     public static int stone_cost = 70;
@@ -47,6 +48,7 @@ public class Village : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         StartCoroutine(villageProduction());
         if(ResourceData.Stone_amount >= stone_cost && ResourceData.Wood_amount >= wood_cost)
         {

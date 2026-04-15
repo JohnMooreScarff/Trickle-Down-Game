@@ -4,6 +4,7 @@ using TMPro;
 
 public class Farm : MonoBehaviour
 {
+    public bool Isplaced = false;
     //cost
     private int money_cost = 1000;
     public static int stone_cost = 40;
@@ -18,6 +19,7 @@ public class Farm : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         ResourceData.Power_demand += power;
         ResourceData.Stone_amount -= stone_cost;
         ResourceData.Wood_amount -= wood_cost;

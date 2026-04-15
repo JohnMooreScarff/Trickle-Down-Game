@@ -4,7 +4,7 @@ using TMPro;
 
 public class PowerStation : MonoBehaviour
 {
-
+    public bool Isplaced = false;
     //cost
     private int money_cost = 1000;
     public static int wood_cost = 30;
@@ -28,6 +28,7 @@ public class PowerStation : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         StartCoroutine(PowerStationConsumption());
         if(ResourceData.Stone_amount >= stone_cost && ResourceData.Wood_amount >= wood_cost)
         {

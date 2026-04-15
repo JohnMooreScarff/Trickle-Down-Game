@@ -4,7 +4,7 @@ using TMPro;
 
 public class Tree : MonoBehaviour
 {
-    
+    public bool Isplaced = false;
     //cost
     private int money_cost = 500;
     public static int wood_cost = 60;
@@ -19,6 +19,7 @@ public class Tree : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         ResourceData.Wood_amount -= wood_cost;
         ResourceData.Food_amount -= food_cost;
         ResourceData.Money -=  money_cost + wood_cost * ResourceData.Wood_value + food_cost * ResourceData.Food_value;

@@ -4,7 +4,7 @@ using TMPro;
 
 public class CarbonCapture : MonoBehaviour
 {
-    
+    public bool Isplaced = false;
     //cost
     private int money_cost = 2000;
     public static int iron_cost = 20;
@@ -20,6 +20,7 @@ public class CarbonCapture : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         ResourceData.Power_demand += power;
         ResourceData.Iron_amount -= iron_cost;
         ResourceData.Money -=  money_cost + iron_cost * ResourceData.Iron_value;

@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class VillageTmultiplierText : MonoBehaviour
+public class CarbonCaptureTmultiplierText : MonoBehaviour
 {
     public TMP_Text Multiplier_text;
     private Color orange;
@@ -16,45 +16,45 @@ public class VillageTmultiplierText : MonoBehaviour
 
     void Update()
     {
-        Village village = gameObject.GetComponent<Village>();
+        CarbonCapture carboncapture = gameObject.GetComponent<CarbonCapture>();
         
-        if(VillagePlacement.isPlacing == true && village.Isplaced == false)
+        if(Carbon_capture_Follow_place_buildings.isPlacing == true && carboncapture.Isplaced == false)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0f;
-            mousePos.y += 5f;
+            mousePos.y += 3f;
             Multiplier_text.transform.position = mousePos;
             
-            if(VillageTile.OverMountain == true)
+            if(CarbonCaptureTile.OverMountain == true)
             {
-                village.TerrainMultiplier = 0.5f;
+                carboncapture.TerrainMultiplier = 0.5f;
             }
-            else if(VillageTile.OverSnow == true)
+            else if(CarbonCaptureTile.OverSnow == true)
             {
-                village.TerrainMultiplier = 0.2f;
+                carboncapture.TerrainMultiplier = 0.2f;
             }
             else
             {
-                village.TerrainMultiplier = 1f;
+                carboncapture.TerrainMultiplier = 1f;
             } 
         
-            if (village.TerrainMultiplier == 0.2f)
+            if (carboncapture.TerrainMultiplier == 0.2f)
             {
                 Multiplier_text.color = Color.red;
             }
-            else if (village.TerrainMultiplier == 0.5f)
+            else if (carboncapture.TerrainMultiplier == 0.5f)
             {
                 Multiplier_text.color = orange;
             }
-            else if (village.TerrainMultiplier == 1f)
+            else if (carboncapture.TerrainMultiplier == 1f)
             {
                 Multiplier_text.color = Color.white;
             }
-            else if (village.TerrainMultiplier == 2f)
+            else if (carboncapture.TerrainMultiplier == 2f)
             {
                 Multiplier_text.color = Color.green;
             }
-            Multiplier_text.text = village.TerrainMultiplier.ToString() + " x";
+            Multiplier_text.text = carboncapture.TerrainMultiplier.ToString() + " x";
         }
         else
         {

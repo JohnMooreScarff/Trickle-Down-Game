@@ -4,7 +4,7 @@ using TMPro;
 
 public class WindTurbine : MonoBehaviour
 {
-    
+    public bool Isplaced = false;
     //cost
     private int money_cost = 200;
     public static int iron_cost = 10;
@@ -20,6 +20,7 @@ public class WindTurbine : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         ResourceData.Iron_amount -= iron_cost;
         ResourceData.Coal_amount -= coal_cost;
         ResourceData.Money -=  money_cost + iron_cost * ResourceData.Iron_value + coal_cost * ResourceData.Coal_value;

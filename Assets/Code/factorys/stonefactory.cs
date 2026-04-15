@@ -4,7 +4,7 @@ using TMPro;
 
 public class stonefactory : MonoBehaviour
 {
-    
+    public bool Isplaced = false;
     //cost
     private int money_cost = 500;
     public static int wood_cost = 20;
@@ -21,6 +21,7 @@ public class stonefactory : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         ResourceData.Power_demand += power;
         ResourceData.Wood_demand += wood;
         ResourceData.Stone_supply += stone;

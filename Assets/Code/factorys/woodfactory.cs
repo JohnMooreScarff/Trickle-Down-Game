@@ -5,6 +5,7 @@ using TMPro;
 
 public class woodfactory : MonoBehaviour
 {
+    public bool Isplaced = false;
     //cost
     private int money_cost = 600;
     //produce
@@ -18,6 +19,7 @@ public class woodfactory : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         ResourceData.Power_demand += power;
         ResourceData.Wood_supply += wood;
         ResourceData.Money -= money_cost;

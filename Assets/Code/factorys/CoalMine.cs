@@ -4,6 +4,7 @@ using TMPro;
 
 public class CoalMine : MonoBehaviour
 {
+    public bool Isplaced = false;
     
     //cost
     private int money_cost = 500;
@@ -24,6 +25,7 @@ public class CoalMine : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         ResourceData.Power_demand += power;
         ResourceData.Wood_demand += wood;
         ResourceData.Stone_demand += stone;
@@ -41,7 +43,15 @@ public class CoalMine : MonoBehaviour
         }
         if(OverCoal == true)
         {
-            TerrainMultiplier = TerrainMultiplier * 3f;
+            TerrainMultiplier = TerrainMultiplier * 2f;
+        }
+        if(CoalTile.OverMountain == true && OverCoal == true)
+        {
+            TerrainMultiplier = 1f;
+        }
+        if(CoalTile.OverSnow == true && OverCoal == true)
+        {
+            TerrainMultiplier = 0.5f;
         }
         StartCoroutine(CoalProduction());
     }

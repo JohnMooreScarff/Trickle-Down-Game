@@ -4,6 +4,7 @@ using TMPro;
 
 public class IornMine : MonoBehaviour
 {
+    public bool Isplaced = false;
     
     //cost
     private int money_cost = 500;
@@ -24,6 +25,7 @@ public class IornMine : MonoBehaviour
 
     void Start()
     {
+        Isplaced = true;
         ResourceData.Power_demand += power;
         ResourceData.Wood_demand += wood;
         ResourceData.Coal_demand += coal;
@@ -41,7 +43,15 @@ public class IornMine : MonoBehaviour
         }
         if(OverIron == true)
         {
-            TerrainMultiplier = TerrainMultiplier * 3f;
+            TerrainMultiplier = 2f;
+        }
+        if(IronTile.OverMountain == true && OverIron == true)
+        {
+            TerrainMultiplier = 1f;
+        }
+        if(IronTile.OverSnow == true && OverIron == true)
+        {
+            TerrainMultiplier = 0.5f;
         }
         StartCoroutine(StoneProduction());
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class VillageTmultiplierText : MonoBehaviour
+public class IronTmultiplierText : MonoBehaviour
 {
     public TMP_Text Multiplier_text;
     private Color orange;
@@ -16,45 +16,49 @@ public class VillageTmultiplierText : MonoBehaviour
 
     void Update()
     {
-        Village village = gameObject.GetComponent<Village>();
+        IornMine ironmine = gameObject.GetComponent<IornMine>();
         
-        if(VillagePlacement.isPlacing == true && village.Isplaced == false)
+        if(Iron_Follow_place_buildings.isPlacing == true && ironmine.Isplaced == false)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0f;
-            mousePos.y += 5f;
+            mousePos.y += 3f;
             Multiplier_text.transform.position = mousePos;
             
-            if(VillageTile.OverMountain == true)
+            if(IronTile.OverMountain == true)
             {
-                village.TerrainMultiplier = 0.5f;
+                ironmine.TerrainMultiplier = 0.5f;
             }
-            else if(VillageTile.OverSnow == true)
+            else if(IronTile.OverSnow == true)
             {
-                village.TerrainMultiplier = 0.2f;
+                ironmine.TerrainMultiplier = 0.2f;
+            }
+            else if(IornMine.OverIron == true)
+            {
+                ironmine.TerrainMultiplier = 2f;
             }
             else
             {
-                village.TerrainMultiplier = 1f;
+                ironmine.TerrainMultiplier = 1f;
             } 
         
-            if (village.TerrainMultiplier == 0.2f)
+            if (ironmine.TerrainMultiplier == 0.2f)
             {
                 Multiplier_text.color = Color.red;
             }
-            else if (village.TerrainMultiplier == 0.5f)
+            else if (ironmine.TerrainMultiplier == 0.5f)
             {
                 Multiplier_text.color = orange;
             }
-            else if (village.TerrainMultiplier == 1f)
+            else if (ironmine.TerrainMultiplier == 1f)
             {
                 Multiplier_text.color = Color.white;
             }
-            else if (village.TerrainMultiplier == 2f)
+            else if (ironmine.TerrainMultiplier == 2f)
             {
                 Multiplier_text.color = Color.green;
             }
-            Multiplier_text.text = village.TerrainMultiplier.ToString() + " x";
+            Multiplier_text.text = ironmine.TerrainMultiplier.ToString() + " x";
         }
         else
         {
