@@ -11,7 +11,7 @@ public class stonefactory : MonoBehaviour
 
     //produce
     private int stone = 5;
-    private float Pollution = 0.01f;
+    private float Pollution = 0.02f;
     //consume
     private int wood = 2;
     private int power = 10;

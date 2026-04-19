@@ -13,7 +13,7 @@ public class CoalMine : MonoBehaviour
 
     //produce
     private int coal = 6;
-    private float Pollution = 0.03f;
+    private float Pollution = 0.06f;
     //consume
     private int wood = 4;
     private int stone = 2;

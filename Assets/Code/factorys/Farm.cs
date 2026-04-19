@@ -11,7 +11,7 @@ public class Farm : MonoBehaviour
     public static int wood_cost = 60;
     //production
     private int food = 6;
-    private float Pollution = 0.02f;
+    private float Pollution = 0.04f;
     //consume
     private int power = 10;
     private int villageColliderCount = 0;  

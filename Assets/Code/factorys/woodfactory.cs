@@ -10,7 +10,7 @@ public class woodfactory : MonoBehaviour
     private int money_cost = 600;
     //produce
     private int wood = 8;
-    private float Pollution = 0.01f;
+    private float Pollution = 0.02f;
     //consume
     private int power = 10;
     private int villageColliderCount = 0;

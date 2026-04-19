@@ -16,7 +16,7 @@ public class PowerStation : MonoBehaviour
     //produce
     private int wood_power = 60;
     private int coal_power = 200;
-    private float Pollution = 0.03f;
+    private float Pollution = 0.06f;
 
     //consuming
     private enum ConsumptionType { None, Wood, Coal }

@@ -13,7 +13,7 @@ public class IornMine : MonoBehaviour
 
     //produce
     private int Iron = 3;
-    private float Pollution = 0.03f;
+    private float Pollution = 0.06f;
     //consume
     private int wood = 4;
     private int coal = 2;
@@ -32,7 +32,7 @@ public class IornMine : MonoBehaviour
         ResourceData.Iron_supply += Iron;
         ResourceData.Coal_amount -= coal_cost;
         ResourceData.Stone_amount -= stone_cost;
-        ResourceData.Money -= money_cost + (ResourceData.Wood_value * coal_cost) + (ResourceData.Stone_value * stone_cost);
+        ResourceData.Money -= money_cost + (ResourceData.Coal_value * coal_cost) + (ResourceData.Stone_value * stone_cost);
         if(IronTile.OverMountain == true)
         {
             TerrainMultiplier = 0.5f;
@@ -60,7 +60,7 @@ public class IornMine : MonoBehaviour
         yield return new WaitForSeconds(4f / (TerrainMultiplier *ResourceData.Power_multiplier));
         if(GetComponent<WaterDissable>().Flooded == false)
         {
-        if(ResourceData.Wood_amount >= wood)
+        if(ResourceData.Wood_amount >= wood && ResourceData.Coal_amount >= coal)
         {
         ResourceData.Iron_amount += Iron;
         ResourceData.Wood_amount -= wood;
