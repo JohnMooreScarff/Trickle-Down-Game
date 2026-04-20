@@ -142,7 +142,7 @@ public class Village : MonoBehaviour
                 FoodParticals.SetActive(true);
                 if(Food_currentConsumption != Food_lastConsumption)
                 {
-                    ResourceData.Wood_demand += food;
+                    ResourceData.Food_demand += food;
                     Food_lastConsumption = Food_currentConsumption;
                     ResourceData.QOl_food += 1;
                 }
