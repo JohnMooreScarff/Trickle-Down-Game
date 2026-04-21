@@ -45,6 +45,10 @@ public class Carbon_capture_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
+        if(isPlacing == false)
+        {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+        }
         if (isPlacing == false && ResourceData.Iron_amount >= CarbonCapture.iron_cost)
         {
             currentObject = Instantiate(objectPrefab);

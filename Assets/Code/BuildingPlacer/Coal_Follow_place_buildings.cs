@@ -46,6 +46,10 @@ public class Coal_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
+        if(isPlacing == false)
+        {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+        }
         if (isPlacing == false && ResourceData.Stone_amount >= CoalMine.stone_cost && ResourceData.Wood_amount >= CoalMine.wood_cost)
         {
             currentObject = Instantiate(objectPrefab);

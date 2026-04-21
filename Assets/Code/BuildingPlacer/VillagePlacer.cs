@@ -52,6 +52,10 @@ public class VillagePlacement : MonoBehaviour
 
     public void StartPlacingVillage()
     {
+        if(placeVillageButton.interactable == true)
+        {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+        }
         if (isPlacing == false && ResourceData.Stone_amount >= Village.stone_cost && ResourceData.Wood_amount >= Village.wood_cost)
         {
             villageToPlace = Instantiate(villagePrefab);

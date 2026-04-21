@@ -45,6 +45,10 @@ public class WindTurbine_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
+        if(isPlacing == false)
+        {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+        }
         if (isPlacing == false && ResourceData.Coal_amount >= WindTurbine.coal_cost && ResourceData.Iron_amount >= WindTurbine.iron_cost)
         {
             currentObject = Instantiate(objectPrefab);

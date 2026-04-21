@@ -45,6 +45,10 @@ public class Tree_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
+        if(isPlacing == false)
+        {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+        }
         if (isPlacing == false && ResourceData.Food_amount >= Tree.food_cost && ResourceData.Wood_amount >= Tree.wood_cost)
         {
             currentObject = Instantiate(objectPrefab);

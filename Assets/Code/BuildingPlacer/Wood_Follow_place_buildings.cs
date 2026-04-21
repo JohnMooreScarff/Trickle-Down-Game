@@ -46,6 +46,10 @@ public class Wood_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
+        if(button.interactable == true)
+        {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+        }
         if (isPlacing == false)
         {
             

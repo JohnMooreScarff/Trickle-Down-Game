@@ -47,6 +47,10 @@ public class Power_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
+        if(isPlacing == false)
+        {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+        }
         if (isPlacing == false && ResourceData.Stone_amount >= PowerStation.stone_cost && ResourceData.Wood_amount >= PowerStation.wood_cost)
         {
             currentObject = Instantiate(objectPrefab);

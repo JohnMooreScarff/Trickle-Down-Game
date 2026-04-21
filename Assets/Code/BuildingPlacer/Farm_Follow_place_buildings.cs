@@ -46,6 +46,10 @@ public class Farm_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
+        if(isPlacing == false)
+        {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+        }
         if (isPlacing == false && ResourceData.Stone_amount >= Farm.stone_cost && ResourceData.Wood_amount >= Farm.wood_cost)
         {
             currentObject = Instantiate(objectPrefab);

@@ -19,6 +19,7 @@ public class woodfactory : MonoBehaviour
 
     void Start()
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.palce);
         Isplaced = true;
         ResourceData.Power_demand += power;
         ResourceData.Wood_supply += wood;

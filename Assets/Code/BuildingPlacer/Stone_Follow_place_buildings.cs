@@ -48,7 +48,10 @@ public class Stone_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        
+        if(isPlacing == false)
+        {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+        }
         if (isPlacing == false && ResourceData.Wood_amount >= stonefactory.wood_cost)
         {
             currentObject = Instantiate(objectPrefab);
