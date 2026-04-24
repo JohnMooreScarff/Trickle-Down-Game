@@ -9,7 +9,11 @@ public class AudioManager : MonoBehaviour
         error,
         button_click,
         Music_Menu,
-        Music_main
+        Music_main_1,
+        win,
+        loose_bankrupt,
+        loose_flood
+
         // Add more sound types as needed
     }
  
