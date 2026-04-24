@@ -45,10 +45,6 @@ public class WindTurbine_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        if(isPlacing == false)
-        {
-        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
-        }
         if (isPlacing == false && ResourceData.Coal_amount >= WindTurbine.coal_cost && ResourceData.Iron_amount >= WindTurbine.iron_cost)
         {
             currentObject = Instantiate(objectPrefab);
@@ -69,6 +65,7 @@ public class WindTurbine_Follow_place_buildings : MonoBehaviour
     {
         if (JustPlaced == false && isPlacing == true && WindTurbineTile.Overwater == false && OverVillage == true && ResourceData.Coal_amount >= WindTurbine.coal_cost && ResourceData.Iron_amount >= WindTurbine.iron_cost)
         {
+            AudioManager.Instance.Play(AudioManager.SoundType.palce);
             MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
 
             for (int i = 0; i < scripts.Length && i < 4; i++)

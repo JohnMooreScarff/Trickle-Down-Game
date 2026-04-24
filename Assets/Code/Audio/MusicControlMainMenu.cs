@@ -5,7 +5,7 @@ public class MusicControlMainMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        AudioManager.Instance.Play(AudioManager.SoundType.Music_main_1);
+        AudioManager.Instance.Play(AudioManager.SoundType.Music_Menu_Main);
     }
 
     // Update is called once per frame

@@ -47,10 +47,6 @@ public class Power_Follow_place_buildings : MonoBehaviour
 
     public void StartPlacing()
     {
-        if(isPlacing == false)
-        {
-        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
-        }
         if (isPlacing == false && ResourceData.Stone_amount >= PowerStation.stone_cost && ResourceData.Wood_amount >= PowerStation.wood_cost)
         {
             currentObject = Instantiate(objectPrefab);
@@ -71,6 +67,7 @@ public class Power_Follow_place_buildings : MonoBehaviour
     {
         if (JustPlaced == false && isPlacing == true && PowerTile.Overwater == false && OverVillage == true && ResourceData.Stone_amount >= PowerStation.stone_cost && ResourceData.Wood_amount >= PowerStation.wood_cost)
         {
+            AudioManager.Instance.Play(AudioManager.SoundType.palce);
             MonoBehaviour[] scripts = currentObject.GetComponents<MonoBehaviour>();
 
             for (int i = 0; i < scripts.Length && i < 4; i++)

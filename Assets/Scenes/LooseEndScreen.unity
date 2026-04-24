@@ -151,17 +151,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllSounds:
   - Type: 3
-    Clip: {fileID: 8300000, guid: ff09f284f66fe414abe215738dcabaa8, type: 3}
-    Volume: 1
-    Source: {fileID: 0}
-  - Type: 2
     Clip: {fileID: 8300000, guid: 3822512d54e7d734da244237d0f1b089, type: 3}
-    Volume: 1
+    Volume: 0.751
+    adjustVolumeByCameraSize: 0
     Source: {fileID: 0}
-  - Type: 5
+  - Type: 6
     Clip: {fileID: 8300000, guid: 5d443afce4df9c449a691006e30e8341, type: 3}
     Volume: 1
+    adjustVolumeByCameraSize: 0
     Source: {fileID: 0}
+  orthographicCamera: {fileID: 0}
+  minCameraSize: 5
+  maxCameraSize: 20
 --- !u!4 &5079916
 Transform:
   m_ObjectHideFlags: 0

@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283089582}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MusicControl, Assembly-CSharp
         m_MethodName: Onclick
         m_Mode: 1
@@ -9949,7 +9949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 283089584}
   - component: {fileID: 283089583}
-  - component: {fileID: 283089582}
+  - component: {fileID: 283089585}
   m_Layer: 0
   m_Name: AudioManager (1)
   m_TagString: Untagged
@@ -9957,18 +9957,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &283089582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283089581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dfe8a9ff52de354d86a9f98ec27cfc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &283089583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9983,13 +9971,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllSounds:
   - Type: 4
-    Clip: {fileID: 8300000, guid: bbb6843c52e21ae44a736c62f58ff6c2, type: 3}
-    Volume: 0.73
-    Source: {fileID: 0}
-  - Type: 3
-    Clip: {fileID: 8300000, guid: 6ae6a6d77fc5b7d4d936a90bd70ff687, type: 3}
+    Clip: {fileID: 8300000, guid: a32644bf355d68a4ab69048807e22e67, type: 3}
     Volume: 0.503
+    adjustVolumeByCameraSize: 0
     Source: {fileID: 0}
+  - Type: 5
+    Clip: {fileID: 8300000, guid: bbb6843c52e21ae44a736c62f58ff6c2, type: 3}
+    Volume: 0.286
+    adjustVolumeByCameraSize: 0
+    Source: {fileID: 0}
+  orthographicCamera: {fileID: 0}
+  minCameraSize: 5
+  maxCameraSize: 20
 --- !u!4 &283089584
 Transform:
   m_ObjectHideFlags: 0
@@ -10005,6 +9998,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &283089585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283089581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a8a3a8483e83e4b9e03201e8d5dfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &300124568
 GameObject:
   m_ObjectHideFlags: 0
@@ -10088,7 +10093,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283089582}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MusicControl, Assembly-CSharp
         m_MethodName: Onclick
         m_Mode: 1
@@ -35726,7 +35731,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283089582}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MusicControl, Assembly-CSharp
         m_MethodName: Onclick
         m_Mode: 1

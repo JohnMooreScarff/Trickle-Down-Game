@@ -1,19 +1,23 @@
 using UnityEngine;
+using System.Collections;
 
-public class MusicControlWln
- : MonoBehaviour
+public class MusicControlWln : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         AudioManager.Instance.Play(AudioManager.SoundType.Music_Menu_Win);
+        StartCoroutine(PlayFireworksRepeatedly());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator PlayFireworksRepeatedly()
     {
-        
+        while (true)
+        {
+            AudioManager.Instance.Play(AudioManager.SoundType.Fireworks);
+            yield return new WaitForSeconds(Random.Range(0.2f,0.4f));
+        }
     }
+
     public void Onclick()
     {
         AudioManager.Instance.Play(AudioManager.SoundType.button_click);

@@ -52,10 +52,6 @@ public class VillagePlacement : MonoBehaviour
 
     public void StartPlacingVillage()
     {
-        if(placeVillageButton.interactable == true)
-        {
-        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
-        }
         if (isPlacing == false && ResourceData.Stone_amount >= Village.stone_cost && ResourceData.Wood_amount >= Village.wood_cost)
         {
             villageToPlace = Instantiate(villagePrefab);
@@ -84,6 +80,8 @@ public class VillagePlacement : MonoBehaviour
     {
         if (JustPlaced == false && isPlacing == true && VillageTile.Overwater == false && ResourceData.Stone_amount >= Village.stone_cost && ResourceData.Wood_amount >= Village.wood_cost)
         {
+            AudioManager.Instance.Play(AudioManager.SoundType.palce);
+            AudioManager.Instance.Play(AudioManager.SoundType.Fireworks);
             MonoBehaviour[] scripts = villageToPlace.GetComponents<MonoBehaviour>();
 
             for (int i = 0; i < scripts.Length && i < 4; i++)
