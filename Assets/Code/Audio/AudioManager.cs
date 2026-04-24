@@ -7,12 +7,20 @@ public class AudioManager : MonoBehaviour
     {
         palce,
         error,
+        bubbles,
         button_click,
-        Music_Menu,
+        Music_Menu_Main,
+        Music_Menu_Water,
+        Music_Menu_Bankrupt,
+        Music_Menu_Win,
         Music_main_1,
-        win,
-        loose_bankrupt,
-        loose_flood
+        Music_main_2,
+        Music_main_3,
+        Music_main_4,
+        Music_main_5,
+        win_effect,
+        loose_bankrupt_effect,
+        loose_flood_effect
 
         // Add more sound types as needed
     }

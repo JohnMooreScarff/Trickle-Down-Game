@@ -24898,14 +24898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllSounds:
   - Type: 0
-    Clip: {fileID: 8300000, guid: 5c8d4bd8534096f49904abf879f632c9, type: 3}
-    Volume: 0.407
-    Source: {fileID: 0}
-  - Type: 2
-    Clip: {fileID: 8300000, guid: ff09f284f66fe414abe215738dcabaa8, type: 3}
-    Volume: 1
-    Source: {fileID: 0}
-  - Type: 0
     Clip: {fileID: 8300000, guid: 6ae6a6d77fc5b7d4d936a90bd70ff687, type: 3}
     Volume: 0.407
     Source: {fileID: 0}

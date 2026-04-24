@@ -202,6 +202,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 283089582}
+        m_TargetAssemblyTypeName: MusicControl, Assembly-CSharp
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1740926742}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: QuitGame
@@ -9970,9 +9982,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllSounds:
-  - Type: 2
-    Clip: {fileID: 8300000, guid: ff09f284f66fe414abe215738dcabaa8, type: 3}
-    Volume: 1
+  - Type: 4
+    Clip: {fileID: 8300000, guid: bbb6843c52e21ae44a736c62f58ff6c2, type: 3}
+    Volume: 0.73
     Source: {fileID: 0}
   - Type: 3
     Clip: {fileID: 8300000, guid: 6ae6a6d77fc5b7d4d936a90bd70ff687, type: 3}
@@ -10076,6 +10088,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 283089582}
+        m_TargetAssemblyTypeName: MusicControl, Assembly-CSharp
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1740926742}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
@@ -10086,18 +10110,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Map
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 283089581}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &300124571
@@ -35714,6 +35726,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 283089582}
+        m_TargetAssemblyTypeName: MusicControl, Assembly-CSharp
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 502734505}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: OpenOptionsMenu

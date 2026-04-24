@@ -13,4 +13,8 @@ public class MusicControl : MonoBehaviour
     {
         
     }
+    public void Onclick()
+    {
+        AudioManager.Instance.Play(AudioManager.SoundType.button_click);
+    }
 }
