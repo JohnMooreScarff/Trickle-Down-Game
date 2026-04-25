@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -112,5 +113,62 @@ public class AudioManager : MonoBehaviour
 
         _musicSource.clip = track.Clip;
         _musicSource.Play();
+    }
+    private Coroutine _fadeCoroutine;
+
+    public float musicFadeDuration = 2f; // Duration of fade in seconds
+
+    // Call this method to change music with a smooth fade transition
+    public void ChangeMusicWithFade(SoundType newTrackType)
+    {
+        if (!_soundDictionary.TryGetValue(newTrackType, out Sound newTrack))
+        {
+            Debug.LogWarning($"Music track {newTrackType} not found!");
+            return;
+        }
+
+        if (_fadeCoroutine != null)
+        {
+            StopCoroutine(_fadeCoroutine);
+        }
+
+        _fadeCoroutine = StartCoroutine(FadeMusicRoutine(newTrack));
+    }
+
+    private IEnumerator FadeMusicRoutine(Sound newTrack)
+    {
+        if (_musicSource == null)
+        {
+            GameObject container = new GameObject("MusicSource");
+            container.transform.SetParent(this.transform);
+            _musicSource = container.AddComponent<AudioSource>();
+            _musicSource.loop = true;
+        }
+
+        // Fade out current music
+        float startVolume = _musicSource.volume;
+        float time = 0f;
+        while (time < musicFadeDuration)
+        {
+            time += Time.deltaTime;
+            _musicSource.volume = Mathf.Lerp(startVolume, 0f, time / musicFadeDuration);
+            yield return null;
+        }
+
+        // Switch to new music clip
+        _musicSource.clip = newTrack.Clip;
+        _currentMusicTrack = newTrack;
+        _musicSource.Play();
+
+        // Fade in new music
+        time = 0f;
+        while (time < musicFadeDuration)
+        {
+            time += Time.deltaTime;
+            _musicSource.volume = Mathf.Lerp(0f, newTrack.Volume, time / musicFadeDuration);
+            yield return null;
+        }
+
+        _musicSource.volume = newTrack.Volume;
     }
 }

@@ -6,7 +6,7 @@ public class ResourceData : MonoBehaviour
 {
     // effects
     public static float IntrestRate = 1.05F;
-    public static float Pollution = 0f;
+    public static float Pollution = 90f;
     public static float sealevel = 0f;
     public static int village_ammount = 0;
     //QOL
@@ -26,7 +26,7 @@ public class ResourceData : MonoBehaviour
     public static float power_percentage_display = 0f;
 
     //money
-    public static float Money = 0;
+    public static float Money = -90000;
 
     // wood
     public static float Wood_amount = 100;

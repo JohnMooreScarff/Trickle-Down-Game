@@ -5333,6 +5333,7 @@ GameObject:
   - component: {fileID: 812433435}
   - component: {fileID: 812433436}
   - component: {fileID: 812433438}
+  - component: {fileID: 812433439}
   m_Layer: 5
   m_Name: gameUi
   m_TagString: Untagged
@@ -5387,6 +5388,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812433434}
   m_CullTransparentMesh: 1
+--- !u!114 &812433439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812433434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace6c620731cfd04f881f249d1636712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverCity: {fileID: 767373830}
+  HoverWood: {fileID: 0}
+  HoverStone: {fileID: 0}
+  HoverFood: {fileID: 0}
+  HoverCoal: {fileID: 0}
+  HoverIron: {fileID: 0}
+  HoverTree: {fileID: 0}
+  HoverCarboncatcher: {fileID: 0}
+  HoverPowerplant: {fileID: 0}
+  HoverWindturbine: {fileID: 0}
 --- !u!1 &870362183
 GameObject:
   m_ObjectHideFlags: 0
@@ -12960,9 +12983,30 @@ MonoBehaviour:
     Volume: 0.598
     adjustVolumeByCameraSize: 1
     Source: {fileID: 0}
+  - Type: 9
+    Clip: {fileID: 8300000, guid: 2297f2b43b2d4b545b6ba4a908b6f062, type: 3}
+    Volume: 0.54
+    adjustVolumeByCameraSize: 0
+    Source: {fileID: 0}
+  - Type: 10
+    Clip: {fileID: 8300000, guid: eddbb58df06b72842be1fa9fb73bfe0d, type: 3}
+    Volume: 0.546
+    adjustVolumeByCameraSize: 0
+    Source: {fileID: 0}
+  - Type: 11
+    Clip: {fileID: 8300000, guid: 8a75fce4791c7cc4db61bbab83b04d46, type: 3}
+    Volume: 0.552
+    adjustVolumeByCameraSize: 0
+    Source: {fileID: 0}
+  - Type: 12
+    Clip: {fileID: 8300000, guid: eddbb58df06b72842be1fa9fb73bfe0d, type: 3}
+    Volume: 0.564
+    adjustVolumeByCameraSize: 0
+    Source: {fileID: 0}
   orthographicCamera: {fileID: 519420041}
   minCameraSize: 5
   maxCameraSize: 25
+  musicFadeDuration: 4
 --- !u!4 &1263001923
 Transform:
   m_ObjectHideFlags: 0
@@ -14159,7 +14203,6 @@ GameObject:
   - component: {fileID: 1447306983}
   - component: {fileID: 1447306982}
   - component: {fileID: 1447306985}
-  - component: {fileID: 1447306986}
   m_Layer: 5
   m_Name: City/Villagee
   m_TagString: Untagged
@@ -14338,28 +14381,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1447306986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447306980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace6c620731cfd04f881f249d1636712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HoverCity: {fileID: 0}
-  HoverWood: {fileID: 0}
-  HoverStone: {fileID: 0}
-  HoverFood: {fileID: 0}
-  HoverCoal: {fileID: 0}
-  HoverIron: {fileID: 0}
-  HoverTree: {fileID: 0}
-  HoverCarboncatcher: {fileID: 0}
-  HoverPowerplant: {fileID: 0}
-  HoverWindturbine: {fileID: 0}
 --- !u!1 &1477184332
 GameObject:
   m_ObjectHideFlags: 0

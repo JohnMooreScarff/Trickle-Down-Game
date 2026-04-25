@@ -30,7 +30,7 @@ public class EndSceneLoader : MonoBehaviour
                 LoadScene(winScene);
                 ResourceData.ResetStaticData();
             }
-            else if (ResourceData.Pollution >= 100)
+            else if (ResourceData.Pollution >= 100 || ResourceData.Money <= -100000 && ResourceData.Pollution >= 80)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 
