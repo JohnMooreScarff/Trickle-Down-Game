@@ -7,7 +7,6 @@ public class MusicControlMainMenu : MonoBehaviour
     {
         AudioManager.Instance.Play(AudioManager.SoundType.Music_Menu_Main);
     }
-
     // Update is called once per frame
     void Update()
     {

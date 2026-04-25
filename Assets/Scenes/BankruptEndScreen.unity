@@ -5310,6 +5310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 985275996}
   - component: {fileID: 985275995}
+  - component: {fileID: 985275997}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -5330,14 +5331,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllSounds:
-  - Type: 0
-    Clip: {fileID: 8300000, guid: ff09f284f66fe414abe215738dcabaa8, type: 3}
+  - Type: 4
+    Clip: {fileID: 8300000, guid: a32644bf355d68a4ab69048807e22e67, type: 3}
     Volume: 1
+    adjustVolumeByCameraSize: 0
     Source: {fileID: 0}
-  - Type: 2
-    Clip: {fileID: 8300000, guid: ff09f284f66fe414abe215738dcabaa8, type: 3}
+  - Type: 15
+    Clip: {fileID: 8300000, guid: 3b7ab9ac47568b54cb33e86b6a97db8c, type: 3}
     Volume: 1
+    adjustVolumeByCameraSize: 0
     Source: {fileID: 0}
+  - Type: 7
+    Clip: {fileID: 8300000, guid: 4fcbace2650ec0c4e994096ddeb4d7fe, type: 3}
+    Volume: 1
+    adjustVolumeByCameraSize: 0
+    Source: {fileID: 0}
+  - Type: 10
+    Clip: {fileID: 8300000, guid: 55bd0425657d19b49b6b48de718eb5e9, type: 3}
+    Volume: 1
+    adjustVolumeByCameraSize: 0
+    Source: {fileID: 0}
+  orthographicCamera: {fileID: 0}
+  minCameraSize: 5
+  maxCameraSize: 20
 --- !u!4 &985275996
 Transform:
   m_ObjectHideFlags: 0
@@ -5353,6 +5369,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985275997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985275994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0584c0b51376c1d448ca8efe8e2fd997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1253390348
 GameObject:
   m_ObjectHideFlags: 0
@@ -5540,7 +5568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.43867922, b: 0.4732136, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
