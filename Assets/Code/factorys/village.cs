@@ -72,7 +72,7 @@ public class Village : MonoBehaviour
     }
      IEnumerator villageProduction()
      {
-        yield return new WaitForSeconds(3f/TerrainMultiplier);
+        yield return new WaitForSeconds(4f/TerrainMultiplier);
 
         //wood
         if(GetComponent<WaterDissable>().Flooded == false)
