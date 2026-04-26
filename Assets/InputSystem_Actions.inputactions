@@ -121,6 +121,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TutorialToggle",
+                    "type": "Button",
+                    "id": "69717500-ec20-4da5-aaba-89c1e4eae3eb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -550,6 +559,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "cancelPlace",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a26024c0-b659-4da3-8158-b5619ed72b75",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
